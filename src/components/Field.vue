@@ -162,6 +162,7 @@ $fieldTextColor: #444;
   text-align: center;
   cursor: pointer;
   z-index: 100;
+  border-radius: 1.5%;
 
 
   &:nth-child(1) {

@@ -48,17 +48,23 @@ export default defineComponent({
 
 <style scoped lang="scss">
 .InfoContainer {
-  max-width: 700px;
+  max-width: 768px;
   margin: 0 auto;
   overflow-x: hidden;
+  padding: 0 5px;
+  
 
   section {
     padding: 10px;
     font-size: .8em;
+    border-radius: 1.5%;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+    margin: 1em 0;
 
     h1 {
       letter-spacing: 13px;
       line-height: 160%;
+      margin-top: .2em;
     }
 
     p {

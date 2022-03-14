@@ -118,9 +118,13 @@ export default defineComponent({
   margin: 0 auto;
   color: #333;
   background-color: #fff;
+  padding: 0 5px;
 
     article {
-      overflow-x: hidden;
+      overflow: hidden;
+      border-radius: 1.5%;
+      box-shadow: 0 0 2px rgba(0,0,0,.1);
+      margin: 1em 0;
 
       h5 {
         margin: 1em 0;
@@ -147,7 +151,7 @@ export default defineComponent({
 
       .slider-container {    
         padding: .5em 3em;
-        margin: 1rem auto;
+        margin: 1rem auto 0 auto;
         overflow: hidden;
         position:relative;
         background-color: #f1f1f1;
@@ -155,6 +159,8 @@ export default defineComponent({
         user-select: none;
         overflow-x: hidden;
         box-shadow: 0 0px 10px 0px rgba(0,0,0,.2);
+        border-bottom-left-radius: 1.5%;
+        border-bottom-right-radius: 1.5%;
 
         .controls, .controls2 {
           margin: 0;

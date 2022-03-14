@@ -379,7 +379,7 @@ export const messages = {
           },
         },
         slider2: {
-          text1: "What actually speaks in favor of eating animal products?",
+          header: "What actually speaks in favor of eating animal products?",
           arguments: {
             argument1: '"Tastes good"',
             argument2: '"I\'ve always done it this way"',
@@ -971,7 +971,7 @@ export const messages = {
           },
         },
         slider2: {
-          text1: "Was spricht dann noch für den Konsum von Tierprodukten?",
+          header: "Was spricht dann noch für den Konsum von Tierprodukten?",
           arguments: {
             argument1: '"Schmeckt mir"',
             argument2: '"Habe ich immer so gemacht"',

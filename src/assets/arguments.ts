@@ -99,11 +99,7 @@ export const veganArguments = [
   },
   {
     id: 2,
-    texts: [
-      {
-        text: "message.whyVegan.slider2.text1",
-      },
-    ],
+    headerline: "message.whyVegan.slider2.header",
     controlsId: "customize-controls2",
     sliderClass: {
       "my-slider2": true,
