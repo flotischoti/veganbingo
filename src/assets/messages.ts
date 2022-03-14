@@ -581,7 +581,7 @@ export const messages = {
         },
         supporter: {
           header: "Support",
-          paragraph1: `Many thanks to everybody who helped creating the Vegan Bingo:`,
+          paragraph1: `Feel free to write me if you have feedback or would like to support. Many thanks to everybody who helped creating the Vegan Bingo:`,
           sMama: "My mom",
           taskEnglish: "English translation",
           taskProofreading: "Proofreading",
@@ -1177,7 +1177,7 @@ export const messages = {
         },
         supporter: {
           header: "Unterstützung",
-          paragraph1: `Vielen Dank an alle, die beim Vegan Bingo unterstützt haben:`,
+          paragraph1: `Schreib mir gern, wenn du Feedback hast oder auch unterstützen möchtest. Vielen Dank an alle, die beim Vegan Bingo unterstützt haben.`,
           sMama: "Meine Mutter",
           taskEnglish: "Übersetzung Englisch",
           taskProofreading: "Korrekturlesen",

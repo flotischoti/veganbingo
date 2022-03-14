@@ -89,11 +89,11 @@ $slider-color: hsl(319, 100%, 47%);
   margin: 0 auto;
   color: #333;
   background-color: #fff;
-  padding: 0 5px;
+  padding: 0 1.5vw;
   
   div.articleWrapper {
-    border-radius: 1.5%;
-    box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+    border-radius: 1%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .1);
     margin: 1em 0;
 
     h1 {
@@ -101,7 +101,7 @@ $slider-color: hsl(319, 100%, 47%);
       top: 0px;
       padding: 15px 10px 15px 10px;
       z-index: 100;
-      box-shadow: 0 3px 3px -3px rgba(0,0,0,.1);
+      box-shadow: 0 8px 8px -8px rgba(0,0,0,.1);
       background-color: #fff;
       letter-spacing: 13px;
       font-size: 1.5em;
@@ -290,7 +290,7 @@ $slider-color: hsl(319, 100%, 47%);
           
           }
           a {
-            width: 23.99%;
+            width: 23.96%;
           }
         
         } 

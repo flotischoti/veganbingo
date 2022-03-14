@@ -51,14 +51,14 @@ export default defineComponent({
   max-width: 768px;
   margin: 0 auto;
   overflow-x: hidden;
-  padding: 0 5px;
+  padding: 0 1.5vw;
   
 
   section {
     padding: 10px;
     font-size: .8em;
-    border-radius: 1.5%;
-    box-shadow: 0 0 2px rgba(0, 0, 0, .1);
+    border-radius: 1%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .1);
     margin: 1em 0;
 
     h1 {

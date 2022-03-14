@@ -1,8 +1,10 @@
 <template>
   <div class="WhyVeganContainer">
     <article v-for="(slider, index) in veganArguments" :key="index">
-      <h5 v-if="slider.headerline">{{$t(`${slider.headerline}`)}}</h5>
-      <p v-for="(text, index) in slider.texts" :key="index" v-html="$t(`${text.text}`)" :class="{quote: text.quote}"/>
+      <div class="textWrapper">
+        <h5 v-if="slider.headerline">{{$t(`${slider.headerline}`)}}</h5>
+        <p v-for="(text, index) in slider.texts" :key="index" v-html="$t(`${text.text}`)" :class="{quote: text.quote}"/>
+      </div>
       <div class="slider-container" :data-aos="index % 2 == 0 ? 'fade-left' : 'fade-right'" :style="{'background-color': 'hsla(' + (250 * (57 + slider.id)) + ', 80%, 30%, .8)'}">
         <ul class="controls" :id="slider.controlsId" aria-label="Carousel Navigation" tabindex="0">
             <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
@@ -118,40 +120,46 @@ export default defineComponent({
   margin: 0 auto;
   color: #333;
   background-color: #fff;
-  padding: 0 5px;
+  overflow-x: hidden;
 
     article {
-      overflow: hidden;
-      border-radius: 1.5%;
-      box-shadow: 0 0 2px rgba(0,0,0,.1);
       margin: 1em 0;
 
-      h5 {
-        margin: 1em 0;
-        padding: 0 10px;
-        letter-spacing: .03em;
-        line-height: 160%;
-      }
+      .textWrapper {
+        overflow: hidden;
+        border-top-left-radius: 1%;
+        border-top-right-radius: 1%;
+        box-shadow: 0 0 4px rgba(0,0,0,.1);
+        width: 97vw;
+        margin: 0 auto;
 
-      p {
-        padding: 0 10px;
-        margin: 0 0 1em 0;
-        font-size: 0.8em;
-        line-height: 160%;
-        letter-spacing: .03em;
+        h5 {
+          margin: 1em 0;
+          padding: 0 10px;
+          letter-spacing: .03em;
+          line-height: 160%;
+        }
 
-        &.quote {
-          display: block;
-          margin: 20px 0 20px 20px;
-          padding-left: 20px;
-          border-left: 5px solid red;
-          font-style: italic;
+        p {
+          padding: 0 10px;
+          margin: 0 0 1em 0;
+          font-size: 0.8em;
+          line-height: 160%;
+          letter-spacing: .03em;
+
+          &.quote {
+            display: block;
+            margin: 20px 0 20px 20px;
+            padding-left: 20px;
+            border-left: 5px solid red;
+            font-style: italic;
+          }
         }
       }
 
       .slider-container {    
         padding: .5em 3em;
-        margin: 1rem auto 0 auto;
+        margin: 0 auto 0 auto;
         overflow: hidden;
         position:relative;
         background-color: #f1f1f1;
@@ -159,8 +167,8 @@ export default defineComponent({
         user-select: none;
         overflow-x: hidden;
         box-shadow: 0 0px 10px 0px rgba(0,0,0,.2);
-        border-bottom-left-radius: 1.5%;
-        border-bottom-right-radius: 1.5%;
+        border-bottom-left-radius: 1%;
+        border-bottom-right-radius: 1%;
 
         .controls, .controls2 {
           margin: 0;
@@ -204,9 +212,8 @@ export default defineComponent({
               vertical-align: center;    
               margin: 0 auto;
               max-width: 90%;    
-              height: 9em;   
+              height: 10em;   
               color: #333;
-              letter-spacing: .02em;
               background: #f1f1f1;
               overflow: hidden;
               position: relative;
@@ -216,6 +223,10 @@ export default defineComponent({
               justify-content: center;
               letter-spacing: .03em;
               line-height: 150%;
+
+              @media (min-width: 480px) {
+                height: 8em;
+              } 
 
               i {
                 color: #eee;
