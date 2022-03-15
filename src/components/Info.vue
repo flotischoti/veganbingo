@@ -101,7 +101,7 @@ $slider-color: hsl(319, 100%, 47%);
       top: 0px;
       padding: 15px 10px 15px 10px;
       z-index: 100;
-      box-shadow: 0 8px 8px -8px rgba(0,0,0,.1);
+      box-shadow: .5px 5px 4px 0 rgba(0,0,0,.1);
       background-color: #fff;
       letter-spacing: 13px;
       font-size: 1.5em;
