@@ -63,6 +63,10 @@ export default defineComponent({
     border-radius: 3px;
     margin: 1.5em auto;
 
+    &:first-child {
+      margin-top: 1em;
+    }
+
     &:last-child {
       margin-bottom: 3em;
     }

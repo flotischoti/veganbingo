@@ -95,6 +95,10 @@ $slider-color: hsl(319, 100%, 47%);
     margin: 1.5em 0;
     position: relative;
 
+    &:first-child {
+      margin-top: 1em;
+    }
+
     h1 {
       position: sticky;
       top: 0px;
