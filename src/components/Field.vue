@@ -79,7 +79,8 @@ $fieldTextColor: #444;
 .nonCenter {
 
   transition: all 0.01s ease-in-out; 
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  // box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  box-shadow: 0 0 4px  rgba(0, 0, 0, .1);
   color: $fieldTextColor;
   background-color: #fff;
   font-size: .85em;
@@ -143,7 +144,7 @@ $fieldTextColor: #444;
       transform: rotate(45deg);
   }
 
-  &.active {
+  &:active {
     transform: scale(99%);
   }
 
@@ -162,7 +163,7 @@ $fieldTextColor: #444;
   text-align: center;
   cursor: pointer;
   z-index: 100;
-  border-radius: 1.5%;
+  border-radius: 1px;
 
 
   &:nth-child(1) {

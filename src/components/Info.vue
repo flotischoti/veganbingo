@@ -1,7 +1,7 @@
 <template>
   <div class="InfoContainer">
     <div class="articleWrapper" v-for="(info, index) in infos" :key="index">
-      <h1 :data-aos="getHeaderEffect">{{$t(`${info.headline}`)}}</h1>
+      <h1 :data-aos="getHeaderEffect"><span>{{$t(`${info.headline}`)}}</span></h1>
 
       <article>
         <p v-html="$t(`${info.introduction}`)" class="introduction" data-aos="fade-left"></p>
@@ -89,27 +89,39 @@ $slider-color: hsl(319, 100%, 47%);
   margin: 0 auto;
   color: #333;
   background-color: #fff;
-  padding: 0 1.5vw;
   
   div.articleWrapper {
-    border-radius: 1%;
-    box-shadow: 0 0 4px rgba(0, 0, 0, .1);
-    margin: 1em 0;
+    border-radius: 3px;
+    margin: 1.5em 0;
+    position: relative;
 
     h1 {
       position: sticky;
       top: 0px;
-      padding: 15px 10px 15px 10px;
+      padding: 15px 0;
       z-index: 100;
-      box-shadow: .5px 5px 4px 0 rgba(0,0,0,.1);
+      box-shadow: .32px 2px 4px 0 rgba(0,0,0,.1);
       background-color: #fff;
       letter-spacing: 13px;
       font-size: 1.5em;
-      margin: 0 0 .5em 0;
+      border-radius: 3px;
+      margin: 0 auto;
+
+      @media (min-width: 768px) {
+        width: 99.5%;
+      }
+
+      span {
+        display: inline-block;
+        padding: 0 10px;
+      }
     }
 
     article {
       overflow-x: hidden;
+      box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+      width: 97%;
+      margin: 0 auto;
 
       h5 {
         padding: 0 10px;

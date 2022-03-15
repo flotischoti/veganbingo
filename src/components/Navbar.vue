@@ -252,7 +252,7 @@ nav {
       letter-spacing: 0.1em;
       display: flex;
       align-items: center;
-      padding-left: 3.7em;
+      padding-left: 4em;
       cursor: pointer;
 
         h1 {

@@ -127,10 +127,10 @@ export default defineComponent({
 
       .textWrapper {
         overflow: hidden;
-        border-top-left-radius: 1%;
-        border-top-right-radius: 1%;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
         box-shadow: 0 0 4px rgba(0,0,0,.1);
-        width: 97vw;
+        width: 97%;
         margin: 0 auto;
 
         h5 {
@@ -167,8 +167,7 @@ export default defineComponent({
         user-select: none;
         overflow-x: hidden;
         box-shadow: 0 0px 10px 0px rgba(0,0,0,.2);
-        border-bottom-left-radius: 1%;
-        border-bottom-right-radius: 1%;
+        border-radius: 1.5px;
 
         .controls, .controls2 {
           margin: 0;
