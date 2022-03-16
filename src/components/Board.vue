@@ -298,6 +298,9 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
     max-width: calc((100vh - 64px - 73px - 47px));
   }
 
+  @media (min-width: 430px) and (min-height: calc(430px + 64px + 73px + 52px)){
+      max-width: calc((100vh - 64px - 73px - 52px));
+    }
 
   @media (min-width: 480px) and (min-height: calc(480px + 64px + 100px + 53px)){
     max-width: calc((100vh - 64px - 100px - 53px));
@@ -464,6 +467,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
           z-index: 100;
           display: flex;
           align-items: center;
+          padding: 5px 0;
 
           i {
             color: $actionColor;
@@ -480,7 +484,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
               font-size: 1.15em;
             }
 
-            @media (min-width: 430px) and (min-height: calc(430px + 64px + 73px + 47px)) {
+            @media (min-width: 430px) and (min-height: calc(430px + 64px + 73px + 52px)) {
               font-size: 1.3em;
             }
 
@@ -514,7 +518,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
               font-size: .7em;
             }
 
-            @media (min-width: 430px) and (min-height: calc(430px + 64px + 73px + 47px)) {
+            @media (min-width: 430px) and (min-height: calc(430px + 64px + 73px + 52px)) {
               font-size: .8em;
             }
 
@@ -532,7 +536,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
 
   .gradient {
       height: 100%;
-      background-image: linear-gradient(to bottom, $background, hsla(319, 100%, 47%, 0.5));
+      background-color: white;
       padding: 0;
       
     }
