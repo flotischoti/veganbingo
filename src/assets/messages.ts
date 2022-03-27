@@ -89,7 +89,7 @@ export const messages = {
             "Vegans use rational and consistent arguments to oppose animal exploitation. In other areas, one would speak of civil courage, for example when someone hits a dog or a child. However, in a non-vegan world, where vegans tend to be denounced for naming the violence rather than acknowledging the violence itself as a problem, a certain emphasis in positions to civil disobedience is not surprising either.",
         },
         field6: {
-          quote: "Food is my <b>personal choice</b>",
+          quote: "Food is everbody's <b>personal choice</b>",
           statement:
             "How  can  something  that  others  literally  gave  their  lives  for  be  a  personal  choice?  Food nowadays  is  globally  produced  and  distributed  and  affects  -  like  most  of  our  decisions  - many  more  parties  and  beings,  such  as  animals  and  our  entire  ecosystem.  The  way  you paint  your  bedroom  is  a  personal  choice. The  freedom  to  choose  what  we  consume  though,  should  not  limit  the  freedom  of  others.  Be it  through  animal  exploitation,  destruction  of  ecosystems,  inhumane  working  conditions  in  the animal  industry,  zoonoses  and  pandemics,  multidrug  resistant  pathogens,  waste  of resources  and  further  consequences,  that  lead  others  to  suffer.",
         },
@@ -346,6 +346,11 @@ export const messages = {
           quote: "You do miss it at least a little bit though, right?",
           statement:
             "No, fortunately not at all. Even if it was delicious, you can't imagine supporting this system again and being partly responsible for so much unnecessary suffering. The desire for cheese and meat fades. You forget that it used to be part of it. Routines change. Veganism becomes the norm. Eating animal products seems strange and unnatural. It's fun to rediscover cooking, restaurants and food. Being at peace with your conscience and values is more important than a short, fleeting pleasure of a slice of cheese or a schnitzel.",
+        },
+        field58: {
+          quote: "We all have to die someday",
+          statement:
+            "With that reasoning, murder would be de facto legal. Consequently, you shouldn't mind if someone wants to kill you, your family, your friends, or your pet, because there's no difference between dying of old age at 85 and dying of a knife in your throat at 25, right?<br>Using these words to comment on the premature and intentional death of a sentient being for the sole purpose of pleasure is just plain cynical.",
         },
       },
       whyVegan: {
@@ -938,6 +943,11 @@ export const messages = {
           quote: "Ein bisschen vermisst du es aber schon oder?",
           statement:
             "Nein, zum Glück überhaupt nicht. Auch wenn es lecker war, kann man sich nicht vorstellen, dieses System wieder zu unterstützen und für so viel unnötiges Leid mitverantwortlich zu sein. Die Lust auf Käse und Fleisch vergeht. Man vergisst, dass es mal dazu gehörte. Die Routinen ändern sich. Veganismus wird zur Normalität. Tierische Produkte zu essen wirkt merkwürdig und unnatürlich. Es macht Spaß, Kochen, Restaurants und Lebensmittel neu zu entdecken. Mit seinem Gewissen und seinen Werten im Reinen zu sein, ist wichtiger als ein kurzes, vergängliches Vergnügen einer Scheibe Käse oder eines Schnitzels.",
+        },
+        field58: {
+          quote: "Wir alle müssen irgendwann sterben",
+          statement:
+            "Mit dieser Argumentation wäre Mord de facto legal. Konsequenterweise dürftest du dann auch nichts dagegen haben, wenn jemand dich, deine Familie, deine Freunde oder dein Haustier umbringen möchte, denn es macht ja keinen Unterschied, ob man mit 85 an Altersschwäche oder mit 25 durch ein Messer in der Kehle stirbt, richtig?<br>Den frühzeitig, vorsätzlich und rein zum Vergnügen herbeigeführten Tod eines fühlenden Lebewesens mit diesen Worten zu kommentieren, ist einfach nur zynisch.",
         },
       },
       whyVegan: {

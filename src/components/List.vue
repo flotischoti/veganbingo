@@ -107,7 +107,7 @@ export default defineComponent({
 <style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
 
-$totalCount:  57 + 2;
+$totalCount:  58 + 2;
 
 .list-container {
   width: 100%;
