@@ -498,8 +498,11 @@ export const messages = {
               "The fatal environmental influences of factory farming",
             title3: "The End of meat",
             description3: "The impact of meat consumption on the environment",
-            title4: "In a nutshell - Meat",
+            title4: "Milked",
             description4:
+              "The impact of the dairy industry on nature, humans and animals",
+            title5: "In a nutshell - Meat",
+            description5:
               "The environmental impact of meat explained in 10 minutes",
           },
         },
@@ -540,8 +543,8 @@ export const messages = {
           },
         },
         section6: {
-          headline: "YouTube Channel",
-          introduction: "Educational YouTube channels about veganism.",
+          headline: "Social Media",
+          introduction: "Educational Social Media channels about veganism.",
           media: {
             title1: "Niko Rittenau",
             description1:
@@ -1094,8 +1097,11 @@ export const messages = {
             description2: "Die fatalen Umwelteinflüsse der Massentierhaltung",
             title3: "The End of meat",
             description3: "Die Auswirkungen des Fleischkonsums auf die Umwelt",
-            title4: "In a nutshell - Meat",
+            title4: "Milked",
             description4:
+              "Die Auswirkung der Milchindustrie auf Natur, Mensch und Tier",
+            title5: "In a nutshell - Meat",
+            description5:
               "In 10 Minuten die Umweltschädlichkeit von Fleisch erklärt",
           },
         },
@@ -1137,9 +1143,9 @@ export const messages = {
           },
         },
         section6: {
-          headline: "YouTube Channel",
+          headline: "Social Media",
           introduction:
-            "Informative YouTube Channel rund um das Thema Veganismus",
+            "Informative Social Media Channel rund um das Thema Veganismus",
           media: {
             title1: "Niko Rittenau",
             description1:
