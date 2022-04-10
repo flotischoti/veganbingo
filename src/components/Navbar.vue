@@ -1,51 +1,111 @@
 <template>
-  <nav ref="nav" :class="{hideNav: hideNav, expanded: expanded}">
+  <nav ref="nav" :class="{ hideNav: hideNav, expanded: expanded }">
     <div id="container">
-      <div class="navBar" :class="{expanded: expanded}" >
+      <div class="navBar" :class="{ expanded: expanded }">
         <div class="menuControl" @click="expanded = !expanded">
-          <div class="icon" ></div>
+          <div class="icon"></div>
           <div class="heading">
-            <h1>{{getNavHeader()}}</h1>
+            <h1>{{ getNavHeader() }}</h1>
           </div>
-          </div>
-        <div v-show="currentNav != 'List' || expanded"
-        class="language" @click="changeLanguage">
-          <i class="fas fa-globe" :title="$t('message.navBar.changeLanguage')"/>
+        </div>
+        <div
+          v-show="currentNav != 'List' || expanded"
+          class="language"
+          @click="changeLanguage"
+        >
+          <i
+            class="fas fa-globe"
+            :title="$t('message.navBar.changeLanguage')"
+          />
           <span v-if="$i18n.locale == 'de'"> EN</span>
-          <span v-if="$i18n.locale == 'en'"> DE</span>
+          <span v-if="$i18n.locale != 'de'"> DE</span>
         </div>
       </div>
-      <div v-if="currentNav == 'List' || currentNav == 'Info'" class="scrollBar" :style="{width: scrollBarWidth + '%'}" >
-      </div>
-    
-      <div id="menu" :class="{open: expanded}">
+      <div
+        v-if="currentNav == 'List' || currentNav == 'Info'"
+        class="scrollBar"
+        :style="{ width: scrollBarWidth + '%' }"
+      ></div>
+
+      <div id="menu" :class="{ open: expanded }">
         <ul>
-          <li><a @click="$emit('navigate', 'Bingo')" :class="{active: currentNav == 'Bingo'}">{{$t("message.navBar.bingo")}}<span class="space" >o</span></a></li>
-          <li><a @click="$emit('navigate', 'List')" :class="{active: currentNav == 'List'}">{{$t("message.navBar.allQuotes")}}<span class="space">{{$t("message.navBar.lastChar")}}</span></a></li>
-          <li><a @click="$emit('navigate', 'WhyVegan')" :class="{active: currentNav == 'WhyVegan'}">{{$t("message.navBar.whyVegan")}}<span class="space" >?</span></a></li>
-          <li><a @click="$emit('navigate', 'Info')" :class="{active: currentNav == 'Info'}">{{$t("message.navBar.info")}}<span class="space" >o</span></a></li>
-          <li><a @click="$emit('navigate', 'About')" :class="{active: currentNav == 'About'}">{{$t("message.navBar.about")}}<span class="space" >t</span></a></li>
+          <li>
+            <a
+              @click="$emit('navigate', 'Bingo')"
+              :class="{ active: currentNav == 'Bingo' }"
+              >{{ $t("message.navBar.bingo") }}<span class="space">o</span></a
+            >
+          </li>
+          <li>
+            <a
+              @click="$emit('navigate', 'List')"
+              :class="{ active: currentNav == 'List' }"
+              >{{ $t("message.navBar.allQuotes")
+              }}<span class="space">{{
+                $t("message.navBar.lastChar")
+              }}</span></a
+            >
+          </li>
+          <li>
+            <a
+              @click="$emit('navigate', 'WhyVegan')"
+              :class="{ active: currentNav == 'WhyVegan' }"
+              >{{ $t("message.navBar.whyVegan")
+              }}<span class="space">?</span></a
+            >
+          </li>
+          <li>
+            <a
+              @click="$emit('navigate', 'Info')"
+              :class="{ active: currentNav == 'Info' }"
+              >{{ $t("message.navBar.info") }}<span class="space">o</span></a
+            >
+          </li>
+          <li>
+            <a
+              @click="$emit('navigate', 'About')"
+              :class="{ active: currentNav == 'About' }"
+              >{{ $t("message.navBar.about") }}<span class="space">t</span></a
+            >
+          </li>
         </ul>
         <div>
-          <a @click="expanded = false" href="https://www.facebook.com/till.toll" target="_blank" class="fa fa-facebook"></a>
-          <a @click="expanded = false" href="https://www.instagram.com/flotischoti/" target="_blank" class="fa fa-instagram"></a>
-          <a @click="expanded = false" href="mailto:hello@vegan.bingo" class="far fa-envelope"></a>
-          <a @click="expanded = false" href="https://github.com/flotischoti/veganbingo" target="_blank" class="fab fa-github"></a>
+          <a
+            @click="expanded = false"
+            href="https://www.facebook.com/till.toll"
+            target="_blank"
+            class="fa fa-facebook"
+          ></a>
+          <a
+            @click="expanded = false"
+            href="https://www.instagram.com/flotischoti/"
+            target="_blank"
+            class="fa fa-instagram"
+          ></a>
+          <a
+            @click="expanded = false"
+            href="mailto:hello@vegan.bingo"
+            class="far fa-envelope"
+          ></a>
+          <a
+            @click="expanded = false"
+            href="https://github.com/flotischoti/veganbingo"
+            target="_blank"
+            class="fab fa-github"
+          ></a>
         </div>
       </div>
     </div>
-    <Toast
-      :text="getSelectedLang"
-      :show="showToast"/>
+    <Toast :text="getSelectedLang" :show="showToast" />
   </nav>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import Toast from './Toast.vue';
+import { defineComponent } from "vue";
+import Toast from "./Toast.vue";
 
 export default defineComponent({
-  name: 'Navbar',
+  name: "Navbar",
   components: {
     Toast,
   },
@@ -53,8 +113,8 @@ export default defineComponent({
     header: String,
     currentNav: {
       type: String,
-      default: 'Bingo'
-    }
+      default: "Bingo",
+    },
   },
   data() {
     return {
@@ -62,81 +122,98 @@ export default defineComponent({
       hideNav: false,
       scrollBarWidth: 0,
       showToast: false,
-    }
+    };
   },
   methods: {
     getNavHeader() {
       switch (this.currentNav) {
-        case 'Bingo':
-          return this.$t('message.navBar.veganBingo');
-        case 'List': 
-          return this.$t('message.navBar.allQuotes') + this.$t('message.navBar.lastChar');
-        case 'WhyVegan':
-          return this.$t('message.navBar.whyVegan') + '?';
-        case 'Info':
-          return this.$t('message.navBar.info') + 'o';
-        case 'About':
-          return this.$t('message.navBar.about') + 't';
-        default: 
-          return '';
+        case "Bingo":
+          return this.$t("message.navBar.veganBingo");
+        case "List":
+          return (
+            this.$t("message.navBar.allQuotes") +
+            this.$t("message.navBar.lastChar")
+          );
+        case "WhyVegan":
+          return this.$t("message.navBar.whyVegan") + "?";
+        case "Info":
+          return this.$t("message.navBar.info") + "o";
+        case "About":
+          return this.$t("message.navBar.about") + "t";
+        default:
+          return "";
       }
     },
     changeLanguage() {
-      this.$i18n.locale = this.$i18n.locale.startsWith('de') ? 'en' : 'de';
+      this.$i18n.locale = this.$i18n.locale.startsWith("de") ? "en" : "de";
       if (!this.showToast) {
-        setTimeout(() => this.showToast = false, 3000);
+        setTimeout(() => (this.showToast = false), 3000);
       }
       this.showToast = true;
-    }
+    },
   },
   watch: {
     currentNav() {
       this.expanded = false;
       this.scrollBarWidth = 0;
-      setTimeout(function () { window.scrollTo(0, 0); }, 1);
-    }
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 1);
+    },
   },
   emits: {
-    navigate: null
+    navigate: null,
   },
   mounted() {
     let lastScrollPos = 0;
     let navbar: HTMLElement = this.$refs.nav as HTMLElement;
 
     let fn = () => {
-      let currentScrollPos = window.pageYOffset || document.documentElement.scrollTop;
+      let currentScrollPos =
+        window.pageYOffset || document.documentElement.scrollTop;
       let body = document.body;
       let html = document.documentElement;
 
-      let docHeight = Math.max( body.scrollHeight, body.offsetHeight, 
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+      let docHeight = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+      );
       let winHeight = window.innerHeight;
       let navBarHeight = navbar.offsetHeight;
-    
-      if (lastScrollPos < currentScrollPos && currentScrollPos > navBarHeight + navBarHeight) {
-        this.hideNav = !['About'].includes(this.currentNav); 
+
+      if (
+        lastScrollPos < currentScrollPos &&
+        currentScrollPos > navBarHeight + navBarHeight
+      ) {
+        this.hideNav = !["About"].includes(this.currentNav);
         this.expanded = false;
-      } else if (lastScrollPos > currentScrollPos && !(currentScrollPos <= navBarHeight)) {
+      } else if (
+        lastScrollPos > currentScrollPos &&
+        !(currentScrollPos <= navBarHeight)
+      ) {
         this.hideNav = false;
       }
       lastScrollPos = currentScrollPos;
 
-      this.scrollBarWidth = (currentScrollPos/(docHeight-winHeight))*100;
-  
-    }
+      this.scrollBarWidth = (currentScrollPos / (docHeight - winHeight)) * 100;
+    };
 
     window.addEventListener("scroll", fn);
   },
   computed: {
     getSelectedLang(): string {
-      return this.$i18n.locale == 'de' ? this.$t("message.navBar.langChangedDe") : this.$t("message.navBar.langChangedEn");
-    }
-  }
+      return this.$i18n.locale == "de"
+        ? this.$t("message.navBar.langChangedDe")
+        : this.$t("message.navBar.langChangedEn");
+    },
+  },
 });
 </script>
 
 <style scoped lang="scss">
-
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 $menu-color: hsl(319, 100%, 47%);
@@ -158,7 +235,7 @@ nav {
   &.hideNav {
     transform: translateY(-64px);
   }
-  .navBar{
+  .navBar {
     -webkit-transition: all 0.25s;
     z-index: 1000;
     background: $navBarColor;
@@ -166,31 +243,32 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 
     .menuControl {
       height: 100%;
-      
-      &:hover{
+
+      &:hover {
         .icon {
           background: #bbb;
-          &:before, &:after{
+          &:before,
+          &:after {
             background: #bbb;
           }
         }
       }
 
-      &:focus, &:active {
+      &:focus,
+      &:active {
         .icon {
           background: #fff;
-          &:before, &:after{
+          &:before,
+          &:after {
             background: #fff;
           }
         }
       }
 
-      
-      .icon{
+      .icon {
         -webkit-transition: all 0.25s;
         position: absolute;
         width: 30px;
@@ -199,24 +277,25 @@ nav {
         top: 2rem;
         background-color: white;
         cursor: pointer;
-        
-        &:before, &:after{
-        -webkit-transition: all 0.25s;
-        width: 30px;
-        height: 1px;
-        left: 0;
-        background: white;
-        position: absolute;
-        content: '';
+
+        &:before,
+        &:after {
+          -webkit-transition: all 0.25s;
+          width: 30px;
+          height: 1px;
+          left: 0;
+          background: white;
+          position: absolute;
+          content: "";
         }
-        &:before{
+        &:before {
           top: -8px;
 
           @media screen and (min-width: 380px) {
             top: -10px;
           }
         }
-        &:after{
+        &:after {
           top: 8px;
           @media screen and (min-width: 380px) {
             top: 10px;
@@ -224,30 +303,29 @@ nav {
         }
       }
     }
-    
-    &.expanded{
 
+    &.expanded {
       .menuControl {
-        .icon{
+        .icon {
           -webkit-transform: rotate(180deg);
           background-color: transparent;
           left: 1rem;
-          
-          &:before, &:after{
+
+          &:before,
+          &:after {
             top: 0;
           }
-          &:before{
+          &:before {
             -webkit-transform: rotate(45deg);
-        
           }
-          &:after{
+          &:after {
             -webkit-transform: rotate(-45deg);
           }
         }
       }
     }
     .heading {
-      height: 100%; 
+      height: 100%;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       display: flex;
@@ -255,17 +333,16 @@ nav {
       padding-left: 4em;
       cursor: pointer;
 
-        h1 {
-          color: white;
-          font-size: 1em;
-          padding: 0;
-          margin: 0;
+      h1 {
+        color: white;
+        font-size: 1em;
+        padding: 0;
+        margin: 0;
 
-          @media screen and (min-width: 380px) {
-            font-size: 1.3em;
-          }
-
+        @media screen and (min-width: 380px) {
+          font-size: 1.3em;
         }
+      }
     }
 
     .language {
@@ -277,14 +354,15 @@ nav {
       overflow: hidden;
       color: #fff;
       font-size: 1em;
-      letter-spacing: .03em;
-      
+      letter-spacing: 0.03em;
+
       &:hover {
-          color: #bbb
+        color: #bbb;
       }
 
-      &:focus, &:active {
-          color: #fff
+      &:focus,
+      &:active {
+        color: #fff;
       }
 
       span {
@@ -293,7 +371,7 @@ nav {
       }
     }
   }
-  .scrollBar{
+  .scrollBar {
     z-index: 1000;
     width: 200px;
     height: 2px;
@@ -301,9 +379,9 @@ nav {
     background: $bar-color;
   }
 
-  #menu{
+  #menu {
     z-index: 5000;
-    
+
     text-align: center;
     position: absolute;
     left: 0;
@@ -321,25 +399,25 @@ nav {
       font-size: 1.3em;
     }
 
-    & ul{
+    & ul {
       list-style: none;
       padding: 0;
       letter-spacing: 0.4em;
 
-      & li:first-child{
-      margin-top: 0;
+      & li:first-child {
+        margin-top: 0;
       }
-      & li{
+      & li {
         transition: all 0.2s;
         margin-top: 1em;
         padding: 0;
-        color:white;
+        color: white;
 
         @media screen and (min-height: 380px) {
           margin-top: 1.3em;
         }
       }
-      & li a{
+      & li a {
         transition: all 0.25s;
         cursor: pointer;
 
@@ -353,33 +431,32 @@ nav {
         text-decoration: underline;
       }
 
-      & li a:not(.active):hover  {
+      & li a:not(.active):hover {
         text-decoration: underline;
         letter-spacing: 0.5em;
-
       }
     }
-    
 
-    .fa, .far, .fab {
+    .fa,
+    .far,
+    .fab {
       width: 40px;
       margin: 8px 4px;
       text-decoration: none;
     }
-    .fa-facebook, .fa-instagram, .fa-envelope, .fa-github {
+    .fa-facebook,
+    .fa-instagram,
+    .fa-envelope,
+    .fa-github {
       color: white;
     }
-    &.open{
+    &.open {
       -webkit-transition: all 0.5s;
       height: 100vh;
       width: 100%;
       background: $menu-color;
       border-bottom: 1px solid black;
     }
-
-    
   }
 }
-
-
 </style>
