@@ -1,32 +1,52 @@
 <template>
   <div class="InfoContainer">
     <div class="articleWrapper" v-for="(info, index) in infos" :key="index">
-      <h1 :data-aos="getHeaderEffect"><span>{{$t(`${info.headline}`)}}</span></h1>
+      <h1 :data-aos="getHeaderEffect">
+        <span>{{ $t(`${info.headline}`) }}</span>
+      </h1>
 
       <article>
-        <p v-html="$t(`${info.introduction}`)" class="introduction" data-aos="fade-left"></p>
+        <p
+          v-html="$t(`${info.introduction}`)"
+          class="introduction"
+          data-aos="fade-left"
+        ></p>
         <p v-if="index == 0" class="introduction" data-aos="fade-left">
           <label>
             <div class="switch">
-              <input type="checkbox" @click="hideLangUnrelated = !hideLangUnrelated">
+              <input
+                type="checkbox"
+                @click="hideLangUnrelated = !hideLangUnrelated"
+              />
               <span class="slider round"></span>
             </div>
-            <span>{{$t("message.info.section1.hideMediaNote")}}</span>
+            <span>{{ $t("message.info.section1.hideMediaNote") }}</span>
           </label>
         </p>
         <div class="articleContent">
-          <a v-for="(content, index) in filterMedia(info.media)" :key="index" :href="content.url" target="_blank" 
-             data-aos="flip-right" :class="{profile: info.type == 'profile'}" :data-aos-delay="calcDelay(index)">
+          <a
+            v-for="(content, index) in filterMedia(info.media)"
+            :key="index"
+            :href="content.url"
+            target="_blank"
+            data-aos="flip-right"
+            :class="{ profile: info.type == 'profile' }"
+            :data-aos-delay="calcDelay(index)"
+          >
             <section>
               <div class="imageContentContainer">
                 <div class="imageContent">
-                  <img :src="getImgUrl(content.imgSrc)" :alt="content.altText" :class="{profile: info.type == 'profile'}"/>
-                  <span v-if="content.meta">{{content.meta}}</span>
+                  <img
+                    :src="getImgUrl(content.imgSrc)"
+                    :alt="content.altText"
+                    :class="{ profile: info.type == 'profile' }"
+                  />
+                  <span v-if="content.meta">{{ content.meta }}</span>
                 </div>
               </div>
               <div class="description">
-                <h2>{{$t(`${content.title}`)}}</h2>
-                <p>{{$t(`${content.description}`)}}</p>
+                <h2>{{ $t(`${content.title}`) }}</h2>
+                <p>{{ $t(`${content.description}`) }}</p>
               </div>
             </section>
           </a>
@@ -37,49 +57,60 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { infos, media } from "../assets/info"
-import Aos from 'aos';
+import { defineComponent } from "vue";
+import { infos, media } from "../assets/info";
+import Aos from "aos";
 
 export default defineComponent({
-  name: 'Info',
+  name: "Info",
   data() {
     return {
       infos,
       hideLangUnrelated: false,
-    }
+    };
   },
-  components: {
-
-  },
+  components: {},
   methods: {
     calcDelay(position: number) {
       let pos = position + 1;
       let mod = window.innerWidth < 480 ? 2 : window.innerWidth < 768 ? 3 : 4;
-      return pos % mod == 1 ? 0 : pos % mod == 2 ? 300 : pos % mod == 3 ? 600 : (mod - 1) * 300;
+      return pos % mod == 1
+        ? 0
+        : pos % mod == 2
+        ? 300
+        : pos % mod == 3
+        ? 600
+        : (mod - 1) * 300;
     },
     getImgUrl(name: string) {
-      var images = require.context('../assets/', false);
-      return images('./' + name);
+      var images = require.context("../assets/", false);
+      return images("./" + name);
     },
-    filterMedia(media: media[]):media[] {
-      return media.filter(m => !this.hideLangUnrelated || m.lang.includes(this.$i18n.locale.substring(0,2)));
-    }
+    filterMedia(media: media[]): media[] {
+      return media.filter(
+        (m) =>
+          !this.hideLangUnrelated ||
+          m.lang.includes(this.$i18n.locale.substring(0, 2))
+      );
+    },
   },
   mounted() {
-    document.querySelectorAll('img').forEach(img => img.addEventListener('load', ()=>Aos.refresh()));
-    document.querySelectorAll('h1').forEach(h1 => h1.addEventListener('load', ()=>Aos.refresh()));
+    document
+      .querySelectorAll("img")
+      .forEach((img) => img.addEventListener("load", () => Aos.refresh()));
+    document
+      .querySelectorAll("h1")
+      .forEach((h1) => h1.addEventListener("load", () => Aos.refresh()));
   },
   computed: {
     getHeaderEffect() {
-      return window.innerWidth > 480 ? 'fade-right' : '';
+      return window.innerWidth > 480 ? "fade-right" : "";
     },
-  }
+  },
 });
 </script>
 
 <style scoped lang="scss">
-
 @import url("https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css");
 
 $slider-color: hsl(319, 100%, 47%);
@@ -89,7 +120,7 @@ $slider-color: hsl(319, 100%, 47%);
   margin: 0 auto;
   color: #333;
   background-color: #fff;
-  
+
   div.articleWrapper {
     border-radius: 3px;
     margin: 1.5em 0;
@@ -104,7 +135,7 @@ $slider-color: hsl(319, 100%, 47%);
       top: 0px;
       padding: 15px 0;
       z-index: 100;
-      box-shadow: .32px 2px 4px 0 rgba(0,0,0,.1);
+      box-shadow: 0.32px 2px 4px 0 rgba(0, 0, 0, 0.1);
       background-color: #fff;
       letter-spacing: 13px;
       font-size: 1.5em;
@@ -123,40 +154,38 @@ $slider-color: hsl(319, 100%, 47%);
 
     article {
       overflow-x: hidden;
-      box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
       width: 97%;
       margin: 0 auto;
 
       h5 {
         padding: 0 10px;
-        letter-spacing: .03em;
+        letter-spacing: 0.03em;
         line-height: 160%;
       }
 
       p.introduction {
         padding: 10px;
-        color: rgba($color: #000000, $alpha: .8);
+        color: rgba($color: #000000, $alpha: 0.8);
         margin: 5px 0;
         font-size: 0.8em;
         line-height: 160%;
-        letter-spacing: .03em;
+        letter-spacing: 0.03em;
       }
-
 
       label {
         display: inline-flex;
         align-items: center;
         cursor: pointer;
-        
+
         .switch {
           position: relative;
           display: inline-block;
           width: 2.4em;
           height: 1.4em;
-          margin-right: .5em;
-          overflow-x: scroll;
+          margin-right: 0.5em;
 
-          input { 
+          input {
             opacity: 0;
             width: 0;
             height: 0;
@@ -178,8 +207,8 @@ $slider-color: hsl(319, 100%, 47%);
             right: 0;
             bottom: 0;
             background-color: #ccc;
-            -webkit-transition: .4s;
-            transition: .4s;
+            -webkit-transition: 0.4s;
+            transition: 0.4s;
 
             &.round {
               border-radius: 2em;
@@ -194,11 +223,11 @@ $slider-color: hsl(319, 100%, 47%);
               content: "";
               height: 1em;
               width: 1em;
-              left: .2em;
-              bottom: .2em;
+              left: 0.2em;
+              bottom: 0.2em;
               background-color: white;
-              -webkit-transition: .4s;
-              transition: .4s;
+              -webkit-transition: 0.4s;
+              transition: 0.4s;
             }
           }
         }
@@ -218,8 +247,9 @@ $slider-color: hsl(319, 100%, 47%);
           text-decoration: none;
           color: #333;
           &:hover {
-            transition: box-shadow .3s, transform 0.1s;
-            box-shadow: 0 0px 10px 1px rgba(0, 0, 0, .3), 0 0px 10px 1px rgba(0, 0, 0, .3);
+            transition: box-shadow 0.3s, transform 0.1s;
+            box-shadow: 0 0px 10px 1px rgba(0, 0, 0, 0.3),
+              0 0px 10px 1px rgba(0, 0, 0, 0.3);
             transform: scale(100.5%);
           }
 
@@ -228,10 +258,8 @@ $slider-color: hsl(319, 100%, 47%);
           }
 
           section {
-            .imageContentContainer{ 
-              
+            .imageContentContainer {
               .imageContent {
-                
                 display: flex;
                 justify-content: center;
                 position: relative;
@@ -248,21 +276,20 @@ $slider-color: hsl(319, 100%, 47%);
                     aspect-ratio: 1;
                     border-radius: 50%;
                   }
-
                 }
 
                 span {
                   position: absolute;
                   color: white;
-                  background-color: rgba($color: #333, $alpha: .6);
-                  padding: .3em;
-                  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                  font-size: .6em;
-                  bottom: .5em;
-                  left: .5em;
+                  background-color: rgba($color: #333, $alpha: 0.6);
+                  padding: 0.3em;
+                  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                  font-size: 0.6em;
+                  bottom: 0.5em;
+                  left: 0.5em;
                 }
               }
-
             }
 
             .description {
@@ -270,54 +297,38 @@ $slider-color: hsl(319, 100%, 47%);
               h2 {
                 font-size: 1.2em;
                 margin: 5px 0 0 0;
-                letter-spacing: .03em;
+                letter-spacing: 0.03em;
               }
 
-              
               p {
-                color: rgba($color: #000000, $alpha: .8);
+                color: rgba($color: #000000, $alpha: 0.8);
                 margin: 5px 0;
                 font-size: 0.8em;
                 line-height: 130%;
-                letter-spacing: .03em;
+                letter-spacing: 0.03em;
               }
             }
-            
           }
         }
-
-
-
-        
 
         @media (min-width: 480px) {
           .articleContent {
             justify-content: space-evenly;
-          
           }
           a {
             width: 31.8%;
           }
-        
-        } 
+        }
         @media (min-width: 768px) {
           .articleContent {
             justify-content: space-evenly;
-          
           }
           a {
             width: 23.96%;
           }
-        
-        } 
-        
+        }
       }
     }
   }
-
-  
-
-  
 }
-
 </style>
