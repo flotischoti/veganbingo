@@ -1,6 +1,6 @@
 <template>
-  <div class="popupContainer" :class="{visible: show}">
-    <div class="popup">
+  <div class="popupContainer" :class="{visible: show}" @click="$emit('cancel')">
+    <div class="popup" @click.stop>
       <div class="header">
         <span>{{title}}</span>
         <i class="fa fa-window-close" aria-hidden="true" @click="$emit('cancel')"/>

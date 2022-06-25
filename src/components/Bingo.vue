@@ -1,8 +1,8 @@
 <template>
   <div class="bingo">
     <Board @initialized="showWelcome = false" @navigate="$emit('navigate', $event)"/>
-    <article :class="{hidden: !visible}" v-if="showWelcome"> 
-      <section :class="{hidden: !visible}" data-aos="fade-down">
+    <article name="welcomePopupBackground" :class="{hidden: !visible}" v-if="showWelcome" @click="visible=false"> 
+      <section :class="{hidden: !visible}" data-aos="fade-down" @click.stop>
         <h3>{{ $t("message.welcome.title1")}}<br><strong>{{$t("message.welcome.title2")}}</strong>{{$t("message.welcome.title3")}}</h3>
         <h5>{{$t("message.welcome.line1")}}<br>{{$t("message.welcome.line2")}}</h5>
         <p v-html="$t('message.welcome.instruction')"/>
