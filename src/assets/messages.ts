@@ -81,7 +81,7 @@ export const messages = {
         field4: {
           quote: "Vegan is too <b>extreme</b>",
           statement:
-            "Yes, vegan is extreme. On the other hand, there is the other extreme of breeding, raping, torturing, murdering and degrading billions of animals every year to products. One likes to forget that. But murder, exploitation and torture are, just like sexism or racism, not okay in moderation. There is no happy medium here, only the extreme - not at all.",
+            "Vegetables, fruits, legumes, pasta, potatoes, rice, tofu, etc. are not expensive - some optional substitutes are. A trick is not to buy them (all the time), but to often cook deliciously with food. Those who simply want to replace the cheap meat will currently have higher costs. Enormous animal suffering, subsidies, lobbying, slave labor and high hidden community costs of environmental pollution make dumping prices possible. Meat was and still is the luxury product in other countries. As the market grows, as well as VAT rates and subsidies are changed in favor of sustainable and ethical plant products, prices will fall. Incidentally, unethical behavior can never be justified by the fact that the alternative is a little more expensive.",
         },
         field5: {
           quote: "Vegans are too <b>militant</b>",
@@ -141,7 +141,7 @@ export const messages = {
         field16: {
           quote: "Vegan is <b>expensive</b>",
           statement:
-            "Vegetables, fruits, legumes, pasta, potatoes, rice, etc. are not expensive - but some optional substitutions are. One trick is not to buy them. Unfortunately, many have also seen a business in the good will of the people. In the meantime, however, there are fortunately also more and more affordable alternatives. And it is likely to become even cheaper as the market grows. It is to be hoped that politicians will follow suit and, for example, adjust tax rates for plant-based drinks and direct subsidies for the animal industry towards more sustainable and ethical plant-based products.<br>In developing countries, strangely enough, meat is the luxury product.",
+            "Vegetables, fruits, legumes, pasta, potatoes, rice, tofu, etc. are not expensive - but some optional substitutions are. A trick is not to buy them (regularly) and instead often cook deliciously with basic foods. However, if you want to live vegan like a king and simply try to replace the 4-pack steaks for €2.95, you will currently have higher costs. Enormous animal suffering, subsidies, lobbying, slave labor and high hidden community costs of environmental pollution make these prices possible, while in the past and in many countries today meat was or is the luxury product. However, as the market grows, there are more and more affordable alternatives. In addition, VAT rates and subsidies must be adjusted in favor of sustainable and ethical plant products. Incidentally, unethical behavior cannot be justified by the fact that the alternative is a little more expensive - especially if it is still affordable.",
         },
         field17: {
           quote: "Cows need to be milked",
@@ -191,12 +191,12 @@ export const messages = {
         field26: {
           quote: "I think what you're doing is great",
           statement:
-            "Thank you, that's appreciated. This statement is probably meant to somehow show that you are reflective and aware of the problem and even approve of veganism. So the conscience is pure! It would help the animals even more if you yourself started to live according to this principle that you have just praised. Even though you might have hoped so, a vegan living person probably won't give you their blessing now too, after you praised veganism :( No offense.",
+            "Thank you, that's appreciated. This statement is probably meant to somehow show that you are reflective and aware of the problem and even approve of veganism. So the conscience is pure! It would help the animals and the planet even more if you yourself started to live according to this principle that you have just praised. Even though you might have hoped so, a vegan living person probably won't give you their blessing now too, after you praised veganism :( No offense.",
         },
         field27: {
           quote: "The animals wouldn't have existed at all w/o breeding",
           statement:
-            "So, should one see it as an altruistic act of charity to bring animals into the world in slavery? And later one takes this gift of life away from them again because ...?<br>It is rather that something that does not exist and was never planned, is not missed and doesn't miss life.<br>Let's just leave it in this peaceful state. Some torture breedings don't have much to do with the animals in nature anymore anyway. Their extinction would probably be better in the end.",
+            "So, should one see it as an altruistic act of charity to bring animals into the world in slavery? And later one takes this gift of life away from them again because ...?<br>It is rather that something that does not exist and was never planned, is not missed and doesn't miss life.<br>Let's just leave it in this peaceful state. Some torture breedings don't have much to do with the animals in nature anymore anyway. Their non-existence would be better in the end. On the other hand, about 1/3 of the human-caused species extinction is caused by habitat destruction for animal farming and fodder cultivation. Let's rather free up these spaces for natural biodiversity again.",
         },
         field28: {
           quote: "What about <b>B12</b>?",
@@ -740,7 +740,7 @@ export const messages = {
         field16: {
           quote: "Vegan ist <b>teuer</b>",
           statement:
-            "Gemüse, Obst, Hülsenfrüchte, Nudeln, Kartoffeln, Reis, etc. sind nicht teuer - einige optionale Ersatzprodukte hingegen schon. Ein Trick ist, sie nicht zu kaufen. Leider haben viele im guten Willen der Menschen auch ein Geschäft gesehen. Mittlerweile gibt es aber zum Glück auch immer mehr erschwingliche Alternativen. Und tendenziell dürfte es mit wachsendem Markt noch günstiger werden. Es bleibt zu hoffen, dass auch die Politik nachzieht und bspw. Mehrwertsteuersätze für Pflanzendrinks anpasst sowie Subventionen für die Tierindustrie in Richtung nachhaltigerer und ethischerer Pflanzenprodukte lenkt.<br>In Entwicklungsländern ist komischerweise Fleisch das Luxusprodukt.",
+            "Gemüse, Obst, Hülsenfrüchte, Nudeln, Kartoffeln, Reis, Tofu, etc. sind nicht teuer - einige optionale Ersatzprodukte schon. Ein Trick ist, sie nicht (ständig) zu kaufen, sondern viel mit Lebensmitteln lecker zu kochen. Wer das Billigfleisch einfach ersetzen möchte, wird aktuell höhere Kosten haben. Enormes Tierleid, Subventionen, Lobbyismus, Arbeitssklaverei und hohe versteckte Gemeinschaftskosten der Umweltbelastung ermöglichen die Dumpingpreise. Fleisch war und ist in anderen Ländern immer noch das Luxusprodukt. Mit wachsendem Markt sowie Mehrwertsteuersätzen und Subventionen zugunsten nachhaltiger und ethischer Pflanzenprodukte werden die Preise fallen. Unethisches Verhalten lässt sich im Übrigen nie damit rechtfertigen, dass die Alternative ein wenig teurer ist.",
         },
         field17: {
           quote: "Kühe müssen gemolken werden",
@@ -790,12 +790,12 @@ export const messages = {
         field26: {
           quote: "Ich find's toll, dass du das machst",
           statement:
-            "Danke danke. Diese Aussage soll wohl irgendwie zeigen, dass man reflektiert und sich des Problems bewusst ist und sogar den Veganismus gutheißt. Damit ist das Gewissen rein! Noch mehr würde es den Tieren helfen, wenn man selbst anfinge, nach diesem Prinzip, das man gerade noch gelobt hat, zu leben. Auch wenn du es vielleicht gehofft hast, wird dir eine veganlebende Person jetzt wahrscheinlich nicht auch deren Segen geben, nach dem du den Veganismus gelobt hast :( Nicht böse gemeint.",
+            "Danke danke. Diese Aussage soll wohl irgendwie zeigen, dass man reflektiert und sich des Problems bewusst ist und sogar den Veganismus gutheißt. Damit ist das Gewissen rein! Noch mehr würde es den Tieren und dem Planeten helfen, wenn man selbst anfinge, nach diesem Prinzip, das man gerade noch gelobt hat, zu leben. Auch wenn du es vielleicht gehofft hast, wird dir eine veganlebende Person jetzt wahrscheinlich nicht auch deren Segen geben, nach dem du den Veganismus gelobt hast :( Nicht böse gemeint.",
         },
         field27: {
           quote: "Ohne Tiermast lebten viele Tiere gar nicht erst",
           statement:
-            "Soll man es also als altruistischen Akt der Nächstenliebe sehen, Tiere in Sklaverei zur Welt zu bringen? Und später nimmt man ihnen dieses Geschenk des Lebens wieder, weil ...?<br>Es ist doch eher so, dass etwas, das es nicht gibt und nie geplant war, nicht fehlt und selbst das Leben nicht vermisst.<br>Belassen wir es doch einfach in disesem friedvollen Zustand. Manche Qualzuchten haben ohnehin nicht mehr viel mit den Tieren in der Natur zu tun. Ihr Aussterben wäre am Ende vermutlich besser.",
+            "Soll man es also als altruistischen Akt der Nächstenliebe sehen, Tiere in Sklaverei zur Welt zu bringen? Und später nimmt man ihnen dieses Geschenk des Lebens wieder, weil ...?<br>Es ist doch eher so, dass etwas, das es nicht gibt und nie geplant war, nicht fehlt und selbst das Leben nicht vermisst.<br>Belassen wir es doch einfach in disesem friedvollen Zustand. Manche Qualzuchten haben ohnehin nicht mehr viel mit den Tieren in der Natur zu tun. Ihre Nichtexistenz wäre am Ende besser. Dem gegenüber stehen ca. 1/3 des menschenbedingten Artensterbens durch Lebensraumzerstärung für Tierhaltung und Futteranbau. Lasst uns diese Räume lieber wieder für natürliche Artenvielfalt freigeben.",
         },
         field28: {
           quote: "Was ist mit <b>B12</b>?",
