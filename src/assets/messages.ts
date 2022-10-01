@@ -951,7 +951,7 @@ export const messages = {
         field59: {
           quote: "Ich esse jetzt erstmal ein Steak",
           statement:
-            '"Mann zerstört komplette vegane Bewegung mit einem Satz"<br><br>Als Bernd (43) diesen gewitzten und originellen Kommentar von sich gab, begannen Veganer*Innen weltweit ihre ethischen Überzeugungen zu hinterfragen und Bernds gutem Beispiel zu folgen, einen kurzen Genuss über das Leid millardener Tiere, den Planeten und die eigene Gesundheit zu stellen. "Denen habe ich es gezeigt" fügt Bernd süffisant grinsend hinzu, während er sich geschwächt von seinem dritten Herzinfarkt an seiner Grillstation abstützt.',
+            '"Mann zerstört komplette vegane Bewegung mit einem Satz"<br><br>Als Bernd (43) diesen gewitzten und originellen Kommentar von sich gab, begannen Veganer*Innen weltweit ihre ethischen Überzeugungen zu hinterfragen und Bernds gutem Beispiel zu folgen, einen kurzen Genuss über das Leid milliardener Tiere, den Planeten und die eigene Gesundheit zu stellen. "Denen habe ich es gezeigt" fügt Bernd süffisant grinsend hinzu, während er sich geschwächt von seinem dritten Herzinfarkt an seiner Grillstation abstützt.',
         },
         field60: {
           quote: "Du weißt nicht, was du verpasst",
