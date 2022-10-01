@@ -2,11 +2,11 @@
   <Navbar
     :currentNav="navigation"
     class="navbar"
-    @navigate="navigation = $event"
+    @navigate="navigate($event)"
   />
   <main>
     <keep-alive :include="include">
-      <component :is="navigation" @navigate="navigation = $event" />
+      <component :is="navigation" />
     </keep-alive>
   </main>
 </template>
@@ -27,6 +27,11 @@ export default defineComponent({
       navigation: "Bingo",
       include: ["Bingo"],
     };
+  },
+  methods: {
+    navigate(target: string) {
+      this.navigation = target;
+    }
   },
   components: {
     Navbar,

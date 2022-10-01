@@ -1,19 +1,11 @@
 export const messages = {
   en: {
     message: {
-      welcome: {
-        title1: "You are about to play some",
-        title2: "Vegan (Bullshit) Bingo",
-        title3: "?",
-        line1: "Then you came to the right place!",
-        line2: "Join in live as family and friends discuss veganism.",
-        instruction:
-          "Click on a square to cross it off.<br>Long-press to see more information.<br>Generate random boards from 60 fields.",
-        button: "Let's go!",
-      },
+      empty: "",
       navBar: {
         bingo: "Bing",
         veganBingo: "Vegan Bingo",
+        veganBingoSub: "Random cards from >60 quotes",
         allQuotes: "All Quote",
         lastChar: "s",
         whyVegan: "Why Vegan",
@@ -33,8 +25,8 @@ export const messages = {
           close: "Close",
           shuffle: {
             title: "New Game?",
-            text: "Do you want to generate a new random board out of ",
-            text2: "60 fields",
+            text: "Do you want to generate a new random card out of ",
+            text2: ">60 fields",
             text3: "? The current game will be discarded.",
           },
           share: {
@@ -49,9 +41,8 @@ export const messages = {
         },
         controls: {
           newBoard: "New Fields",
-          clickToTick: "Click on a field to tick it off.",
+          clickToTick: "Click on a square to tick it off.",
           holdForInfo: "Long-press to see more information.",
-          clickForNew: "Click in the middle for a new board out of 60 fields.",
         },
       },
       list: {
@@ -91,7 +82,7 @@ export const messages = {
         field6: {
           quote: "Food is everbody's <b>personal choice</b>",
           statement:
-            "How  can  something  that  others  literally  gave  their  lives  for  be  a  personal  choice?  Food nowadays  is  globally  produced  and  distributed  and  affects  -  like  most  of  our  decisions  - many  more  parties  and  beings,  such  as  animals  and  our  entire  ecosystem.  The  way  you paint  your  bedroom  is  a  personal  choice. The  freedom  to  choose  what  we  consume  though,  should  not  limit  the  freedom  of  others.  Be it  through  animal  exploitation,  destruction  of  ecosystems,  inhumane  working  conditions  in  the animal  industry,  zoonoses  and  pandemics,  multidrug  resistant  pathogens,  waste  of resources  and  further  consequences,  that  lead  others  to  suffer.",
+            "How  can  something  that  others  literally  gave  their  lives  for  be  a  personal  choice?  Food nowadays  is  globally  produced  and  distributed  and  affects  -  like  most  of  our  decisions  - many  more  parties  and  beings,  such  as  animals  and  our  entire  ecosystem.  The taste of of music you have is  a  personal  choice. The  freedom  to  choose  what  we  consume  though,  should  not  limit  the  freedom  of  others.  Be it  through  animal  exploitation,  destruction  of  ecosystems,  inhumane  working  conditions  in  the animal  industry,  zoonoses  and  pandemics,  multidrug  resistant  pathogens,  waste  of resources  and  further  consequences,  that  lead  others  to  suffer.",
         },
         field7: {
           quote: "Veganism is like a <b>religion</b>",
@@ -246,7 +237,7 @@ export const messages = {
         field37: {
           quote: "I think <b>humane slaughter</b> is fine",
           statement:
-            "The very attempt to bring together the words \"slaughter\" and \"humane\" is bizarre. After all, it's about unnecessary murder of a living being that doesn't want to die. What do you associate with the word humane? What should humane slaughter look like? Would you then agree to such slaughter for yourself? And how can the hunger for meat be covered, which today requires killing on a piecework basis?<br>Pasture slaughter, for example? Imagine you're a cow. Every few weeks someone comes along and bolts a friend or family member from the herd in the head. You don't know when, why or to whom. Very humane...",
+            "The very attempt to bring together the words \"slaughter\" and \"humane\" is bizarre. Just think about what you associate with the word humane. Kindness, compassion, empathy, ... What should humane slaughter look like? Would you then agree to such slaughter for yourself if its so humane? After all, it's about unnecessary murder of a living being that doesn't want to die.<br>Futhermore, how could the hunger for meat be covered, which today requires killing on a piecework basis?<br>Here is a common suggestion peaple make: Pasture slaughter. Imagine you're a cow. Every once in a while someone comes along and bolts a friend or family member from the herd in the head. You don't know when, why or to whom. Very humane...",
         },
         field38: {
           quote: "You're eating up the food of my food!",
@@ -265,7 +256,7 @@ export const messages = {
         field41: {
           quote: "<b>How terrible</b>, I don't want to know that",
           statement:
-            "Thats a very good realization. Closing your eyes and ignoring it shouldn't be the answer though. Although it might seem hard at first, it is great to know, one is no longer supporting this terrible system, but rather living in content with your own values.<br>What are you waiting for? #govegan",
+            "Thats a very good realization. Closing your eyes and ignoring it shouldn't be the answer though. Understanding the implications of consuming animal products is the least everyone should do and necessary to even make an informed decision instead of just hoping that things won't be too bad. It can be uncomfortable to deal with this topic as we tend to suppress our emotions and consciense when it comes to animal cruelty that we support with our daily choices. But in the long run, it is great to no longer support this terrible system, but rather live in content with your own values.<br>What are you waiting for? #govegan",
         },
         field42: {
           quote: "I'll eat <b>twice as much</b> meat, to make up for you",
@@ -340,7 +331,7 @@ export const messages = {
         field56: {
           quote: "I've tried before, but it didn't work out?",
           statement:
-            "How long and how hard did you try? Becoming vegan is a very fundamental change of life. Something like that does not always work out smoothly. You must be able to endure small setbacks in a non-vegan world. But if you are convinced and intrinsically motivated, under no circumstances do you want to go back and support the destructive and exploitative system. Veganism works best if you're ethically motivated, because that's what it's all about at its core. All the other benefits just come on top.<br>\"If you want something, you'll find a way - if not, an excuse!\" - Andreas Grabolle",
+            "How long and how hard did you try? Did your diet inlude more than fries, green salad and Oreos? Becoming vegan is a very fundamental change of life. Something like that does not always work out smoothly. You must be able to endure small setbacks in a non-vegan world. But if you are convinced and intrinsically motivated, under no circumstances do you want to go back and support the destructive and exploitative system. Veganism works best if you're ethically motivated, because that's what it's all about at its core. All the other benefits just come on top.<br>\"If you want something, you'll find a way - if not, an excuse!\" - Andreas Grabolle",
         },
         field57: {
           quote: "You do miss it at least a little bit though, right?",
@@ -351,6 +342,21 @@ export const messages = {
           quote: "We all have to die someday",
           statement:
             "With that reasoning, murder would be de facto legal. Consequently, you shouldn't mind if someone wants to kill you, your family, your friends, or your pet, because there's no difference between dying of old age at 85 and dying of a knife in your throat at 25, right?<br>Using these words to comment on the premature and intentional death of a sentient being for the sole purpose of pleasure is just plain cynical.",
+        },
+        field59: {
+          quote: "Bacon though",
+          statement:
+            '"Man destroys entire vegan movement with one sentence"<br><br>When Bernd (43) made this witty and original comment, vegans worldwide began to question their ethical beliefs and to follow Bernd\'s good example, to value a brief treat more than the suffering of billions of animals, the planet and one\'s own health. "I showed them" adds Bernd with a smirk while leaning against his grill station, weakened by his third heart attack.',
+        },
+        field60: {
+          quote: "You dont know what you are missing",
+          statement:
+            "Dude, almost all vegans have eaten meat their entire lives. Not much will have happened since then.",
+        },
+        field61: {
+          quote: "Why do we have canine tooth?",
+          statement:
+            "Then go and tear down an antelope with your canine teeth...<br>By the way, hippopotamuses have the biggest canine teeth and they eat purely plant-based food. As omnivores, we possess attributes to consume both meat and plants. Our jaws, unlike the jaws of pure meat eaters, move horizontally to grind up plants. Either way, actions must not be justified by the fact that we are (biologically) capable of doing them. This argument could be misused for anything. We have conscience, morality and a far more suffering-free alternative to animal products. So let's act logically and empathetically and not do something without will just because we are theoretically able to do it.",
         },
       },
       whyVegan: {
@@ -599,20 +605,11 @@ export const messages = {
   },
   de: {
     message: {
-      welcome: {
-        title1: "Bei dir kündigt sich eine Runde",
-        title2: "Veganes (Bullshit) Bingo",
-        title3: " an?",
-        line1: "Dann bist du hier richtig!",
-        line2:
-          "Spiel live mit, während Freunde und Familie den Veganismus diskutieren.",
-        instruction:
-          "Klick auf ein Feld, um es abzuhaken.<br>Halte es kurz gedrückt für mehr Infos.<br>Generiere zufällige Spielbretter aus 60 Feldern.",
-        button: "Los geht's!",
-      },
+      empty: "",
       navBar: {
         bingo: "Bing",
         veganBingo: "Vegan Bingo",
+        veganBingoSub: "Zufällige Karten aus >60 Sprüchen",
         allQuotes: "Alle Sprüch",
         lastChar: "e",
         whyVegan: "Warum Vegan",
@@ -633,7 +630,7 @@ export const messages = {
           shuffle: {
             title: "Neues Spiel?",
             text: "Willst du ein neues zufälliges Spielfeld erstellen aus ",
-            text2: "60 Feldern",
+            text2: ">60 Feldern",
             text3: "? Das aktuelle Spiel wird verworfen.",
           },
           share: {
@@ -649,8 +646,7 @@ export const messages = {
         controls: {
           newBoard: "Neue Felder",
           clickToTick: "Klick auf ein Feld, um es abzuhaken.",
-          holdForInfo: "Halte es kurz gedürckt für mehr Infos.",
-          clickForNew: "Klick in die Mitte für ein neues Spiel aus 60 Feldern.",
+          holdForInfo: "Halte es kurz gedrückt für mehr Infos.",
         },
       },
       list: {
@@ -690,7 +686,7 @@ export const messages = {
         field6: {
           quote: "Essen ist <b>Privatsache</b>",
           statement:
-            "Wie kann etwas Privatsache sein, wenn wortwörtlich andere ihr Leben dafür geben mussten? Nahrung nimmt heute meistens einen globalen Weg und betrifft - wie die meisten unserer Entscheidungen - viele andere Parteien und Lebewesen. Privatsache ist, wie du dein Schlafzimmer streichst.<br>Die eigene Freiheit, über sein Essen zu entscheiden, sollte aber nicht die Freiheit anderer eingrenzen, sei es direkt durch Tierausbeutung oder indirekt durch die damit verbundene Regenwaldzerstörung, menschenverachtende Arbeitsbedingungen in der Fleischindustrie, Zoonosen und Pandemien, multiresistente Keime, Ressourcenverschwendung und weitere Konsequenzen, unter denen andere leiden werden.",
+            "Wie kann etwas Privatsache sein, wenn wortwörtlich andere ihr Leben dafür geben mussten? Nahrung nimmt heute meistens einen globalen Weg und betrifft - wie die meisten unserer Entscheidungen - viele andere Parteien und Lebewesen. Privatsache ist, welche Musik du gerne hörst.<br>Die eigene Freiheit, über sein Essen zu entscheiden, sollte aber nicht die Freiheit anderer eingrenzen, sei es direkt durch Tierausbeutung oder indirekt durch die damit verbundene Regenwaldzerstörung, menschenverachtende Arbeitsbedingungen in der Fleischindustrie, Zoonosen und Pandemien, multiresistente Keime, Ressourcenverschwendung und weitere Konsequenzen, unter denen andere leiden werden.",
         },
         field7: {
           quote: "Veganismus ist wie eine <b>Religion</b>",
@@ -698,12 +694,12 @@ export const messages = {
             'Das klingt wie ein Versuch, den Veganismus als unverünftig und irrational zu diskreditieren, um sich gar nicht erst ernsthaft damit beschäftigen zu müssen.<br>Da die Idee des Veganismus allerdings auf Fakten, Logik und Vernunft basiert, handelt es sich eher um das genaue Gegenteil einer Religion.<br>Wer hingegen Tierprodukte isst, folgt meist unreflektiert einer Tradition, ignoriert die Fakten oder lehnt sie mit der Begründung ab: "Das haben wir schon immer so gemacht".<br><br>Klingt irgendwie mehr nach Religion...',
         },
         field8: {
-          quote: "Aber <b>Soja-Wurst</b> essen... Ganz oder garnicht!",
+          quote: "Warum sehen vegane Produkte wie Fleisch aus?",
           statement:
             "Kaum eine veganlebende Person hat aufgehört, Tierprodukte zu essen, weil sie ihr nicht schmecken, sondern weil sie nicht länger die ethischen, ökologischen und weltgesundheitlichen Konsequenzen für ein kurzes Vergnügen in Kauf nehmen möchte. Den meisten VeganerInnen schmecken Fleisch, Käse und Eier und darum ist es doch schön, wenn auch sie in den Genuss kommen können. Zudem erleichtert es den Umstieg für viele, die das System auch nicht länger unterstützen wollen. Ersatzprodukte sind nicht unehrlich, sondern eine super Sache, die die ohnehin schon vielfältige vegane Küche noch erweitert.",
         },
         field9: {
-          quote: "Ersatz-Produkte sind pure <b>Chemie</b>",
+          quote: "Vegane Produkte sind pure <b>Chemie</b>",
           statement:
             "Alles ist Chemie. Es kommt auf die Art der Zutaten an. Nicht jedes kryptische Wort in der Zutatenliste ist automatisch schlecht. Auch Bio-Produkte erlauben über 50 E-Stoffe. Die Zutatenliste von Obst wäre auch sehr lang, würde man es synthetisieren.<br>Es kommt auf das einzelne Produkt an. Natürlich gibt es solche und solche. Genauso wie viele Fleischprodukte hochverarbeitet sind. Eine vegane Ernährung funktioniert ohnehin wunderbar ohne Ersatzprodukte mit Hülsenfrüchten, Gemüse, Obst, Nüsse, Samen, Getreide, Nudeln, Kartoffeln, Reis usw. Dabei lernt man noch viele neue Zutaten kennen, die den Horizont über eine Spaghetti Bolognese hinaus erweitern.",
         },
@@ -845,7 +841,7 @@ export const messages = {
         field37: {
           quote: "<b>Humane Schlachtung</b> finde ich in Ordnung",
           statement:
-            'Allein der Versuch, "Schlachten" und "Human" in Einklang zu bringen, ist skurril. Es geht schließlich um unnötigen Mord eines Lebewesens, das nicht sterben will. Was verbindest du mit dem Wort human? Wie soll humane Schlachtung aussehen? Würdest du einer solchen Schlachtung dann bei dir selbst zustimmen? Und wie kann der Fleischhunger damit gedeckt werden, der heute Töten im Akkord erfordert?<br>Weideschlachtung etwa? Stell dir vor, du bist eine Kuh. Alle paar Wochen kommt jemand und verpasst einem Freund oder Familienmitglied aus der Herde einen Bolzen in den Kopf. Du weißt nicht wann, warum oder wem. Sehr human...',
+            'Allein der Versuch, "Schlachten" und "Human" in Einklang zu bringen, ist skurril. Denk darüber nach, Was du mit dem Wort human verbindest. Freundlichkeit, Güte, Mitgefwühl, Empathie, ... Wie soll humane Schlachtung also aussehen? Würdest du einer solchen Schlachtung dann bei dir selbst zustimmen, wenn es doch so huamn ist? Letztlich geht es immer um unnötigen Mord eines Lebewesens, das nicht sterben will.<br>Außerdem, wie sollte so der Fleischhunger gedeckt werden, der heute Töten im Akkord erfordert?<br>Eine Idee, die Leute häufig haben: Weideschlachtung. Stell dir vor, du bist eine Kuh. Hin und wieder kommt jemand und verpasst einem Freund oder Familienmitglied aus der Herde einen Bolzen in den Kopf. Du weißt nicht wann, warum oder wem. Sehr human...',
         },
         field38: {
           quote: "Du isst meinem Essen das Essen weg",
@@ -864,7 +860,7 @@ export const messages = {
         field41: {
           quote: "<b>Wie schrecklich</b>, das will ich gar nicht wissen",
           statement:
-            "Das ist ja schonmal eine sehr gute Erkenntnis. Die Augen verschließen und ignorieren sollte aber nicht die Antwort sein. Auch wenn es zunächst unbequem erscheint und Veränderung bedeutet, ist es langfristig schön zu wissen, dass man dieses System nicht länger unterstützt und im Einklang mit den eigenen Werten handelt.<br>Also los #govegan",
+            "Das ist ja schonmal eine sehr gute Erkenntnis. Die Augen verschließen und ignorieren darf aber nicht die Antwort sein. Sich mit den Auswirkungen der Tierindustrie auseinanderzusetzen, ist das Mindeste, was jeder tun sollte und notwendig, um überhaupt eine bewusste Entscheidung treffen zu können, statt nur zu hoffen, dass es schon nicht so schlimm sein werde. Es kann unbequem sein, sich mit dem Thema zu beschäftigen. Lieber unterdrücken wir unsere Gefühle und das Gewissen, wenn es um Tierquälerei geht, die wir mitverursachen. Doch langfristig ist es erfüllend, dieses System nicht länger zu unterstützen und im Einklang mit den eigenen Werten zu handeln.<br>Also los #govegan",
         },
         field42: {
           quote: "Ich esse jetzt zum Ausgleich <b>doppelt so viel Fleisch",
@@ -940,7 +936,7 @@ export const messages = {
         field56: {
           quote: "Ich habe es mal versucht, aber es ging nicht",
           statement:
-            'Wie lang und wie doll hast du es denn versucht? Vegan werden ist eine ziemlich fundamentale Lebensumstellung. Sowas klappt nicht immer direkt reibungslos. Kleine Rückschläge muss man aushalten können in einer nicht veganen Welt. Wer aber überzeugt und intrinsisch motiviert ist, möchte unter keinen Umständen wieder zurück und das zerstörerische und ausbeuterische System unterstützen. Am besten klappt Veganismus ethisch motiviert, denn darum geht es im Kern. Alle anderen Vorteile kommen nur oben drauf.<br>"Wenn du es willst, findest du einen Weg - wenn nicht, eine Entschuldigung!" - Andreas Grabolle',
+            'Wie lang und wie doll hast du es denn versucht? Bestand die Ernährung aus mehr als Pommes, grünem Salat und Oreos? Vegan werden ist eine ziemlich fundamentale Lebensumstellung. Sowas klappt nicht immer direkt reibungslos. Kleine Rückschläge muss man aushalten können in einer nicht veganen Welt. Wer aber überzeugt und intrinsisch motiviert ist, möchte unter keinen Umständen wieder zurück und das zerstörerische und ausbeuterische System unterstützen. Am besten klappt Veganismus ethisch motiviert, denn darum geht es im Kern. Alle anderen Vorteile kommen nur oben drauf.<br>"Wenn du es willst, findest du einen Weg - wenn nicht, eine Entschuldigung!" - Andreas Grabolle',
         },
         field57: {
           quote: "Ein bisschen vermisst du es aber schon oder?",
@@ -951,6 +947,21 @@ export const messages = {
           quote: "Wir alle müssen irgendwann sterben",
           statement:
             "Mit dieser Argumentation wäre Mord de facto legal. Konsequenterweise dürftest du dann auch nichts dagegen haben, wenn jemand dich, deine Familie, deine Freunde oder dein Haustier umbringen möchte, denn es macht ja keinen Unterschied, ob man mit 85 an Altersschwäche oder mit 25 durch ein Messer in der Kehle stirbt, richtig?<br>Den frühzeitig, vorsätzlich und rein zum Vergnügen herbeigeführten Tod eines fühlenden Lebewesens mit diesen Worten zu kommentieren, ist einfach nur zynisch.",
+        },
+        field59: {
+          quote: "Ich esse jetzt erstmal ein Steak",
+          statement:
+            '"Mann zerstört komplette vegane Bewegung mit einem Satz"<br><br>Als Bernd (43) diesen gewitzten und originellen Kommentar von sich gab, begannen Veganer*Innen weltweit ihre ethischen Überzeugunen zu hinterfragen und Bernds guten Beispiel zu folgen, einen kurzen Genuss über das Leid millardener Tiere, den Planeten und die eigene Gesundheit zu stellen. "Denen habe ich es gezeigt" fügt Berd süffisant grinsend hinzu, während er sich geschwächt von seinem dritten Herzinfarkt an seiner Grillstation abstützt.',
+        },
+        field60: {
+          quote: "Du weißt nicht, was du verpasst",
+          statement:
+            "Junge, fast alle Veganer*Innen haben ihr Leben lang Fleisch gegessen. Da wird sich nicht viel getan haben seitdem.",
+        },
+        field61: {
+          quote: "Wozu haben wir dann Eckzähne?",
+          statement:
+            "Dann geh du mal eine Antilope mit deinen Eckzähnen reißen...<br>Die größten Eckzähne haben übrigens Nilpferde, die sich rein pflanzlich ernähren. Als Omnivore (Allesesser) besitzen wir Attribute, um sowohl Fleisch als auch Pflanzen zu konsumieren. Unsere Kiefer bewegen sich im Gegensatz zu den Kiefern von reinen Fleischessern horizontal, um Pflanzen zu zermahlen. So oder so dürfen Taten nicht damit rechtfertigen, dass wir (biologisch) dazu in der Lage sind. Dieses Argument könnte für alles mögliche missbraucht werden. Wir verfügen über Gewissen, Moral und eine weitaus leidfreiere Alternative zu Tierprodukten. Lasst uns also logisch und empathisch handeln und nicht willenlos etwas tun, nur weil wir theoretisch dazu in der Lage sind.",
         },
       },
       whyVegan: {

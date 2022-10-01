@@ -18,7 +18,6 @@
           :updateTrigger="boardKey"
           @selectField="handleSelection"
           @release="handleMouseup(index)"
-          @shuffle="showShufflePopup = true"
           v-show="!tooSmall"
         />
         <div class="confettiContainer" v-if="bingo && !tooSmall">
@@ -288,12 +287,11 @@ export default defineComponent({
     },
     navigate() {
       this.showShufflePopup = false;
-      this.$emit("navigate", "List");
+      window.location.hash = "List";
     },
   },
   emits: {
     initialized: null,
-    navigate: null,
   },
   mounted() {
     this.checkFieldSize();

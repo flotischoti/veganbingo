@@ -6,6 +6,7 @@
           <div class="icon"></div>
           <div class="heading">
             <h1>{{ getNavHeader() }}</h1>
+            <h6>{{ getSubHeader() }}</h6>
           </div>
         </div>
         <div
@@ -31,14 +32,14 @@
         <ul>
           <li>
             <a
-              @click="$emit('navigate', 'Bingo')"
+              @click="navigate('Bingo')"
               :class="{ active: currentNav == 'Bingo' }"
               >{{ $t("message.navBar.bingo") }}<span class="space">o</span></a
             >
           </li>
           <li>
             <a
-              @click="$emit('navigate', 'List')"
+              @click="navigate('List')"
               :class="{ active: currentNav == 'List' }"
               >{{ $t("message.navBar.allQuotes")
               }}<span class="space">{{
@@ -48,7 +49,7 @@
           </li>
           <li>
             <a
-              @click="$emit('navigate', 'WhyVegan')"
+              @click="navigate('WhyVegan')"
               :class="{ active: currentNav == 'WhyVegan' }"
               >{{ $t("message.navBar.whyVegan")
               }}<span class="space">?</span></a
@@ -56,14 +57,14 @@
           </li>
           <li>
             <a
-              @click="$emit('navigate', 'Info')"
+              @click="navigate('Info')"
               :class="{ active: currentNav == 'Info' }"
               >{{ $t("message.navBar.info") }}<span class="space">o</span></a
             >
           </li>
           <li>
             <a
-              @click="$emit('navigate', 'About')"
+              @click="navigate('About')"
               :class="{ active: currentNav == 'About' }"
               >{{ $t("message.navBar.about") }}<span class="space">t</span></a
             >
@@ -144,6 +145,14 @@ export default defineComponent({
           return "";
       }
     },
+    getSubHeader() {
+      switch (this.currentNav) {
+        case "Bingo":
+          return this.$t("message.navBar.veganBingoSub");
+        default:
+          return this.$t("message.empty");
+      }
+    },
     changeLanguage() {
       this.$i18n.locale = this.$i18n.locale.startsWith("de") ? "en" : "de";
       if (!this.showToast) {
@@ -151,6 +160,9 @@ export default defineComponent({
       }
       this.showToast = true;
     },
+    navigate(target: string) {
+      window.location.hash = target
+    }
   },
   watch: {
     currentNav() {
@@ -202,6 +214,18 @@ export default defineComponent({
     };
 
     window.addEventListener("scroll", fn);
+
+    const hashNav = () => {
+      const hash = window.location.hash.replaceAll("#","");
+      if (["Bingo", "List", "WhyVegan", "Info", "About"].includes(hash)) {
+        this.$emit('navigate', hash);
+      } else {
+        window.location.hash = "Bingo";
+      }
+    }
+    hashNav();
+    window.addEventListener("hashchange", hashNav);
+    
   },
   computed: {
     getSelectedLang(): string {
@@ -326,15 +350,16 @@ nav {
     }
     .heading {
       height: 100%;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
       padding-left: 4em;
       cursor: pointer;
-
+      color: white;
+      
       h1 {
-        color: white;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
         font-size: 1em;
         padding: 0;
         margin: 0;
@@ -342,6 +367,13 @@ nav {
         @media screen and (min-width: 380px) {
           font-size: 1.3em;
         }
+      }
+
+      h6 {
+        padding: 0.1em 0;
+        margin: 0;
+        font-size: .6em;
+        letter-spacing: .07em;
       }
     }
 
