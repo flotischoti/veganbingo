@@ -34,8 +34,6 @@ export default defineComponent({
     handleClick() {
       if (this.field?.selectable) {
         this.$emit("selectField", this.field);
-      } else {
-        this.$emit("shuffle");
       }
     },
     handleRelease() {
@@ -46,7 +44,6 @@ export default defineComponent({
   },
   emits: {
     selectField: null,
-    shuffle: null,
     release: null,
   },
   computed: {
@@ -165,6 +162,9 @@ $fieldTextColor: #444;
   }
   &:nth-child(5) {
     border-top-right-radius: 6%;
+  }
+  &:nth-child(13) {
+    cursor: unset;
   }
   &:nth-child(21) {
     border-bottom-left-radius: 6%;
