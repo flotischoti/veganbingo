@@ -1,5 +1,5 @@
 <template>
-  <div class="sideNavContainer">
+  <div class="sideNavContainer" @click.stop>
     <div class="openSidebar" @click="doShow">
       <i class="fas fa-list"></i>
     </div>
@@ -23,23 +23,21 @@ import $ from 'jquery';
 export default defineComponent({
   name: 'SideNav',
   data() {
-    return {
-      show: false,
-    }
+    return {}
   },
   props: {
+    show: Boolean,
     titles: {
       type: Array
     },
   },
   methods: {
     doShow() {
-      this.show = true;
-      this.$emit('show');
+      this.$emit('show', true);
        $('body').css('overflow', 'hidden');
     },
     doHide() {
-      this.show = false;
+      this.$emit('show', false);
       $('body').css('overflow', 'auto');
     },
     navigate(index: number) {

@@ -3,6 +3,7 @@
     class="list-container"
     :style="cssVars"
     :class="{ disableScroll: disableScroll }"
+    @click="hideSidebar()"
   >
     <div
       v-for="(f, index) in fields"
@@ -27,8 +28,10 @@
       </section>
     </div>
     <SideNav
+      :show="showSidebar"
       :titles="getSortedDataFields.map((f) => stripTitle($t(`${f.title}`)))"
       @scroll="scroll($event + 1)"
+      @show="showSidebar = $event"
     />
   </div>
 </template>
@@ -63,6 +66,7 @@ export default defineComponent({
       } as fieldType,
       scrollPosition: 0,
       disableScroll: false,
+      showSidebar: false,
     };
   },
   methods: {
@@ -79,6 +83,10 @@ export default defineComponent({
       let offset = $("#field" + targetFieldId).offset();
       $("html, body").animate({ scrollTop: offset ? offset.top : 0 }, 500);
     },
+    hideSidebar() {
+      this.showSidebar = false;   
+      $('body').css('overflow', 'auto');
+    }
   },
   mounted() {
     let fn = () => {
@@ -107,7 +115,7 @@ export default defineComponent({
 <style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
 
-$totalCount:  58 + 2;
+$totalCount:  61 + 2;
 
 .list-container {
   width: 100%;
