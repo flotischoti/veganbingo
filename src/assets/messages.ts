@@ -346,7 +346,7 @@ export const messages = {
         field59: {
           quote: "Bacon though",
           statement:
-            '"Man destroys entire vegan movement with one sentence"<br><br>When Bernd (43) made this witty and original comment, vegans worldwide began to question their ethical beliefs and to follow Bernd\'s good example, to value a brief treat more than the suffering of billions of animals, the planet and one\'s own health. "I showed them" adds Bernd with a smirk while leaning against his grill station, weakened by his third heart attack.',
+            '"Man destroys entire vegan movement with one sentence"<br><br>When Carl (43) made this witty and original comment, vegans worldwide began to question their ethical beliefs and to follow Carl\'s good example, to value a brief treat more than the suffering of billions of animals, the planet and one\'s own health. "I showed them" adds Carl with a smirk while leaning against his grill station, weakened by his third heart attack.',
         },
         field60: {
           quote: "You dont know what you are missing",
@@ -951,7 +951,7 @@ export const messages = {
         field59: {
           quote: "Ich esse jetzt erstmal ein Steak",
           statement:
-            '"Mann zerstört komplette vegane Bewegung mit einem Satz"<br><br>Als Bernd (43) diesen gewitzten und originellen Kommentar von sich gab, begannen Veganer*Innen weltweit ihre ethischen Überzeugunen zu hinterfragen und Bernds gutem Beispiel zu folgen, einen kurzen Genuss über das Leid millardener Tiere, den Planeten und die eigene Gesundheit zu stellen. "Denen habe ich es gezeigt" fügt Berd süffisant grinsend hinzu, während er sich geschwächt von seinem dritten Herzinfarkt an seiner Grillstation abstützt.',
+            '"Mann zerstört komplette vegane Bewegung mit einem Satz"<br><br>Als Bernd (43) diesen gewitzten und originellen Kommentar von sich gab, begannen Veganer*Innen weltweit ihre ethischen Überzeugungen zu hinterfragen und Bernds gutem Beispiel zu folgen, einen kurzen Genuss über das Leid millardener Tiere, den Planeten und die eigene Gesundheit zu stellen. "Denen habe ich es gezeigt" fügt Bernd süffisant grinsend hinzu, während er sich geschwächt von seinem dritten Herzinfarkt an seiner Grillstation abstützt.',
         },
         field60: {
           quote: "Du weißt nicht, was du verpasst",
@@ -961,7 +961,7 @@ export const messages = {
         field61: {
           quote: "Wozu haben wir dann Eckzähne?",
           statement:
-            "Dann geh du mal eine Antilope mit deinen Eckzähnen reißen...<br>Die größten Eckzähne haben übrigens Nilpferde, die sich rein pflanzlich ernähren. Als Omnivore (Allesesser) besitzen wir Attribute, um sowohl Fleisch als auch Pflanzen zu konsumieren. Unsere Kiefer bewegen sich im Gegensatz zu den Kiefern von reinen Fleischessern horizontal, um Pflanzen zu zermahlen. So oder so dürfen Taten nicht damit rechtfertigen, dass wir (biologisch) dazu in der Lage sind. Dieses Argument könnte für alles mögliche missbraucht werden. Wir verfügen über Gewissen, Moral und eine weitaus leidfreiere Alternative zu Tierprodukten. Lasst uns also logisch und empathisch handeln und nicht willenlos etwas tun, nur weil wir theoretisch dazu in der Lage sind.",
+            "Dann geh du mal eine Antilope mit deinen Eckzähnen reißen...<br>Die größten Eckzähne haben übrigens Nilpferde, die sich rein pflanzlich ernähren. Als Omnivore (Allesesser) besitzen wir Attribute, um sowohl Fleisch als auch Pflanzen zu konsumieren. Unsere Kiefer bewegen sich im Gegensatz zu den Kiefern von reinen Fleischessern horizontal, um Pflanzen zu zermahlen. So oder so können wir Taten nicht dadurch rechtfertigen, dass wir (biologisch) zu ihnen in der Lage sind. Dieses Argument könnte sonst für alles mögliche missbraucht werden. Wir verfügen über Gewissen, Moral und eine weitaus leidfreiere Alternative zu Tierprodukten. Lasst uns also logisch und empathisch handeln und nicht willenlos etwas tun, nur weil wir theoretisch dazu in der Lage sind.",
         },
       },
       whyVegan: {
