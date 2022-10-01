@@ -1,5 +1,5 @@
 <template>
-  <div class="popupContainer" :class="{visible: show}" @click="$emit('cancel')">
+  <div ref="popupContainer" class="popupContainer" :class="{visible: show}" @click="$emit('cancel')" @keyup.enter="$emit('confirm')" @keyup.esc="$emit('cancel')" tabindex="0" >
     <div class="popup" @click.stop>
       <div class="header">
         <span>{{title}}</span>
@@ -34,6 +34,15 @@ export default defineComponent({
     cancel: null,
     confirm: null,
     copy: null,
+  },
+  watch: {
+    show() {
+      if (this.show) {
+        (this.$refs.popupContainer as HTMLElement).focus(); 
+      } else {
+        (this.$refs.popupContainer as HTMLElement).blur(); 
+      }
+    }
   }
 });
 </script>
