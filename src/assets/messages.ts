@@ -145,9 +145,9 @@ export const messages = {
             "Fortunately, you don't have to worry about this question, because it is a gradual process. The world will not become vegan overnight. Parts of it probably never will. But less demand leads to less supply, so that it continuously regulates itself down.",
         },
         field19: {
-          quote: "Soy has too much <b>estrogen</b>",
+          quote: "Men grow breasts from soy",
           statement:
-            "Soy contains phytoestrogens with similar properties to estrogen but 100-10,000 times weaker. You would have to consume unnaturally large amounts of it to feel any effect. It has been part of the human diet for 3,000 years and, in addition to its high protein content, has many good properties such as a presumed reduction in the risk of breast cancer.<br>So don't worry, you won't be feminized if you consume soy.",
+            "If breasts grew from soy, there would be no breast surgery today. In reality, soy contains phytoestrogens with similar properties to estrogen but 100-10,000 times weaker. You would have to consume unnaturally large amounts of it to feel any effect. It has been part of the human diet for 3,000 years and, in addition to its high protein content, has many good properties such as a presumed reduction in the risk of breast cancer.<br>So don't worry, you won't be feminized if you consume soy.",
         },
         field20: {
           quote: "<b>Avocados</b>! Terrible for the environment",
@@ -351,7 +351,7 @@ export const messages = {
         field60: {
           quote: "You dont know what you are missing",
           statement:
-            "Dude, almost all vegans have eaten meat their entire lives. Not much will have happened since then.",
+            "huh?<br>Almost all vegans have eaten meat their entire lives. Not much has changed in terms of taste since then. Maybe a few more antibiotic residues, germs and hormones. Enjoy your meal.",
         },
         field61: {
           quote: "Why do we have canine tooth?",
@@ -749,9 +749,9 @@ export const messages = {
             "Um diese Frage muss man sich zum Glück keine Gedanken machen, da es ein sukzessiver Prozess ist. Die Welt wird nicht von heute auf morgen vegan. Ein Teil wird es vermutlich nie. Doch weniger Nachfrage führt zu weniger Angebot, so dass es sich kontinuierlich runterregelt.",
         },
         field19: {
-          quote: "Soja hat zu viel <b>Östrogen</b>",
+          quote: "Von Soja wachsen Männern Brüste</b>",
           statement:
-            "Soja enthält Phytoöstrogene mit ähnlichen Eigenschaften wie Östrogen aber 100-10.000 fach schwächer. Man müsste unnatürlich große Mengen verzehren, um einen Effekt zu spüren. Es gehört seit 3.000 Jahren zum Speiseplan des Menschen und besitzt neben dem hohen Proteingehalt viele gute Eigenschaften wie eine mutmaßliche Senkung des Brustkrebsrisikos.<br>Also keine Angst, du wirst nicht zur Frau, wenn du Soja isst.",
+            "Wenn von Soja Brüste wüchsen, gäbe es heute keine Brust-OPs. In Wirklichkeit enthält Soja Phytoöstrogene mit ähnlichen Eigenschaften wie Östrogen aber 100-10.000 fach schwächer. Man müsste unnatürlich große Mengen verzehren, um einen Effekt zu spüren. Es gehört seit 3.000 Jahren zum Speiseplan des Menschen und besitzt neben dem hohen Proteingehalt viele gute Eigenschaften wie eine mutmaßliche Senkung des Brustkrebsrisikos.<br>Du wirst keine Frau, wenn du Soja isst.",
         },
         field20: {
           quote: "<b>Avocados</b>! So schlecht für die Umwelt!",
@@ -946,17 +946,17 @@ export const messages = {
         field58: {
           quote: "Wir alle müssen irgendwann sterben",
           statement:
-            "Mit dieser Argumentation wäre Mord de facto legal. Konsequenterweise dürftest du dann auch nichts dagegen haben, wenn jemand dich, deine Familie, deine Freunde oder dein Haustier umbringen möchte, denn es macht ja keinen Unterschied, ob man mit 85 an Altersschwäche oder mit 25 durch ein Messer in der Kehle stirbt, richtig?<br>Den frühzeitig, vorsätzlich und rein zum Vergnügen herbeigeführten Tod eines fühlenden Lebewesens mit diesen Worten zu kommentieren, ist einfach nur zynisch.",
+            "Mit dieser Argumentation wäre Mord ja de facto legal. Konsequenterweise dürftest du dann auch nichts dagegen haben, wenn jemand dich, deine Familie, deine Freunde oder dein Haustier umbringen möchte, denn es macht ja anscheinend keinen Unterschied, ob man mit 85 an Altersschwäche oder mit 25 durch ein Messer in der Kehle stirbt, richtig?<br>Nee - Den frühzeitig, vorsätzlich und rein zum Vergnügen herbeigeführten Tod eines fühlenden Lebewesens mit diesen Worten zu kommentieren, ist einfach nur zynisch.",
         },
         field59: {
-          quote: "Ich esse jetzt erstmal ein Steak",
+          quote: "Darauf erstmal ein Steak",
           statement:
             '"Mann zerstört komplette vegane Bewegung mit einem Satz"<br><br>Als Bernd (43) diesen gewitzten und originellen Kommentar von sich gab, begannen Veganer*Innen weltweit ihre ethischen Überzeugungen zu hinterfragen und Bernds gutem Beispiel zu folgen, einen kurzen Genuss über das Leid milliardener Tiere, den Planeten und die eigene Gesundheit zu stellen. "Denen habe ich es gezeigt" fügt Bernd süffisant grinsend hinzu, während er sich geschwächt von seinem dritten Herzinfarkt an seiner Grillstation abstützt.',
         },
         field60: {
           quote: "Du weißt nicht, was du verpasst",
           statement:
-            "Junge, fast alle Veganer*Innen haben ihr Leben lang Fleisch gegessen. Da wird sich nicht viel getan haben seitdem.",
+            "Hä?<br>Fast alle Veganer*Innen haben ihr Leben lang Fleisch gegessen. Seitdem wird sich geschmacklich nicht viel getan haben. Vielleicht ein paar mehr Antiobiotikarückstände, Keime und Hormone. Lass es dir schmecken.",
         },
         field61: {
           quote: "Wozu haben wir dann Eckzähne?",
