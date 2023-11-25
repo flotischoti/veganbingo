@@ -55,7 +55,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-
+  @import "../style/variables.scss";
   .sideNavContainer {
 
     .openSidebar {
@@ -63,7 +63,7 @@ export default defineComponent({
       z-index: 2000;
       top: 0.7em;
       right: .8em;
-      background-color: white;
+      background-color: bbb;
       border-radius: 50%;
       padding: .4em;
       font-size: 1.2em;
@@ -80,7 +80,7 @@ export default defineComponent({
       z-index: 2001;
       top: 0;
       right: 0;
-      background-color: #212121;
+      background-color: $background3;
       overflow-x: hidden;
       overflow-y: scroll;
       transition: 0.5s;
@@ -104,7 +104,7 @@ export default defineComponent({
       a {
         text-decoration: none;
         font-size: .9em;
-        color: white;
+        color: $text-basic3;
         transition: 0.3s;
         cursor: pointer;
         
@@ -139,7 +139,7 @@ export default defineComponent({
 
           a {
             position: relative;
-            background: linear-gradient(to bottom, transparent 80%, #fff87e 0) center center/100% 100% no-repeat;
+            background: linear-gradient(to bottom, transparent 80%, #cac55a 0) center center/100% 100% no-repeat;
 
 
             &:hover {
@@ -156,7 +156,7 @@ export default defineComponent({
         top: 0;
         padding: 0;
         font-size: 3.5em;
-        background-color: #212121;
+        background-color: $background3;
         line-height: .5em;
         letter-spacing: 0;
       }

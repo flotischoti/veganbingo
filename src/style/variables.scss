@@ -26,12 +26,17 @@ $text-basic2: #ddd;
 $text-basic3: #bbb;
 $b-background: hsl(0, 100%, 25%);
 $i-background: hsl(36, 100%, 25%);
-$n-background: hsl(89, 59, 25);
-$g-background: hsl(213, 60, 25);
-$o-background: hsl(327, 90, 25);
+$n-background: hsl(89, 59%, 25%);
+$g-background: hsl(213, 60%, 25%);
+$o-background: hsl(327, 90%, 25%);
 $board-action: hsla(0, 50%, 15%, 1);
 $menu-background: hsl(319, 100%, 25%);
 $navbar-background: hsla(0, 0%, 15%, 1);
-$cancel: hsl(0, 100, 25);
-$confirm: hsl(89, 50, 25);
-$copy: hsl(231, 60, 25);
+$cancel: hsl(0, 100%, 25%);
+$confirm: hsl(89, 50%, 25%);
+$copy: hsl(231, 60%, 25%);
+$modal-background: linear-gradient(
+  to right,
+  hsl(210, 30%, 10%),
+  hsl(255, 30%, 15%)
+);

@@ -79,7 +79,7 @@
     <div class="warning" v-if="tooSmall">
       {{ $t("message.board.tooSmall") }}
     </div>
-    <div class="gradient"></div>
+    <div class="gradient" :class="{dark: isDark}"></div>
   </div>
 </template>
 
@@ -682,6 +682,10 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
     height: 100%;
     background-color: white;
     padding: 0;
+
+    &.dark {
+      background-color: $background2;
+    }
   }
 
   .warning {

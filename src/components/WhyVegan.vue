@@ -5,7 +5,7 @@
         <h5 v-if="slider.headerline">{{$t(`${slider.headerline}`)}}</h5>
         <p v-for="(text, index) in slider.texts" :key="index" v-html="$t(`${text.text}`)" :class="{quote: text.quote}"/>
       </div>
-      <div class="slider-container" :data-aos="index % 2 == 0 ? 'fade-left' : 'fade-right'" :style="{'background-color': 'hsla(' + (250 * (57 + slider.id)) + ', 80%, 30%, .8)'}">
+      <div class="slider-container" :data-aos="index % 2 == 0 ? 'fade-left' : 'fade-right'" :style="{'background-color': 'hsla(' + (250 * (57 + slider.id)) + ', 80%, 25%, .8)'}">
         <ul class="controls" :id="slider.controlsId" aria-label="Carousel Navigation" tabindex="0">
             <li class="prev" data-controls="prev" aria-controls="customize" tabindex="-1">
               <i class="fa fa-chevron-left fa-2x"></i>
@@ -15,8 +15,8 @@
             </li>
         </ul>
         <div :class="slider.sliderClass">
-            <div v-for="(item, index) in slider.items" :key="index" class="slider-item" :style="{'background-color': 'hsl(0, 80%, 30%, 0)'}">
-                <div class="card" :style="{'background-color': 'hsl(' + (250 * (25 + slider.id)) + ', 80%, 30%, 0)'}">    
+            <div v-for="(item, index) in slider.items" :key="index" class="slider-item" :style="{'background-color': 'hsl(0, 80%, 25%, 0)'}">
+                <div class="card" :style="{'background-color': 'hsl(' + (250 * (25 + slider.id)) + ', 80%, 25%, 0)'}">    
                     <h2 v-if="item.customHeader"> {{item.customHeader}} {{(index + 1)}} </h2>            
                     <i v-if="!item.customHeader" :class="item.classes"> {{' ' + (index + 1)}}</i>
                     <p class="card_description">{{$t(`${item.text}`)}}</p>

@@ -1,6 +1,6 @@
 <template>
-  <div class="modalBox" :class="{ fadeIn: show, fadeOut: !show }">
-    <div class="content">
+  <div class="modalBox" :class="{ fadeIn: show, fadeOut: !show, dark: isDark }">
+    <div class="content" :class="{dark: isDark}">
       <blockquote class="header">
         <h3>{{ title }}</h3>
       </blockquote>
@@ -9,10 +9,10 @@
       </div>
     </div>
     <div class="controls">
-      <button class="close" @click="$emit('close')">
+      <button class="close" :class="{dark: isDark}" @click="$emit('close')">
         <i class="fas fa-times"></i> {{ $t("message.board.popup.close") }}
       </button>
-      <button class="copy" @click="copy">
+      <button class="copy" :class="{dark: isDark}" @click="copy">
         <i class="fas fa-copy"></i> {{ $t("message.board.popup.copy") }}
       </button>
     </div>
@@ -20,10 +20,16 @@
 </template>
 
 <script lang="ts">
+import { useDark } from "@vueuse/core";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "ModalBox",
+  data() {
+    return {
+      isDark: useDark()
+    }
+  },
   props: {
     field: Object,
     show: Boolean,
@@ -56,6 +62,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+
+@import "../style/variables.scss";
 .modalBox {
   position: absolute;
   opacity: 0.98;
@@ -67,7 +75,7 @@ export default defineComponent({
   max-width: 0px;
   height: 1%;
   background: linear-gradient(to right, hsl(210, 30%, 20%), hsl(255, 30%, 25%));
-  box-shadow: 0.4rem 0.4rem 2.4rem 0.2rem hsla(236, 50%, 50%, 0.3);
+  box-shadow: 0.4rem 0.4rem 2.4rem 0.2rem hsla(236, 50%, 25%, 0.3);
   margin: auto;
   transform: translateY(-0.5%);
   border-radius: 3%;
@@ -75,6 +83,10 @@ export default defineComponent({
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
+
+  &.dark {
+    background: $modal-background;
+  }
 
   &.fadeIn {
     max-width: 98.5%;
@@ -95,6 +107,10 @@ export default defineComponent({
     overflow-y: scroll;
     scrollbar-width: none;
     overflow-x: hidden;
+
+    &.dark {
+      color: $text-basic3;
+    }
 
     blockquote {
       margin: 0;
@@ -224,9 +240,18 @@ export default defineComponent({
 
     .close {
       background: rgb(255, 72, 72);
+
+      &.dark {
+        color: $text-basic3;
+        background-color: $cancel;
+      }
     }
     .copy {
       background: rgb(79, 99, 210);
+      &.dark {
+        color: $text-basic3;
+        background-color: $copy;
+      }
     }
   }
 }
