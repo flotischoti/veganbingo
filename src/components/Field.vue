@@ -16,6 +16,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
 import { fieldType } from "../assets/data";
+import { useDark } from "@vueuse/core";
 
 export default defineComponent({
   name: "Field",
@@ -28,7 +29,9 @@ export default defineComponent({
     },
   },
   data() {
-    return {};
+    return {
+      isDark: useDark()
+    };
   },
   methods: {
     handleClick() {
@@ -53,6 +56,7 @@ export default defineComponent({
         center: this.field ? this.field.id == 0 : false,
         nonCenter: this.field ? this.field.id != 0 : false,
         spin: this.updateTrigger ? this.updateTrigger > 0 : false,
+        dark: this.field ? this.field.id != 0 && this.isDark : false
       };
     },
   },
@@ -156,6 +160,11 @@ $fieldTextColor: #444;
   cursor: pointer;
   z-index: 100;
   border-radius: 1px;
+
+  &.dark {
+    background-color: $background3;
+    color: $text-basic3
+  }
 
   &:nth-child(1) {
     border-top-left-radius: 6%;

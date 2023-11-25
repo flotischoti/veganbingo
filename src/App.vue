@@ -4,7 +4,7 @@
     class="navbar"
     @navigate="navigate($event)"
   />
-  <main>
+  <main :class="{dark: isDark}">
     <keep-alive :include="include">
       <component :is="navigation" />
     </keep-alive>
@@ -19,6 +19,7 @@ import List from "./components/List.vue";
 import Info from "./components/Info.vue";
 import About from "./components/About.vue";
 import WhyVegan from "./components/WhyVegan.vue";
+import { useDark } from "@vueuse/core";
 
 export default defineComponent({
   name: "App",
@@ -26,6 +27,7 @@ export default defineComponent({
     return {
       navigation: "Bingo",
       include: ["Bingo"],
+      isDark: useDark()
     };
   },
   methods: {
@@ -46,6 +48,7 @@ export default defineComponent({
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Krub:wght@300&display=swap");
+@import "./style/variables";
 
 body,
 html {
@@ -60,7 +63,14 @@ html {
 
 main {
   position: relative;
+
+  &.dark {
+    background-color: $background1;
+    color: $text-basic3
+  }
 }
+
+
 
 #app {
   font-family: "Krub", Avenir, Helvetica, Arial, sans-serif;
@@ -69,6 +79,8 @@ main {
   box-sizing: border-box;
   height: 100%;
 }
+
+
 
 @media (min-width: 768px) {
 }

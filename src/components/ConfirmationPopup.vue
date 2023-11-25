@@ -1,17 +1,17 @@
 <template>
   <div ref="popupContainer" class="popupContainer" :class="{visible: show}" @click="$emit('cancel')" @keyup.enter="$emit('confirm')" @keyup.esc="$emit('cancel')" tabindex="0" >
-    <div class="popup" @click.stop>
+    <div class="popup"  :class="{dark: isDark}" @click.stop>
       <div class="header">
         <span>{{title}}</span>
         <i class="fa fa-window-close" aria-hidden="true" @click="$emit('cancel')"/>
       </div>
-      <div class="text">
+      <div class="text" :class="{dark: isDark}">
         <slot></slot>
       </div>
       <div class="buttons">
-        <button class="cancel" @click="$emit('cancel')" v-if="confirmButtons">{{$t("message.board.popup.cancel")}}</button>
-        <button class="confirm" @click="$emit('confirm')" v-if="confirmButtons">{{$t("message.board.popup.confirm")}}</button>
-        <button class="copy" @click="$emit('copy')" v-if="copyButton"><i class="fas fa-copy"></i>  {{$t("message.board.popup.copy")}}</button>
+        <button class="cancel" :class="{dark: isDark}" @click="$emit('cancel')" v-if="confirmButtons">{{$t("message.board.popup.cancel")}}</button>
+        <button class="confirm" :class="{dark: isDark}" @click="$emit('confirm')" v-if="confirmButtons">{{$t("message.board.popup.confirm")}}</button>
+        <button class="copy" :class="{dark: isDark}" @click="$emit('copy')" v-if="copyButton"><i class="fas fa-copy"></i>  {{$t("message.board.popup.copy")}}</button>
       </div>
     </div>
     <div class="background" :class="{visible: show}"/>
@@ -19,10 +19,16 @@
 </template>
 
 <script lang="ts">
+import { useDark } from '@vueuse/core';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'ConfirmationPopup',
+  data() {
+    return {
+      isDark: useDark()
+    }
+  },
   props: {
     title: String,
     text: String,
@@ -48,6 +54,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
+@import "../style/variables.scss";
 
 .popupContainer {
   background-color: transparent;
@@ -78,6 +85,11 @@ export default defineComponent({
     margin-top: 6em;
     overflow: hidden;
     z-index: 201;
+
+    &.dark {
+        background: $background2;
+        color: $text-basic3;
+      }
 
     .header {
       display: flex;
@@ -112,6 +124,8 @@ export default defineComponent({
       @media (min-width: 480px) {
         font-size: .9em;
       }
+
+      
     }
 
     .buttons {
@@ -144,15 +158,27 @@ export default defineComponent({
       }
       .cancel {
         background: rgb(255, 72, 72);
+
+        &.dark {
+          background: $cancel;
+        }
       }
 
       .confirm {
         background: rgb(147, 210, 79);
+
+        &.dark {
+          background: $confirm
+        }
       }
 
       .copy {
         width: 100%;
         background: rgb(79, 99, 210);
+        
+        &.dark {
+          background: $copy;
+        }
       }
 
     }

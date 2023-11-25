@@ -3,17 +3,17 @@
     <section data-aos="fade-right">
       <h1><span>{{$t('message.about.whyBingo.header')}}</span></h1>
       <div class="sectionText">
-        <p>{{$t('message.about.whyBingo.paragraph1')}}</p>
-        <p>{{$t('message.about.whyBingo.paragraph2')}}</p>
-        <p>{{$t('message.about.whyBingo.paragraph3part1')}}<br>{{$t('message.about.whyBingo.paragraph3part2')}}</p>
-        <p>{{$t('message.about.whyBingo.paragraph4')}}</p>
-        <p><span class="quote">{{$t('message.about.whyBingo.paragraph5')}}</span></p>
+        <p :class="{dark: isDark}">{{$t('message.about.whyBingo.paragraph1')}}</p>
+        <p :class="{dark: isDark}">{{$t('message.about.whyBingo.paragraph2')}}</p>
+        <p :class="{dark: isDark}">{{$t('message.about.whyBingo.paragraph3part1')}}<br>{{$t('message.about.whyBingo.paragraph3part2')}}</p>
+        <p :class="{dark: isDark}">{{$t('message.about.whyBingo.paragraph4')}}</p>
+        <p :class="{dark: isDark}"><span class="quote">{{$t('message.about.whyBingo.paragraph5')}}</span></p>
       </div>
     </section>
     <section data-aos="fade-left">
       <h1><span>{{$t('message.about.sources.header')}}</span></h1>
       <div class="sectionText">
-        <p>
+        <p :class="{dark: isDark}">
           {{$t('message.about.sources.paragraph1')}}
         </p>
       </div>
@@ -21,19 +21,19 @@
     <section data-aos="fade-left">
       <h1><span>{{$t('message.about.supporter.header')}}</span></h1>
       <div class="sectionText">
-        <p>
+        <p :class="{dark: isDark}">
           {{$t('message.about.supporter.paragraph1')}}
         </p>
         <ul>
-          <li>
+          <li :class="{dark: isDark}">
             <a href="https://twitter.com/Samanthosss" target="_blank" class="fa fa-twitter"><span>Samanthosss</span></a>
             <span>{{$t('message.about.supporter.taskEnglish')}}</span>
           </li>
-          <li>
+          <li :class="{dark: isDark}">
             <a href="https://www.instagram.com/marlonprofuss/" target="_blank" class="fa fa-instagram"><span>marlonprofuss</span></a>
             <span>{{$t('message.about.supporter.taskEnglish')}}</span>
           </li>
-          <li>
+          <li :class="{dark: isDark}">
             <a class="fa fa-female"><span> {{$t('message.about.supporter.sMama')}}</span></a>
             <span>{{$t('message.about.supporter.taskProofreading')}}</span>
           </li>
@@ -44,15 +44,23 @@
 </template>
 
 <script lang="ts">
+import { useDark } from "@vueuse/core";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "About",
+  data() {
+    return {
+      isDark: useDark()
+    }
+  },
   components: {},
 });
 </script>
 
 <style scoped lang="scss">
+
+@import "../style/variables.scss";
 .InfoContainer {
   max-width: 768px;
   margin: 0 auto;
@@ -102,6 +110,10 @@ export default defineComponent({
         color: #333;
         text-align: justify;
         line-height: 160%;
+
+        &.dark {
+          color: $text-basic3
+        }
         
 
         .quote {
@@ -122,6 +134,10 @@ export default defineComponent({
           color: #333;
           line-height: 160%;
           padding: 0.3em 0;
+
+          &.dark {
+            color: $text-basic3
+          }
 
           a {
             border-right: 2px #333 solid;

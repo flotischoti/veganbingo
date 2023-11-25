@@ -1,10 +1,10 @@
 <template>
   <nav ref="nav" :class="{ hideNav: hideNav, expanded: expanded }">
     <div id="container">
-      <div class="navBar" :class="{ expanded: expanded }">
+      <div class="navBar" :class="{ expanded: expanded, dark: isDark }">
         <div class="menuControl" @click="expanded = !expanded">
           <div class="icon"></div>
-          <div class="heading">
+          <div class="heading" :class="{dark: isDark}">
             <h1>{{ getNavHeader() }}</h1>
             <h6>{{ getSubHeader() }}</h6>
           </div>
@@ -28,7 +28,7 @@
         :style="{ width: scrollBarWidth + '%' }"
       ></div>
 
-      <div id="menu" :class="{ open: expanded }">
+      <div id="menu" :class="{ open: expanded, dark: isDark }">
         <ul>
           <li>
             <a
@@ -104,6 +104,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Toast from "./Toast.vue";
+import { useDark } from "@vueuse/core";
 
 export default defineComponent({
   name: "Navbar",
@@ -123,6 +124,7 @@ export default defineComponent({
       hideNav: false,
       scrollBarWidth: 0,
       showToast: false,
+      isDark: useDark()
     };
   },
   methods: {
@@ -239,6 +241,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import "../style/variables";
 
 $menu-color: hsl(319, 100%, 47%);
 $bar-color: $menu-color;
@@ -375,6 +378,10 @@ nav {
         font-size: .6em;
         letter-spacing: .07em;
       }
+
+      &.dark{
+        color: $text-basic3
+      }
     }
 
     .language {
@@ -401,6 +408,10 @@ nav {
         padding: 0;
         margin: 0;
       }
+    }
+
+    &.dark {
+      background-color: $navbar-background;
     }
   }
   .scrollBar {
@@ -488,6 +499,11 @@ nav {
       width: 100%;
       background: $menu-color;
       border-bottom: 1px solid black;
+
+      &.dark {
+        background: $menu-background
+      }
+
     }
   }
 }

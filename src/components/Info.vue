@@ -1,7 +1,7 @@
 <template>
-  <div class="InfoContainer">
+  <div class="InfoContainer" :class="{dark: isDark}">
     <div class="articleWrapper" v-for="(info, index) in infos" :key="index">
-      <h1 :data-aos="getHeaderEffect">
+      <h1 :data-aos="getHeaderEffect" :class="{dark: isDark}">
         <span>{{ $t(`${info.headline}`) }}</span>
       </h1>
 
@@ -9,9 +9,10 @@
         <p
           v-html="$t(`${info.introduction}`)"
           class="introduction"
+          :class="{dark: isDark}"
           data-aos="fade-left"
         ></p>
-        <p v-if="index == 0" class="introduction" data-aos="fade-left">
+        <p v-if="index == 0" class="introduction" :class="{dark: isDark}" data-aos="fade-left">
           <label>
             <div class="switch">
               <input
@@ -30,7 +31,7 @@
             :href="content.url"
             target="_blank"
             data-aos="flip-right"
-            :class="{ profile: info.type == 'profile' }"
+            :class="{ profile: info.type == 'profile', dark: isDark }"
             :data-aos-delay="calcDelay(index)"
           >
             <section>
@@ -60,6 +61,7 @@
 import { defineComponent } from "vue";
 import { infos, media } from "../assets/info";
 import Aos from "aos";
+import { useDark } from "@vueuse/core";
 
 export default defineComponent({
   name: "Info",
@@ -67,6 +69,7 @@ export default defineComponent({
     return {
       infos,
       hideLangUnrelated: false,
+      isDark: useDark()
     };
   },
   components: {},
@@ -112,14 +115,13 @@ export default defineComponent({
 
 <style scoped lang="scss">
 @import url("https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css");
+@import "../style/variables.scss";
 
 $slider-color: hsl(319, 100%, 47%);
 
 .InfoContainer {
   max-width: 768px;
   margin: 0 auto;
-  color: #333;
-  background-color: #fff;
 
   div.articleWrapper {
     border-radius: 3px;
@@ -127,7 +129,10 @@ $slider-color: hsl(319, 100%, 47%);
     position: relative;
 
     &:first-child {
-      margin-top: 1em;
+      margin-top: 0em;
+    }
+    &:last-child {
+      margin-bottom: 0em;
     }
 
     h1 {
@@ -136,11 +141,14 @@ $slider-color: hsl(319, 100%, 47%);
       padding: 15px 0;
       z-index: 100;
       box-shadow: 0.32px 2px 4px 0 rgba(0, 0, 0, 0.1);
-      background-color: #fff;
       letter-spacing: 13px;
       font-size: 1.5em;
       border-radius: 3px;
       margin: 0 auto;
+      background-color: #fff;
+      &.dark{
+        background-color: $background1;
+      }
 
       @media (min-width: 768px) {
         width: 99.5%;
@@ -166,11 +174,15 @@ $slider-color: hsl(319, 100%, 47%);
 
       p.introduction {
         padding: 10px;
-        color: rgba($color: #000000, $alpha: 0.8);
+        color: #444;
         margin: 5px 0;
         font-size: 0.8em;
         line-height: 160%;
         letter-spacing: 0.03em;
+        
+        &.dark {
+          color: $text-basic3;
+        }
       }
 
       label {
@@ -245,7 +257,10 @@ $slider-color: hsl(319, 100%, 47%);
           width: 48.2%;
           box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
           text-decoration: none;
-          color: #333;
+          color: #444;
+          &.dark {
+            color: $text-basic3;
+          }
           &:hover {
             transition: box-shadow 0.3s, transform 0.1s;
             box-shadow: 0 0px 10px 1px rgba(0, 0, 0, 0.3),
@@ -301,11 +316,11 @@ $slider-color: hsl(319, 100%, 47%);
               }
 
               p {
-                color: rgba($color: #000000, $alpha: 0.8);
                 margin: 5px 0;
                 font-size: 0.8em;
                 line-height: 130%;
                 letter-spacing: 0.03em;
+                
               }
             }
           }

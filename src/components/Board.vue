@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container" :class="{dark: isDark}">
     <div class="boardContainer">
       <div class="title" :class="{ bingo: bingo && !tooSmall }">
-        <span>B</span>
-        <span>I</span>
-        <span>N</span>
-        <span>G</span>
-        <span>O</span>
+        <span :class="{dark: isDark}">B</span>
+        <span :class="{dark: isDark}">I</span>
+        <span :class="{dark: isDark}">N</span>
+        <span :class="{dark: isDark}">G</span>
+        <span :class="{dark: isDark}">O</span>
       </div>
       <div ref="board" class="board" :key="boardKey">
         <Field
@@ -26,17 +26,18 @@
       </div>
       <div class="controls" v-if="!tooSmall">
         <div class="instructions">
-          <span>{{ $t("message.board.controls.clickToTick") }}</span>
-          <span>{{ $t("message.board.controls.holdForInfo") }}</span>
+          <span :class="{dark: isDark}">{{ $t("message.board.controls.clickToTick") }}</span>
+          <span :class="{dark: isDark}">{{ $t("message.board.controls.holdForInfo") }}</span>
         </div>
         <div class="actions">
           <i
             class="fa fa-share-alt"
+            :class="{dark: isDark}"
             aria-hidden="true"
             :title="$t('message.board.popup.share.title')"
             @click="showSharePopup = true"
           ></i>
-          <button class="shuffle" @click="showShufflePopup = true">
+          <button class="shuffle" @click="showShufflePopup = true" :class="{dark: isDark}">
             {{ $t("message.board.controls.newBoard") }}
           </button>
         </div>
@@ -89,6 +90,7 @@ import ModalBox from "./ModalBox.vue";
 import ConfirmationPopup from "./ConfirmationPopup.vue";
 import Toast from "./Toast.vue";
 import { allFields, fieldType } from "../assets/data";
+import { useDark } from "@vueuse/core";
 
 export default defineComponent({
   name: "Board",
@@ -123,6 +125,7 @@ export default defineComponent({
       toastMessage: "",
       fieldPressedAt: new Date(),
       showInfoBox: false,
+      isDark: useDark()
     };
   },
   methods: {
@@ -361,6 +364,10 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
   height: calc(100vh - 4rem);
   background-color: $background;
 
+  &.dark{
+    background-color: $background2;
+  }
+
   @media (min-width: $bp2) and (min-height: calc($bp2 + $nav-bar-height + $title-height-2 + $footer-height-2)) {
     max-width: calc(
       (100vh - $nav-bar-height - $title-height-2 - $footer-height-2)
@@ -434,29 +441,49 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
           color: white;
           transform: rotate(-5deg);
           background-color: $B;
+          &.dark {
+            background-color: $b-background;
+            color: $text-basic3
+          }
         }
 
         &:nth-child(2) {
           color: white;
           background-color: $I;
           transform: rotate(5deg);
+          &.dark {
+            background-color: $i-background;
+            color: $text-basic3
+          }
         }
 
         &:nth-child(3) {
           background-color: $N;
           color: white;
+          &.dark {
+            background-color: $n-background;
+            color: $text-basic3
+          }
         }
 
         &:nth-child(4) {
           background-color: $G;
           color: white;
           transform: rotate(5deg);
+          &.dark {
+            background-color: $g-background;
+            color: $text-basic3
+          }
         }
 
         &:nth-child(5) {
           background-color: $O;
           color: white;
           transform: rotate(-5deg);
+          &.dark {
+            background-color: $o-background;
+            color: $text-basic3
+          }
         }
       }
     }
@@ -561,6 +588,10 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
             line-height: 150%;
             font-size: 0.75em;
           }
+
+          &.dark {
+            color: $text-basic2
+          }
         }
       }
 
@@ -594,6 +625,10 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
 
           &:active {
             transform: scale(0.98);
+          }
+
+          &.dark {
+            color: $text-basic3;
           }
         }
 
@@ -632,6 +667,11 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
 
           &:active {
             transform: scale(0.98);
+          }
+
+          &.dark {
+            color: $text-basic3;
+            background-color: $background1;
           }
         }
       }

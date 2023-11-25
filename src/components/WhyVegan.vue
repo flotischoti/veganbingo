@@ -118,8 +118,6 @@ export default defineComponent({
 .WhyVeganContainer {
   max-width: 768px;
   margin: 0 auto;
-  color: #333;
-  background-color: #fff;
   overflow-x: hidden;
 
     article {

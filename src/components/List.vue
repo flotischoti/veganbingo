@@ -9,6 +9,7 @@
       v-for="(f, index) in fields"
       :key="f.id"
       class="field"
+      :class="{dark: isDark}"
       :id="'field' + index"
     >
       <div class="topGradient" v-if="index == 0"></div>
@@ -42,6 +43,7 @@ import { allFields, fieldType } from "../assets/data";
 import SideNav from "./SideNav.vue";
 
 import $ from "jquery";
+import { useDark } from "@vueuse/core";
 
 export default defineComponent({
   name: "List",
@@ -67,6 +69,7 @@ export default defineComponent({
       scrollPosition: 0,
       disableScroll: false,
       showSidebar: false,
+      isDark: useDark()
     };
   },
   methods: {
@@ -114,6 +117,7 @@ export default defineComponent({
 
 <style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
+@import "../style/variables.scss";
 
 $totalCount:  62 + 2;
 
@@ -132,12 +136,14 @@ $totalCount:  62 + 2;
     font-size: 0.8em;
 
     @for $i from 1 through $totalCount {
-      $color: hsl(250 * $i, 70%, 40%, 1);
+      
+      $color: hsl(250 * $i, 70%, 15%, 1);
+      $firstColor: $background1;
+      color: $text-basic3;
 
       &:nth-child(#{$i}) {
         @if ($i==1) {
-          background-color: #fff;
-          color: #000;
+          background-color: $firstColor;
           top: 0;
         } @else if($i==$totalCount) {
           background-color: #000;
@@ -145,11 +151,11 @@ $totalCount:  62 + 2;
           top: (100vh * ($i - 1));
         } @else {
           background-color: $color;
-          color: #fff;
           top: (100vh * ($i - 1));
           box-shadow: inset 0 1px 80px rgba(0, 0, 0, 0.14);
         }
         z-index: ($i + 1);
+
         .fixed {
           transform: translate(-50%, -50%);
           z-index: ($i);
