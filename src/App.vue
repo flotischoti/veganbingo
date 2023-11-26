@@ -4,7 +4,7 @@
     class="navbar"
     @navigate="navigate($event)"
   />
-  <main :class="{dark: isDark}">
+  <main :class="{ dark: isDark }">
     <keep-alive :include="include">
       <component :is="navigation" />
     </keep-alive>
@@ -12,28 +12,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Bingo from "./components/Bingo.vue";
-import Navbar from "./components/Navbar.vue";
-import List from "./components/List.vue";
-import Info from "./components/Info.vue";
-import About from "./components/About.vue";
-import WhyVegan from "./components/WhyVegan.vue";
-import { useDark } from "@vueuse/core";
+import { defineComponent } from 'vue';
+import Bingo from './components/Bingo.vue';
+import Navbar from './components/Navbar.vue';
+import List from './components/List.vue';
+import Info from './components/Info.vue';
+import About from './components/About.vue';
+import WhyVegan from './components/WhyVegan.vue';
+import Privacy from './components/Privacy.vue';
+import { useDark } from '@vueuse/core';
 
 export default defineComponent({
-  name: "App",
+  name: 'App',
   data() {
     return {
-      navigation: "Bingo",
-      include: ["Bingo"],
-      isDark: useDark()
+      navigation: 'Bingo',
+      include: ['Bingo'],
+      isDark: useDark(),
     };
   },
   methods: {
     navigate(target: string) {
       this.navigation = target;
-    }
+    },
   },
   components: {
     Navbar,
@@ -42,13 +43,14 @@ export default defineComponent({
     WhyVegan,
     Info,
     About,
+    Privacy,
   },
 });
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Krub:wght@300&display=swap");
-@import "./style/variables";
+@import url('https://fonts.googleapis.com/css2?family=Krub:wght@300&display=swap');
+@import './style/variables';
 
 body,
 html {
@@ -63,24 +65,21 @@ html {
 
 main {
   position: relative;
+  color: #444;
 
   &.dark {
     background-color: $background1;
-    color: $text-basic3
+    color: $text-basic3;
   }
 }
 
-
-
 #app {
-  font-family: "Krub", Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Krub', Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   height: 100%;
 }
-
-
 
 @media (min-width: 768px) {
 }

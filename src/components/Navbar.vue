@@ -4,7 +4,7 @@
       <div class="navBar" :class="{ expanded: expanded, dark: isDark }">
         <div class="menuControl" @click="expanded = !expanded">
           <div class="icon"></div>
-          <div class="heading" :class="{dark: isDark}">
+          <div class="heading" :class="{ dark: isDark }">
             <h1>{{ getNavHeader() }}</h1>
             <h6>{{ getSubHeader() }}</h6>
           </div>
@@ -34,16 +34,16 @@
             <a
               @click="navigate('Bingo')"
               :class="{ active: currentNav == 'Bingo' }"
-              >{{ $t("message.navBar.bingo") }}<span class="space">o</span></a
+              >{{ $t('message.navBar.bingo') }}<span class="space">o</span></a
             >
           </li>
           <li>
             <a
               @click="navigate('List')"
               :class="{ active: currentNav == 'List' }"
-              >{{ $t("message.navBar.allQuotes")
+              >{{ $t('message.navBar.allQuotes')
               }}<span class="space">{{
-                $t("message.navBar.lastChar")
+                $t('message.navBar.lastChar')
               }}</span></a
             >
           </li>
@@ -51,7 +51,7 @@
             <a
               @click="navigate('WhyVegan')"
               :class="{ active: currentNav == 'WhyVegan' }"
-              >{{ $t("message.navBar.whyVegan")
+              >{{ $t('message.navBar.whyVegan')
               }}<span class="space">?</span></a
             >
           </li>
@@ -59,14 +59,24 @@
             <a
               @click="navigate('Info')"
               :class="{ active: currentNav == 'Info' }"
-              >{{ $t("message.navBar.info") }}<span class="space">o</span></a
+              >{{ $t('message.navBar.info') }}<span class="space">o</span></a
             >
           </li>
           <li>
             <a
               @click="navigate('About')"
               :class="{ active: currentNav == 'About' }"
-              >{{ $t("message.navBar.about") }}<span class="space">t</span></a
+              >{{ $t('message.navBar.about') }}<span class="space">t</span></a
+            >
+          </li>
+          <li>
+            <a
+              @click="navigate('Privacy')"
+              :class="{ active: currentNav == 'Privacy' }"
+              >{{ $t('message.navBar.privacy')
+              }}<span class="space">{{
+                $t('message.navBar.privacyLastChar')
+              }}</span></a
             >
           </li>
         </ul>
@@ -102,12 +112,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Toast from "./Toast.vue";
-import { useDark } from "@vueuse/core";
+import { defineComponent } from 'vue';
+import Toast from './Toast.vue';
+import { useDark } from '@vueuse/core';
 
 export default defineComponent({
-  name: "Navbar",
+  name: 'Navbar',
   components: {
     Toast,
   },
@@ -115,7 +125,7 @@ export default defineComponent({
     header: String,
     currentNav: {
       type: String,
-      default: "Bingo",
+      default: 'Bingo',
     },
   },
   data() {
@@ -124,47 +134,52 @@ export default defineComponent({
       hideNav: false,
       scrollBarWidth: 0,
       showToast: false,
-      isDark: useDark()
+      isDark: useDark(),
     };
   },
   methods: {
     getNavHeader() {
       switch (this.currentNav) {
-        case "Bingo":
-          return this.$t("message.navBar.veganBingo");
-        case "List":
+        case 'Bingo':
+          return this.$t('message.navBar.veganBingo');
+        case 'List':
           return (
-            this.$t("message.navBar.allQuotes") +
-            this.$t("message.navBar.lastChar")
+            this.$t('message.navBar.allQuotes') +
+            this.$t('message.navBar.lastChar')
           );
-        case "WhyVegan":
-          return this.$t("message.navBar.whyVegan") + "?";
-        case "Info":
-          return this.$t("message.navBar.info") + "o";
-        case "About":
-          return this.$t("message.navBar.about") + "t";
+        case 'WhyVegan':
+          return this.$t('message.navBar.whyVegan') + '?';
+        case 'Info':
+          return this.$t('message.navBar.info') + 'o';
+        case 'About':
+          return this.$t('message.navBar.about') + 't';
+        case 'Privacy':
+          return (
+            this.$t('message.navBar.privacy') +
+            this.$t('message.navBar.privacyLastChar')
+          );
         default:
-          return "";
+          return '';
       }
     },
     getSubHeader() {
       switch (this.currentNav) {
-        case "Bingo":
-          return this.$t("message.navBar.veganBingoSub");
+        case 'Bingo':
+          return this.$t('message.navBar.veganBingoSub');
         default:
-          return this.$t("message.empty");
+          return this.$t('message.empty');
       }
     },
     changeLanguage() {
-      this.$i18n.locale = this.$i18n.locale.startsWith("de") ? "en" : "de";
+      this.$i18n.locale = this.$i18n.locale.startsWith('de') ? 'en' : 'de';
       if (!this.showToast) {
         setTimeout(() => (this.showToast = false), 3000);
       }
       this.showToast = true;
     },
     navigate(target: string) {
-      window.location.hash = target
-    }
+      window.location.hash = target;
+    },
   },
   watch: {
     currentNav() {
@@ -202,7 +217,7 @@ export default defineComponent({
         lastScrollPos < currentScrollPos &&
         currentScrollPos > navBarHeight + navBarHeight
       ) {
-        this.hideNav = !["About"].includes(this.currentNav);
+        this.hideNav = !['About'].includes(this.currentNav);
         this.expanded = false;
       } else if (
         lastScrollPos > currentScrollPos &&
@@ -215,33 +230,34 @@ export default defineComponent({
       this.scrollBarWidth = (currentScrollPos / (docHeight - winHeight)) * 100;
     };
 
-    window.addEventListener("scroll", fn);
+    window.addEventListener('scroll', fn);
 
     const hashNav = () => {
-      const hash = window.location.hash.replaceAll("#","");
-      if (["Bingo", "List", "WhyVegan", "Info", "About"].includes(hash)) {
+      const hash = window.location.hash.replaceAll('#', '');
+      if (
+        ['Bingo', 'List', 'WhyVegan', 'Info', 'About', 'Privacy'].includes(hash)
+      ) {
         this.$emit('navigate', hash);
       } else {
-        window.location.hash = "Bingo";
+        window.location.hash = 'Bingo';
       }
-    }
+    };
     hashNav();
-    window.addEventListener("hashchange", hashNav);
-    
+    window.addEventListener('hashchange', hashNav);
   },
   computed: {
     getSelectedLang(): string {
-      return this.$i18n.locale == "de"
-        ? this.$t("message.navBar.langChangedDe")
-        : this.$t("message.navBar.langChangedEn");
+      return this.$i18n.locale == 'de'
+        ? this.$t('message.navBar.langChangedDe')
+        : this.$t('message.navBar.langChangedEn');
     },
   },
 });
 </script>
 
 <style scoped lang="scss">
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-@import "../style/variables";
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import '../style/variables';
 
 $menu-color: hsl(319, 100%, 47%);
 $bar-color: $menu-color;
@@ -313,7 +329,7 @@ nav {
           left: 0;
           background: white;
           position: absolute;
-          content: "";
+          content: '';
         }
         &:before {
           top: -8px;
@@ -359,7 +375,7 @@ nav {
       padding-left: 4em;
       cursor: pointer;
       color: white;
-      
+
       h1 {
         letter-spacing: 0.1em;
         text-transform: uppercase;
@@ -375,12 +391,12 @@ nav {
       h6 {
         padding: 0.1em 0;
         margin: 0;
-        font-size: .6em;
-        letter-spacing: .07em;
+        font-size: 0.6em;
+        letter-spacing: 0.07em;
       }
 
-      &.dark{
-        color: $text-basic3
+      &.dark {
+        color: $text-basic3;
       }
     }
 
@@ -501,9 +517,8 @@ nav {
       border-bottom: 1px solid black;
 
       &.dark {
-        background: $menu-background
+        background: $menu-background;
       }
-
     }
   }
 }

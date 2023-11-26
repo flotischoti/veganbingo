@@ -2,74 +2,28 @@
   <div class="InfoContainer">
     <section data-aos="fade-right">
       <h1>
-        <span>{{ $t('message.about.whyBingo.header') }}</span>
+        <span>{{ $t('message.privacyPolicy.header') }}</span>
       </h1>
       <div class="sectionText">
         <p>
-          {{ $t('message.about.whyBingo.paragraph1') }}
+          {{ $t('message.privacyPolicy.paragraph1') }}
         </p>
+        <h2>{{ $t('message.privacyPolicy.header2') }}</h2>
         <p>
-          {{ $t('message.about.whyBingo.paragraph2') }}
+          {{ $t('message.privacyPolicy.paragraph2') }}
         </p>
+        <h2>{{ $t('message.privacyPolicy.header3') }}</h2>
         <p>
-          {{ $t('message.about.whyBingo.paragraph3part1') }}<br />{{
-            $t('message.about.whyBingo.paragraph3part2')
-          }}
+          {{ $t('message.privacyPolicy.paragraph3') }}
         </p>
+        <h2>{{ $t('message.privacyPolicy.header4') }}</h2>
         <p>
-          {{ $t('message.about.whyBingo.paragraph4') }}
+          {{ $t('message.privacyPolicy.paragraph4') }}
         </p>
+        <h2>{{ $t('message.privacyPolicy.header5') }}</h2>
         <p>
-          <span class="quote">{{
-            $t('message.about.whyBingo.paragraph5')
-          }}</span>
+          {{ $t('message.privacyPolicy.paragraph5') }}
         </p>
-      </div>
-    </section>
-    <section data-aos="fade-left">
-      <h1>
-        <span>{{ $t('message.about.sources.header') }}</span>
-      </h1>
-      <div class="sectionText">
-        <p>
-          {{ $t('message.about.sources.paragraph1') }}
-        </p>
-      </div>
-    </section>
-    <section data-aos="fade-left">
-      <h1>
-        <span>{{ $t('message.about.supporter.header') }}</span>
-      </h1>
-      <div class="sectionText">
-        <p>
-          {{ $t('message.about.supporter.paragraph1') }}
-        </p>
-        <ul>
-          <li>
-            <a
-              href="https://twitter.com/Samanthosss"
-              target="_blank"
-              class="fa fa-twitter"
-              ><span>Samanthosss</span></a
-            >
-            <span>{{ $t('message.about.supporter.taskEnglish') }}</span>
-          </li>
-          <li>
-            <a
-              href="https://www.instagram.com/marlonprofuss/"
-              target="_blank"
-              class="fa fa-instagram"
-              ><span>marlonprofuss</span></a
-            >
-            <span>{{ $t('message.about.supporter.taskEnglish') }}</span>
-          </li>
-          <li>
-            <a class="fa fa-female"
-              ><span> {{ $t('message.about.supporter.sMama') }}</span></a
-            >
-            <span>{{ $t('message.about.supporter.taskProofreading') }}</span>
-          </li>
-        </ul>
       </div>
     </section>
   </div>
@@ -79,7 +33,7 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: 'About',
+  name: 'Privacy Statement',
   components: {},
 });
 </script>
@@ -90,6 +44,7 @@ export default defineComponent({
   max-width: 768px;
   margin: 0 auto;
   overflow-x: hidden;
+  height: 100vh;
 
   section {
     font-size: 0.8em;
@@ -128,6 +83,10 @@ export default defineComponent({
       width: 97%;
       margin: 0 auto;
       padding: 10px 0;
+
+      h2 {
+        padding: 0 10px;
+      }
 
       p {
         padding: 0 10px;

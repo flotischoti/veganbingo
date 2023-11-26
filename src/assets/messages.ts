@@ -11,6 +11,8 @@ export const messages = {
         whyVegan: 'Why Vegan',
         info: 'Inf',
         about: 'Abou',
+        privacy: 'Privacy Polic',
+        privacyLastChar: 'y',
         changeLanguage: 'Change language',
         langChangedDe: 'Language: German',
         langChangedEn: 'Language: English',
@@ -610,6 +612,22 @@ export const messages = {
           taskProofreading: 'Proofreading',
         },
       },
+      privacyPolicy: {
+        header: 'Privacy Policy',
+        header1: 'Privacy Policy for vegan.bingo',
+        paragraph1:
+          'By using this website, you hereby consent to the Privacy Policy and agree to its terms.',
+        header2: 'What personal information is collected?',
+        paragraph2:
+          'No data is collected by this website. It is soley rendered on the client side. No further requests to the server are made after initially loading the page. The website is hosted on Uberspace who may save data like IP-Addresses and browser information. This website can not influence this and has no access to that data.',
+        header3: 'Data protection',
+        paragraph3:
+          'This website uses SSL encryption when communicating between server and client. No data is stored on the server.',
+        header4: 'Cookies',
+        paragraph4: 'No cookies are used by this website',
+        header5: 'Data sharing',
+        paragraph5: 'No data is shared by this website with anyone.',
+      },
     },
   },
   de: {
@@ -624,6 +642,8 @@ export const messages = {
         whyVegan: 'Warum Vegan',
         info: 'Inf',
         about: 'Abou',
+        privacy: 'Datenschut',
+        privacyLastChar: 'z',
         changeLanguage: 'Sprache wechseln',
         langChangedDe: 'Sprache: Deutsch',
         langChangedEn: 'Sprache: Englisch',
@@ -1228,6 +1248,21 @@ export const messages = {
           taskEnglish: 'Übersetzung Englisch',
           taskProofreading: 'Korrekturlesen',
         },
+      },
+      privacyPolicy: {
+        header: 'Datenschutz',
+        paragraph1:
+          'Durch die Verwendung dieser Website stimmen Sie der Datenschutzerklärung zu.',
+        header2: 'Welche persönlichen Daten werden gespeichert?',
+        paragraph2:
+          'Es werden keine Daten gespeichert. Die Website wird ausschließlich im Browser gerendert. Nach dem initialen Laden werden keine weiteren Anfragen an den Server gesendet. Die Website ist auf Uberspace gehostet, die eventuell IP-Adresse und Browser-Informationen speichern. Diese Webseite hat darauf keinen Einfluss und kann nicht auf diese Daten zugreifen.',
+        header3: 'Datenschutz',
+        paragraph3:
+          'Die Webseite nutzt SSL Verschlüsselung bei der Kommunikation zwischen Browser und Server. Es werden keine Daten auf dem Server gespeichert.',
+        header4: 'Cookies',
+        paragraph4: 'Die Webseite nutzt keine Cookies.',
+        header5: 'Datenweitergabe',
+        paragraph5: 'Die Webseite teilt keine Daten mit niemandem.',
       },
     },
   },
