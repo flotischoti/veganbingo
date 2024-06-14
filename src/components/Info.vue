@@ -1,7 +1,7 @@
 <template>
-  <div class="InfoContainer" :class="{dark: isDark}">
+  <div class="InfoContainer" :class="{ dark: isDark }">
     <div class="articleWrapper" v-for="(info, index) in infos" :key="index">
-      <h1 :data-aos="getHeaderEffect" :class="{dark: isDark}">
+      <h1 :data-aos="getHeaderEffect" :class="{ dark: isDark }">
         <span>{{ $t(`${info.headline}`) }}</span>
       </h1>
 
@@ -9,10 +9,15 @@
         <p
           v-html="$t(`${info.introduction}`)"
           class="introduction"
-          :class="{dark: isDark}"
+          :class="{ dark: isDark }"
           data-aos="fade-left"
         ></p>
-        <p v-if="index == 0" class="introduction" :class="{dark: isDark}" data-aos="fade-left">
+        <p
+          v-if="index == 0"
+          class="introduction"
+          :class="{ dark: isDark }"
+          data-aos="fade-left"
+        >
           <label>
             <div class="switch">
               <input
@@ -21,7 +26,7 @@
               />
               <span class="slider round"></span>
             </div>
-            <span>{{ $t("message.info.section1.hideMediaNote") }}</span>
+            <span>{{ $t('message.info.section1.hideMediaNote') }}</span>
           </label>
         </p>
         <div class="articleContent">
@@ -58,18 +63,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { infos, media } from "../assets/info";
-import Aos from "aos";
-import { useDark } from "@vueuse/core";
+import { defineComponent } from 'vue';
+import { infos, media } from '../assets/info';
+import Aos from 'aos';
+import { useDark } from '@vueuse/core';
 
 export default defineComponent({
-  name: "Info",
+  name: 'Info',
   data() {
     return {
       infos,
       hideLangUnrelated: false,
-      isDark: useDark()
+      isDark: useDark(),
     };
   },
   components: {},
@@ -86,8 +91,8 @@ export default defineComponent({
         : (mod - 1) * 300;
     },
     getImgUrl(name: string) {
-      var images = require.context("../assets/", false);
-      return images("./" + name);
+      var images = require.context('../assets/', false);
+      return images('./' + name);
     },
     filterMedia(media: media[]): media[] {
       return media.filter(
@@ -99,23 +104,23 @@ export default defineComponent({
   },
   mounted() {
     document
-      .querySelectorAll("img")
-      .forEach((img) => img.addEventListener("load", () => Aos.refresh()));
+      .querySelectorAll('img')
+      .forEach((img) => img.addEventListener('load', () => Aos.refresh()));
     document
-      .querySelectorAll("h1")
-      .forEach((h1) => h1.addEventListener("load", () => Aos.refresh()));
+      .querySelectorAll('h1')
+      .forEach((h1) => h1.addEventListener('load', () => Aos.refresh()));
   },
   computed: {
     getHeaderEffect() {
-      return window.innerWidth > 480 ? "fade-right" : "";
+      return window.innerWidth > 480 ? 'fade-right' : '';
     },
   },
 });
 </script>
 
 <style scoped lang="scss">
-@import url("https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css");
-@import "../style/variables.scss";
+@import url('https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css');
+@import '../style/variables.scss';
 
 $slider-color: hsl(319, 100%, 47%);
 
@@ -146,7 +151,7 @@ $slider-color: hsl(319, 100%, 47%);
       border-radius: 3px;
       margin: 0 auto;
       background-color: #fff;
-      &.dark{
+      &.dark {
         background-color: $background1;
       }
 
@@ -179,7 +184,7 @@ $slider-color: hsl(319, 100%, 47%);
         font-size: 0.8em;
         line-height: 160%;
         letter-spacing: 0.03em;
-        
+
         &.dark {
           color: $text-basic3;
         }
@@ -232,7 +237,7 @@ $slider-color: hsl(319, 100%, 47%);
 
             &:before {
               position: absolute;
-              content: "";
+              content: '';
               height: 1em;
               width: 1em;
               left: 0.2em;
@@ -320,7 +325,6 @@ $slider-color: hsl(319, 100%, 47%);
                 font-size: 0.8em;
                 line-height: 130%;
                 letter-spacing: 0.03em;
-                
               }
             }
           }

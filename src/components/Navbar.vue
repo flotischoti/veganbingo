@@ -233,7 +233,8 @@ export default defineComponent({
     window.addEventListener('scroll', fn);
 
     const hashNav = () => {
-      const hash = window.location.hash.replaceAll('#', '');
+      const hash = new URL(location.href).hash.substring(1).split('?')[0];
+      console.log(hash);
       if (
         ['Bingo', 'List', 'WhyVegan', 'Info', 'About', 'Privacy'].includes(hash)
       ) {

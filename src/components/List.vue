@@ -9,12 +9,16 @@
       v-for="(f, index) in fields"
       :key="f.id"
       class="field"
-      :class="{dark: isDark}"
+      :class="{ dark: isDark }"
       :id="'field' + index"
     >
       <div class="topGradient" v-if="index == 0"></div>
       <div class="fixed">
-        <h1>{{ stripTitle($t(`${f.title}`)) }}</h1>
+        <h1>
+          <span v-if="index > 0 && index < fields.length - 1"
+            >#{{ f.id }} {{ ' ' }}</span
+          >{{ stripTitle($t(`${f.title}`)) }}
+        </h1>
         <p><span v-html="$t(`${f.text}`)" /></p>
       </div>
       <section class="arrow" v-if="index == 0 && !scrolledFurther(0)">
@@ -38,15 +42,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { allFields, fieldType } from "../assets/data";
-import SideNav from "./SideNav.vue";
+import { defineComponent } from 'vue';
+import { allFields, fieldType } from '../assets/data';
+import SideNav from './SideNav.vue';
 
-import $ from "jquery";
-import { useDark } from "@vueuse/core";
+import $ from 'jquery';
+import { useDark } from '@vueuse/core';
 
 export default defineComponent({
-  name: "List",
+  name: 'List',
   components: {
     SideNav,
   },
@@ -56,25 +60,25 @@ export default defineComponent({
         id: -1000,
         selected: false,
         selectable: false,
-        title: "message.list.startSlideTitle",
-        text: "message.list.startSlideText",
+        title: 'message.list.startSlideTitle',
+        text: 'message.list.startSlideText',
       } as fieldType,
       endField: {
         id: 1000,
         selected: false,
         selectable: false,
-        title: "message.list.endSlideTitle",
-        text: "message.list.endSlideText",
+        title: 'message.list.endSlideTitle',
+        text: 'message.list.endSlideText',
       } as fieldType,
       scrollPosition: 0,
       disableScroll: false,
       showSidebar: false,
-      isDark: useDark()
+      isDark: useDark(),
     };
   },
   methods: {
     stripTitle(title: string) {
-      return title.replace(/(<([^>]+)>)/gi, "");
+      return title.replace(/(<([^>]+)>)/gi, '');
     },
     scrolledFurther(fieldIndex: number) {
       return (
@@ -83,13 +87,13 @@ export default defineComponent({
       );
     },
     scroll(targetFieldId: number) {
-      let offset = $("#field" + targetFieldId).offset();
-      $("html, body").animate({ scrollTop: offset ? offset.top : 0 }, 500);
+      let offset = $('#field' + targetFieldId).offset();
+      $('html, body').animate({ scrollTop: offset ? offset.top : 0 }, 500);
     },
     hideSidebar() {
-      this.showSidebar = false;   
+      this.showSidebar = false;
       $('body').css('overflow', 'auto');
-    }
+    },
   },
   mounted() {
     let fn = () => {
@@ -97,12 +101,22 @@ export default defineComponent({
         window.pageYOffset || document.documentElement.scrollTop;
       this.scrollPosition = currentScrollPos;
     };
-    window.addEventListener("scroll", fn);
+    window.addEventListener('scroll', fn);
+    const selectedStmt = new URL(location.href).hash
+      .substring(1)
+      .split('?')
+      .find((s) => s.match('^stmt=[0-9]+$'))
+      ?.split('=')[1];
+    console.log(selectedStmt);
+    if (selectedStmt && !Number.isNaN(selectedStmt))
+      this.scroll(
+        Math.max(Math.min(Number(selectedStmt), this.fields.length - 2), 1)
+      );
   },
   computed: {
     cssVars() {
       return {
-        "--list-count": allFields.length + 2,
+        '--list-count': allFields.length + 2,
       };
     },
     fields(): fieldType[] {
@@ -110,16 +124,16 @@ export default defineComponent({
     },
     getSortedDataFields(): fieldType[] {
       return allFields.sort((a, b) => a.id - b.id);
-    }
+    },
   },
 });
 </script>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Special+Elite&display=swap");
-@import "../style/variables.scss";
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+@import '../style/variables.scss';
 
-$totalCount:  62 + 2;
+$totalCount: 62 + 2;
 
 .list-container {
   width: 100%;
@@ -136,7 +150,6 @@ $totalCount:  62 + 2;
     font-size: 0.8em;
 
     @for $i from 1 through $totalCount {
-      
       $color: hsl(250 * $i, 70%, 15%, 1);
       $firstColor: $background1;
       color: $text-basic3;
@@ -164,7 +177,6 @@ $totalCount:  62 + 2;
               color: white;
             }
           }
-
         }
       }
     }
@@ -198,7 +210,7 @@ $totalCount:  62 + 2;
 
         @media (min-width: 330px) {
           & {
-            font-size: .9em;
+            font-size: 0.9em;
           }
         }
 
@@ -208,7 +220,7 @@ $totalCount:  62 + 2;
           }
         }
 
-        @media (min-width: 480px) and (min-height: 560px){
+        @media (min-width: 480px) and (min-height: 560px) {
           & {
             font-size: 1em;
           }
