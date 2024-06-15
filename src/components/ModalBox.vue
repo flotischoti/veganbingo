@@ -5,7 +5,7 @@
         <h3>{{ title }}</h3>
       </blockquote>
       <div class="text">
-        <span v-html="$t(`${field.text}`)" />
+        <span v-html="$t(`${field?.text}`)" />
       </div>
     </div>
     <div class="controls">
@@ -22,6 +22,8 @@
 <script lang="ts">
 import { useDark } from '@vueuse/core';
 import { defineComponent } from 'vue';
+import { fieldType } from 'src/assets/data';
+import { PropType } from 'vue';
 
 export default defineComponent({
   name: 'ModalBox',
@@ -31,7 +33,7 @@ export default defineComponent({
     };
   },
   props: {
-    field: Object,
+    field: Object as PropType<fieldType>,
     show: Boolean,
   },
   emit: {

@@ -20,17 +20,14 @@
           >{{ stripTitle($t(`${f.title}`)) }}
         </h1>
         <p><span v-html="$t(`${f.text}`)" /></p>
+        <section class="arrow" v-if="index == 0">
+          <div @click.prevent="scroll(index + 1, true)">
+            <span />
+            <span />
+            <span />
+          </div>
+        </section>
       </div>
-      <section class="arrow" v-if="index == 0 && !scrolledFurther(0)">
-        <a
-          @click.prevent="scroll(index + 1)"
-          :style="index == 0 ? { 'padding-top': 125 + 'px' } : ''"
-        >
-          <span class="black" />
-          <span class="black" />
-          <span class="black" />
-        </a>
-      </section>
     </div>
     <SideNav
       :show="showSidebar"
@@ -95,11 +92,14 @@ export default defineComponent({
       window.location.hash = `#List?stmt=${targetFieldId}`;
       navigator.clipboard.writeText(location.href);
       this.toast(this.$t('message.board.toast.urlCopied'));
-      this.scroll(targetFieldId);
+      this.scroll(targetFieldId, true);
     },
-    scroll(targetFieldId: number) {
+    scroll(targetFieldId: number, animate = false) {
       let offset = $('#field' + targetFieldId).offset();
-      $('html, body').animate({ scrollTop: offset ? offset.top : 0 }, 500);
+      console.log(animate);
+      if (animate)
+        $('html, body').animate({ scrollTop: offset ? offset.top : 0 }, 250);
+      else $('html, body').scrollTop(offset ? offset.top : 0);
     },
     hideSidebar() {
       this.showSidebar = false;
@@ -114,22 +114,18 @@ export default defineComponent({
     },
   },
   mounted() {
-    let fn = () => {
-      let currentScrollPos =
-        window.pageYOffset || document.documentElement.scrollTop;
-      this.scrollPosition = currentScrollPos;
-    };
-    window.addEventListener('scroll', fn);
     const selectedStmt = new URL(location.href).hash
       .substring(1)
       .split('?')
       .find((s) => s.match('^stmt=[0-9]+$'))
       ?.split('=')[1];
-    console.log(selectedStmt);
-    if (selectedStmt && !Number.isNaN(selectedStmt))
-      this.scroll(
-        Math.max(Math.min(Number(selectedStmt), this.fields.length - 2), 1)
-      );
+    const stmtGiven = selectedStmt && !Number.isNaN(selectedStmt);
+    if (stmtGiven)
+      setTimeout(() => {
+        this.scroll(
+          Math.max(Math.min(Number(selectedStmt), this.fields.length - 2), 1)
+        );
+      }, 1100);
   },
   computed: {
     cssVars() {
@@ -257,13 +253,9 @@ $totalCount: 62 + 2;
       }
     }
     .arrow {
-      a {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
+      div {
+        position: relative;
         display: inline-block;
-        -webkit-transform: translate(0, -50%);
-        transform: translate(0, -50%);
         transition: opacity 0.3s;
         cursor: pointer;
         padding-top: 44px;
@@ -280,14 +272,16 @@ $totalCount: 62 + 2;
           position: absolute;
           top: 0;
           left: 50%;
-          width: 24px;
-          height: 24px;
+          width: 12px;
+          height: 12px;
           margin-left: -12px;
           -webkit-animation: sdb07 2s infinite;
           animation: sdb07 2s infinite;
           opacity: 0;
           -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
+          border-left: 1px solid #777;
+          border-bottom: 1px solid #777;
 
           &:nth-of-type(1) {
             -webkit-animation-delay: 0s;
@@ -302,11 +296,6 @@ $totalCount: 62 + 2;
             top: 32px;
             -webkit-animation-delay: 0.3s;
             animation-delay: 0.3s;
-          }
-
-          &.black {
-            border-left: 1px solid #000;
-            border-bottom: 1px solid #000;
           }
         }
       }
