@@ -31,4 +31,6 @@ npm run serve
 
 ```
 npm run build
+
+Currently only compatible with Node 16
 ```

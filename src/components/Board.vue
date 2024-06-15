@@ -1,12 +1,12 @@
 <template>
-  <div class="container" :class="{dark: isDark}">
+  <div class="container" :class="{ dark: isDark }">
     <div class="boardContainer">
       <div class="title" :class="{ bingo: bingo && !tooSmall }">
-        <span :class="{dark: isDark}">B</span>
-        <span :class="{dark: isDark}">I</span>
-        <span :class="{dark: isDark}">N</span>
-        <span :class="{dark: isDark}">G</span>
-        <span :class="{dark: isDark}">O</span>
+        <span :class="{ dark: isDark }">B</span>
+        <span :class="{ dark: isDark }">I</span>
+        <span :class="{ dark: isDark }">N</span>
+        <span :class="{ dark: isDark }">G</span>
+        <span :class="{ dark: isDark }">O</span>
       </div>
       <div ref="board" class="board" :key="boardKey">
         <Field
@@ -26,19 +26,27 @@
       </div>
       <div class="controls" v-if="!tooSmall">
         <div class="instructions">
-          <span :class="{dark: isDark}">{{ $t("message.board.controls.clickToTick") }}</span>
-          <span :class="{dark: isDark}">{{ $t("message.board.controls.holdForInfo") }}</span>
+          <span :class="{ dark: isDark }">{{
+            $t('message.board.controls.clickToTick')
+          }}</span>
+          <span :class="{ dark: isDark }">{{
+            $t('message.board.controls.holdForInfo')
+          }}</span>
         </div>
         <div class="actions">
           <i
             class="fa fa-share-alt"
-            :class="{dark: isDark}"
+            :class="{ dark: isDark }"
             aria-hidden="true"
             :title="$t('message.board.popup.share.title')"
             @click="showSharePopup = true"
           ></i>
-          <button class="shuffle" @click="showShufflePopup = true" :class="{dark: isDark}">
-            {{ $t("message.board.controls.newBoard") }}
+          <button
+            class="shuffle"
+            @click="showShufflePopup = true"
+            :class="{ dark: isDark }"
+          >
+            {{ $t('message.board.controls.newBoard') }}
           </button>
         </div>
       </div>
@@ -47,7 +55,7 @@
         :field="selectedField"
         :show="showInfoBox"
         @close="showInfoBox = false"
-        @copy="copyText"
+        @copy="copyFieldUrl"
       />
       <ConfirmationPopup
         v-if="!tooSmall"
@@ -57,11 +65,11 @@
         @cancel="showShufflePopup = false"
         @confirm="userShuffleFields"
       >
-        <span>{{ $t("message.board.popup.shuffle.text") }}</span>
+        <span>{{ $t('message.board.popup.shuffle.text') }}</span>
         <a class="popupTextLink" @click="navigate">{{
-          $t("message.board.popup.shuffle.text2")
+          $t('message.board.popup.shuffle.text2')
         }}</a>
-        <span>{{ $t("message.board.popup.shuffle.text3") }}</span>
+        <span>{{ $t('message.board.popup.shuffle.text3') }}</span>
       </ConfirmationPopup>
       <ConfirmationPopup
         v-if="!tooSmall"
@@ -77,23 +85,23 @@
       <Toast v-if="!tooSmall" :text="toastMessage" :show="showToast" />
     </div>
     <div class="warning" v-if="tooSmall">
-      {{ $t("message.board.tooSmall") }}
+      {{ $t('message.board.tooSmall') }}
     </div>
-    <div class="gradient" :class="{dark: isDark}"></div>
+    <div class="gradient" :class="{ dark: isDark }"></div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import Field from "./Field.vue";
-import ModalBox from "./ModalBox.vue";
-import ConfirmationPopup from "./ConfirmationPopup.vue";
-import Toast from "./Toast.vue";
-import { allFields, fieldType } from "../assets/data";
-import { useDark } from "@vueuse/core";
+import { defineComponent } from 'vue';
+import Field from './Field.vue';
+import ModalBox from './ModalBox.vue';
+import ConfirmationPopup from './ConfirmationPopup.vue';
+import Toast from './Toast.vue';
+import { allFields, fieldType } from '../assets/data';
+import { useDark } from '@vueuse/core';
 
 export default defineComponent({
-  name: "Board",
+  name: 'Board',
   components: {
     Field,
     ModalBox,
@@ -108,7 +116,7 @@ export default defineComponent({
       middleField: {
         id: 0,
         selected: false,
-        title: "",
+        title: '',
         selectable: false,
       } as fieldType,
       selectedField: {} as fieldType,
@@ -122,10 +130,10 @@ export default defineComponent({
       showShufflePopup: false,
       showSharePopup: false,
       showToast: false,
-      toastMessage: "",
+      toastMessage: '',
       fieldPressedAt: new Date(),
       showInfoBox: false,
-      isDark: useDark()
+      isDark: useDark(),
     };
   },
   methods: {
@@ -209,13 +217,13 @@ export default defineComponent({
     },
     initBoardFromUrl(): boolean {
       const urlParams = new URLSearchParams(window.location.search);
-      if (!urlParams.has("fields")) {
+      if (!urlParams.has('fields')) {
         return false;
       }
 
       const fields = urlParams
-        .get("fields")
-        ?.split(",")
+        .get('fields')
+        ?.split(',')
         .filter((s) => s)
         .map((s) => Number(s));
       if (
@@ -223,7 +231,7 @@ export default defineComponent({
         fields.length != 24 ||
         this.hasIllegalContent(fields, 1, allFields.length)
       ) {
-        this.toast(this.$t("message.board.toast.initError"));
+        this.toast(this.$t('message.board.toast.initError'));
         return false;
       }
 
@@ -235,10 +243,10 @@ export default defineComponent({
       });
       this.resetBingo();
 
-      if (urlParams.has("selected")) {
+      if (urlParams.has('selected')) {
         const selected = urlParams
-          .get("selected")
-          ?.split(",")
+          .get('selected')
+          ?.split(',')
           .filter((s) => s)
           .map((s) => Number(s));
         if (
@@ -248,7 +256,7 @@ export default defineComponent({
           selected.length >= 25 ||
           this.hasIllegalContent(selected, 0, 24)
         ) {
-          this.toast(this.$t("message.board.toast.initError"));
+          this.toast(this.$t('message.board.toast.initError'));
           return false;
         }
         selected.forEach((i) => {
@@ -256,7 +264,7 @@ export default defineComponent({
           this.checkBingo(this.fields[i], i);
         });
       }
-      this.$emit("initialized");
+      this.$emit('initialized');
       return true;
     },
     hasIllegalContent(
@@ -275,11 +283,11 @@ export default defineComponent({
     copy() {
       this.showSharePopup = false;
       navigator.clipboard.writeText(this.getUrl);
-      this.toast(this.$t("message.board.toast.urlCopied"));
+      this.toast(this.$t('message.board.toast.urlCopied'));
     },
-    copyText() {
+    copyFieldUrl() {
       this.showInfoBox = false;
-      this.toast(this.$t("message.board.toast.textCopied"));
+      this.toast(this.$t('message.board.toast.urlCopied'));
     },
     toast(text: string) {
       this.toastMessage = text;
@@ -290,7 +298,7 @@ export default defineComponent({
     },
     navigate() {
       this.showShufflePopup = false;
-      window.location.hash = "List";
+      window.location.hash = 'List';
     },
   },
   emits: {
@@ -310,27 +318,27 @@ export default defineComponent({
   computed: {
     getUrl(): string {
       let fields =
-        "fields=" +
+        'fields=' +
         this.fields
           .filter((f) => f.id > 0)
           .map((f) => f.id)
-          .join(",");
+          .join(',');
       let selected =
-        "selected=" +
+        'selected=' +
         this.fields
           .map((f, i) => {
             return { f, i };
           })
           .filter((o) => o.f.selected)
           .map((o) => o.i)
-          .join(",");
+          .join(',');
       let port = window.location.port;
       return (
         window.location.hostname +
-        (port ? ":" + port : "") +
-        "/?" +
+        (port ? ':' + port : '') +
+        '/?' +
         fields +
-        "&" +
+        '&' +
         selected
       );
     },
@@ -339,8 +347,8 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap");
-@import "../style/variables";
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+@import '../style/variables';
 
 $background: rgb(254, 205, 4);
 $B: hsl(0, 100%, 50%);
@@ -364,7 +372,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
   height: calc(100vh - 4rem);
   background-color: $background;
 
-  &.dark{
+  &.dark {
     background-color: $background2;
   }
 
@@ -408,7 +416,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
       }
 
       span {
-        font-family: "Mochiy Pop P One", sans-serif;
+        font-family: 'Mochiy Pop P One', sans-serif;
         font-size: 2rem;
         width: 20%;
         text-align: center;
@@ -443,7 +451,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
           background-color: $B;
           &.dark {
             background-color: $b-background;
-            color: $text-basic3
+            color: $text-basic3;
           }
         }
 
@@ -453,7 +461,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
           transform: rotate(5deg);
           &.dark {
             background-color: $i-background;
-            color: $text-basic3
+            color: $text-basic3;
           }
         }
 
@@ -462,7 +470,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
           color: white;
           &.dark {
             background-color: $n-background;
-            color: $text-basic3
+            color: $text-basic3;
           }
         }
 
@@ -472,7 +480,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
           transform: rotate(5deg);
           &.dark {
             background-color: $g-background;
-            color: $text-basic3
+            color: $text-basic3;
           }
         }
 
@@ -482,7 +490,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
           transform: rotate(-5deg);
           &.dark {
             background-color: $o-background;
-            color: $text-basic3
+            color: $text-basic3;
           }
         }
       }
@@ -590,7 +598,7 @@ $actionColorHover: hsla(0, 50%, 50%, 1);
           }
 
           &.dark {
-            color: $text-basic2
+            color: $text-basic2;
           }
         }
       }

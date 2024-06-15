@@ -1,6 +1,6 @@
 <template>
   <div class="modalBox" :class="{ fadeIn: show, fadeOut: !show, dark: isDark }">
-    <div class="content" :class="{dark: isDark}">
+    <div class="content" :class="{ dark: isDark }">
       <blockquote class="header">
         <h3>{{ title }}</h3>
       </blockquote>
@@ -9,26 +9,26 @@
       </div>
     </div>
     <div class="controls">
-      <button class="close" :class="{dark: isDark}" @click="$emit('close')">
-        <i class="fas fa-times"></i> {{ $t("message.board.popup.close") }}
+      <button class="close" :class="{ dark: isDark }" @click="$emit('close')">
+        <i class="fas fa-times"></i> {{ $t('message.board.popup.close') }}
       </button>
-      <button class="copy" :class="{dark: isDark}" @click="copy">
-        <i class="fas fa-copy"></i> {{ $t("message.board.popup.copy") }}
+      <button class="copy" :class="{ dark: isDark }" @click="copy">
+        <i class="fas fa-copy"></i> {{ $t('message.board.popup.copy') }}
       </button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { useDark } from "@vueuse/core";
-import { defineComponent } from "vue";
+import { useDark } from '@vueuse/core';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
-  name: "ModalBox",
+  name: 'ModalBox',
   data() {
     return {
-      isDark: useDark()
-    }
+      isDark: useDark(),
+    };
   },
   props: {
     field: Object,
@@ -41,29 +41,26 @@ export default defineComponent({
   computed: {
     title() {
       return this.field && this.field.title
-        ? this.$t(`${this.field.title}`).replace(/(<([^>]+)>)/gi, "")
-        : "";
+        ? this.$t(`${this.field.title}`).replace(/(<([^>]+)>)/gi, '')
+        : '';
     },
   },
   methods: {
     copy() {
       navigator.clipboard.writeText(
-        this.stripText(this.$t(this.field?.title)) +
-          " - " +
-          this.stripText(this.$t(this.field?.text))
+        `${location.host}/#List?stmt=${this.field?.id}`
       );
-      this.$emit("copy");
+      this.$emit('copy');
     },
     stripText(title: string) {
-      return title.replace(/(<([^>]+)>)/gi, "");
+      return title.replace(/(<([^>]+)>)/gi, '');
     },
   },
 });
 </script>
 
 <style scoped lang="scss">
-
-@import "../style/variables.scss";
+@import '../style/variables.scss';
 .modalBox {
   position: absolute;
   opacity: 0.98;
@@ -141,18 +138,18 @@ export default defineComponent({
       &::after {
         position: absolute;
         height: 3rem;
-        font: 6rem/100% Georgia, "Times New Roman", Times, serif;
+        font: 6rem/100% Georgia, 'Times New Roman', Times, serif;
         font-size: 4em;
       }
 
       &::before {
-        content: "“";
+        content: '“';
         top: -0.4em;
         left: 0;
       }
 
       &::after {
-        content: "”";
+        content: '”';
         bottom: -0.65em;
         right: 0;
       }
@@ -191,7 +188,7 @@ export default defineComponent({
       }
 
       &::before {
-        content: "";
+        content: '';
         position: absolute;
         top: 0;
         left: 0;

@@ -14,9 +14,9 @@
     >
       <div class="topGradient" v-if="index == 0"></div>
       <div class="fixed">
-        <h1>
+        <h1 @click="scrollAndSetHash(index)">
           <span v-if="index > 0 && index < fields.length - 1"
-            >#{{ f.id }} {{ ' ' }}</span
+            ><i class="fa fa-link"></i>{{ ` ${f.id}` }}{{ ': ' }}</span
           >{{ stripTitle($t(`${f.title}`)) }}
         </h1>
         <p><span v-html="$t(`${f.text}`)" /></p>
@@ -38,6 +38,7 @@
       @scroll="scroll($event + 1)"
       @show="showSidebar = $event"
     />
+    <Toast :text="toastMessage" :show="showToast" />
   </div>
 </template>
 
@@ -48,11 +49,13 @@ import SideNav from './SideNav.vue';
 
 import $ from 'jquery';
 import { useDark } from '@vueuse/core';
+import Toast from './Toast.vue';
 
 export default defineComponent({
   name: 'List',
   components: {
     SideNav,
+    Toast,
   },
   data() {
     return {
@@ -70,6 +73,8 @@ export default defineComponent({
         title: 'message.list.endSlideTitle',
         text: 'message.list.endSlideText',
       } as fieldType,
+      showToast: false,
+      toastMessage: '',
       scrollPosition: 0,
       disableScroll: false,
       showSidebar: false,
@@ -86,6 +91,12 @@ export default defineComponent({
         window.innerHeight * fieldIndex + (10 / 100) * window.innerHeight
       );
     },
+    scrollAndSetHash(targetFieldId: number) {
+      window.location.hash = `#List?stmt=${targetFieldId}`;
+      navigator.clipboard.writeText(location.href);
+      this.toast(this.$t('message.board.toast.urlCopied'));
+      this.scroll(targetFieldId);
+    },
     scroll(targetFieldId: number) {
       let offset = $('#field' + targetFieldId).offset();
       $('html, body').animate({ scrollTop: offset ? offset.top : 0 }, 500);
@@ -93,6 +104,13 @@ export default defineComponent({
     hideSidebar() {
       this.showSidebar = false;
       $('body').css('overflow', 'auto');
+    },
+    toast(text: string) {
+      this.toastMessage = text;
+      if (!this.showToast) {
+        setTimeout(() => (this.showToast = false), 3000);
+      }
+      this.showToast = true;
     },
   },
   mounted() {
@@ -197,6 +215,12 @@ $totalCount: 62 + 2;
       h1 {
         line-height: 110%;
         font-size: 1.5em;
+        cursor: pointer;
+
+        i {
+          font-size: 0.85em;
+        }
+
         @media (min-width: 480px) {
           & {
             font-size: 2em;

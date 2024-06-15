@@ -1,20 +1,53 @@
 <template>
-  <div ref="popupContainer" class="popupContainer" :class="{visible: show}" @click="$emit('cancel')" @keyup.enter="$emit('confirm')" @keyup.esc="$emit('cancel')" tabindex="0" >
-    <div class="popup"  :class="{dark: isDark}" @click.stop>
+  <div
+    ref="popupContainer"
+    class="popupContainer"
+    :class="{ visible: show }"
+    @click="$emit('cancel')"
+    @keyup.enter="$emit('confirm')"
+    @keyup.esc="$emit('cancel')"
+    tabindex="0"
+  >
+    <div class="popup" :class="{ dark: isDark }" @click.stop>
       <div class="header">
-        <span>{{title}}</span>
-        <i class="fa fa-window-close" aria-hidden="true" @click="$emit('cancel')"/>
+        <span>{{ title }}</span>
+        <i
+          class="fa fa-window-close"
+          aria-hidden="true"
+          @click="$emit('cancel')"
+        />
       </div>
-      <div class="text" :class="{dark: isDark}">
+      <div class="text" :class="{ dark: isDark }">
         <slot></slot>
       </div>
       <div class="buttons">
-        <button class="cancel" :class="{dark: isDark}" @click="$emit('cancel')" v-if="confirmButtons">{{$t("message.board.popup.cancel")}}</button>
-        <button class="confirm" :class="{dark: isDark}" @click="$emit('confirm')" v-if="confirmButtons">{{$t("message.board.popup.confirm")}}</button>
-        <button class="copy" :class="{dark: isDark}" @click="$emit('copy')" v-if="copyButton"><i class="fas fa-copy"></i>  {{$t("message.board.popup.copy")}}</button>
+        <button
+          class="cancel"
+          :class="{ dark: isDark }"
+          @click="$emit('cancel')"
+          v-if="confirmButtons"
+        >
+          {{ $t('message.board.popup.cancel') }}
+        </button>
+        <button
+          class="confirm"
+          :class="{ dark: isDark }"
+          @click="$emit('confirm')"
+          v-if="confirmButtons"
+        >
+          {{ $t('message.board.popup.confirm') }}
+        </button>
+        <button
+          class="copy"
+          :class="{ dark: isDark }"
+          @click="$emit('copy')"
+          v-if="copyButton"
+        >
+          <i class="fas fa-copy"></i> {{ $t('message.board.popup.copyGame') }}
+        </button>
       </div>
     </div>
-    <div class="background" :class="{visible: show}"/>
+    <div class="background" :class="{ visible: show }" />
   </div>
 </template>
 
@@ -26,8 +59,8 @@ export default defineComponent({
   name: 'ConfirmationPopup',
   data() {
     return {
-      isDark: useDark()
-    }
+      isDark: useDark(),
+    };
   },
   props: {
     title: String,
@@ -44,17 +77,17 @@ export default defineComponent({
   watch: {
     show() {
       if (this.show) {
-        (this.$refs.popupContainer as HTMLElement).focus(); 
+        (this.$refs.popupContainer as HTMLElement).focus();
       } else {
-        (this.$refs.popupContainer as HTMLElement).blur(); 
+        (this.$refs.popupContainer as HTMLElement).blur();
       }
-    }
-  }
+    },
+  },
 });
 </script>
 
 <style scoped lang="scss">
-@import "../style/variables.scss";
+@import '../style/variables.scss';
 
 .popupContainer {
   background-color: transparent;
@@ -67,19 +100,19 @@ export default defineComponent({
   justify-content: center;
   opacity: 0;
   z-index: 0;
-  transition: all .1s;
+  transition: all 0.1s;
 
   &.visible {
     opacity: 1;
     z-index: 200;
-    transition: opacity .2s;
+    transition: opacity 0.2s;
   }
 
   .popup {
     width: 80%;
     height: max-content;
     background-color: #fff;
-    border-radius: .33em;
+    border-radius: 0.33em;
     padding: 0;
     color: #444;
     margin-top: 6em;
@@ -87,19 +120,19 @@ export default defineComponent({
     z-index: 201;
 
     &.dark {
-        background: $background2;
-        color: $text-basic3;
-      }
+      background: $background2;
+      color: $text-basic3;
+    }
 
     .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: .5em;
+      padding: 0.5em;
       background-color: hsl(0, 0%, 13%);
       color: #fff;
-      font-size: 1.0em;
-      letter-spacing: .1em;
+      font-size: 1em;
+      letter-spacing: 0.1em;
 
       @media (min-width: 480px) {
         font-size: 1.1em;
@@ -109,23 +142,20 @@ export default defineComponent({
         cursor: pointer;
 
         &:hover {
-          opacity: .8;
+          opacity: 0.8;
         }
       }
-
     }
     .text {
-      padding: 2em .5em;
-      font-size: .8em;
+      padding: 2em 0.5em;
+      font-size: 0.8em;
       line-height: 160%;
-      letter-spacing: .03em;
+      letter-spacing: 0.03em;
       word-break: break-word;
 
       @media (min-width: 480px) {
-        font-size: .9em;
+        font-size: 0.9em;
       }
-
-      
     }
 
     .buttons {
@@ -139,17 +169,23 @@ export default defineComponent({
         border: none;
         cursor: pointer;
         color: #fff;
-        font-size: .9em;
-        letter-spacing: .1em;
+        font-size: 0.9em;
+        letter-spacing: 0.1em;
         user-select: none;
-        -webkit-tap-highlight-color: rgba(0,0,0,0); // Remove stupid blue box when clicking on safari/chrome
+        -webkit-tap-highlight-color: rgba(
+          0,
+          0,
+          0,
+          0
+        ); // Remove stupid blue box when clicking on safari/chrome
 
         @media (min-width: 480px) {
           font-size: 1em;
         }
 
-        &:hover, &:active {
-          opacity: .8;
+        &:hover,
+        &:active {
+          opacity: 0.8;
         }
 
         &:focus {
@@ -168,33 +204,28 @@ export default defineComponent({
         background: rgb(147, 210, 79);
 
         &.dark {
-          background: $confirm
+          background: $confirm;
         }
       }
 
       .copy {
         width: 100%;
         background: rgb(79, 99, 210);
-        
+
         &.dark {
           background: $copy;
         }
       }
-
     }
-
-    
-
   }
   .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: hsla(0, 0%, 0%, 0.9);
-      transition: all .1s;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: hsla(0, 0%, 0%, 0.9);
+    transition: all 0.1s;
+  }
 }
-
 </style>

@@ -23,7 +23,8 @@ export const messages = {
         popup: {
           cancel: 'No',
           confirm: 'Yes',
-          copy: 'Copy',
+          copy: 'Copy link',
+          copyGame: 'Copy board',
           close: 'Close',
           shuffle: {
             title: 'New Game?',
@@ -654,7 +655,8 @@ export const messages = {
         popup: {
           cancel: 'Nein',
           confirm: 'Ja',
-          copy: 'Kopieren',
+          copy: 'Link kopieren',
+          copyGame: 'Spielfeld teilen',
           close: 'Schließen',
           shuffle: {
             title: 'Neues Spiel?',
@@ -723,7 +725,7 @@ export const messages = {
             'Das klingt wie ein Versuch, den Veganismus als unverünftig und irrational zu diskreditieren, um sich gar nicht erst ernsthaft damit beschäftigen zu müssen.<br>Da die Idee des Veganismus allerdings auf Fakten, Logik und Vernunft basiert, handelt es sich eher um das genaue Gegenteil einer Religion.<br>Wer hingegen Tierprodukte isst, folgt meist unreflektiert einer Tradition, ignoriert die Fakten oder lehnt sie mit der Begründung ab: "Das haben wir schon immer so gemacht".<br><br>Klingt irgendwie mehr nach Religion...',
         },
         field8: {
-          quote: 'Warum sehen vegane Produkte wie Fleisch aus?',
+          quote: 'Vegane Produkte machen Fleisch nach',
           statement:
             'Kaum eine veganlebende Person hat aufgehört, Tierprodukte zu essen, weil sie ihr nicht schmecken, sondern weil sie nicht länger die ethischen, ökologischen und weltgesundheitlichen Konsequenzen für ein kurzes Vergnügen in Kauf nehmen möchte. Den meisten VeganerInnen schmecken Fleisch, Käse und Eier und darum ist es doch schön, wenn auch sie in den Genuss kommen können. Zudem erleichtert es den Umstieg für viele, die das System auch nicht länger unterstützen wollen. Ersatzprodukte sind nicht unehrlich, sondern eine super Sache, die die ohnehin schon vielfältige vegane Küche noch erweitert.',
         },
