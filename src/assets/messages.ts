@@ -190,7 +190,7 @@ export const messages = {
         field27: {
           quote: "The animals wouldn't have existed at all w/o breeding",
           statement:
-            "So, should one see it as an altruistic act of charity to bring animals into the world in slavery? And later one takes this gift of life away from them again because ...?<br>It is rather that something that does not exist and was never planned, is not missed and doesn't miss life.<br>Let's just leave it in this peaceful state. Some torture breedings don't have much to do with the animals in nature anymore anyway. Their non-existence would be better in the end. On the other hand, about 1/3 of the human-caused species extinction is caused by habitat destruction for animal farming and fodder cultivation. Let's rather free up these spaces for natural biodiversity again.",
+            "So, should one see it as an altruistic act of charity to bring animals into the world in slavery-like conditions? And later one takes this 'gift of life' away from them again because ...?<br>It is rather that something that does not exist and was never planned, is not missed and doesn't miss life.<br>Let's just leave it in this peaceful state. Some torture breedings don't have much to do with the animals in nature anymore anyway. Their non-existence would be better in the end. On the other hand, about 1/3 of the human-caused species extinction is caused by habitat destruction for animal farming and fodder cultivation. Let's rather free up these spaces for natural biodiversity again.",
         },
         field28: {
           quote: 'What about <b>B12</b>?',
@@ -822,7 +822,7 @@ export const messages = {
         field27: {
           quote: 'Ohne Tiermast lebten viele Tiere gar nicht erst',
           statement:
-            'Soll man es also als altruistischen Akt der Nächstenliebe sehen, Tiere in Sklaverei zur Welt zu bringen? Und später nimmt man ihnen dieses Geschenk des Lebens wieder, weil ...?<br>Es ist doch eher so, dass etwas, das es nicht gibt und nie geplant war, nicht fehlt und selbst das Leben nicht vermisst.<br>Belassen wir es doch einfach in disesem friedvollen Zustand. Manche Qualzuchten haben ohnehin nicht mehr viel mit den Tieren in der Natur zu tun. Ihre Nichtexistenz wäre am Ende besser. Dem gegenüber stehen ca. 1/3 des menschenbedingten Artensterbens durch Lebensraumzerstärung für Tierhaltung und Futteranbau. Lasst uns diese Räume lieber wieder für natürliche Artenvielfalt freigeben.',
+            'Soll man es also als altruistischen Akt der Nächstenliebe sehen, Tieren ein fürchterliches Leben zu geben? Und später nimmt man ihnen dieses "Geschenk" des Lebens wieder, weil ...?<br>Es ist doch eher so, dass etwas, das es nicht gibt und nie geplant war, nicht fehlt und selbst das Leben nicht vermisst.<br>Belassen wir es doch einfach in disesem friedvollen Zustand. Manche Qualzuchten haben ohnehin nicht mehr viel mit den Tieren in der Natur zu tun. Ihre Nichtexistenz wäre am Ende besser. Dem gegenüber stehen ca. 1/3 des menschenbedingten Artensterbens durch Lebensraumzerstärung für Tierhaltung und Futteranbau. Lasst uns diese Räume lieber wieder für natürliche Artenvielfalt freigeben.',
         },
         field28: {
           quote: 'Was ist mit <b>B12</b>?',
@@ -916,7 +916,7 @@ export const messages = {
         field46: {
           quote: '<b>Käse</b> ist einfach zu lecker',
           statement:
-            'Käse ist schon lecker. Aber ist er so lecker, dass wir in Kauf nehmen wollen, dass Kühe jährlich gewaltsam geschwängert werden? Dass man Müttern ihre Kinder wegnimmt und sie ermordet oder ebenfalls versklavt? Dass man Hochleistungskühe züchtet, die unter der Größe ihrer Euter leiden? Dass man weibliche Tiere zu Milchmaschinen degradiert? Milch, die uns nicht zusteht. Dass man Kühe nach wenigen Jahren ermordet, weil es produktiver ist, ein neues Tier zu verwenden?<br>Doch zum Glück vergeht die Lust auf Käse, wenn es einmal klick gemacht hat. Der Gedanke "das ist es nicht Wert" wird dann immer überwiegen. Und für den Heißhunger gibt es mittlerweile passable Ersatzprodukte.',
+            'Käse ist schon lecker. Aber ist er so lecker, dass wir in Kauf nehmen wollen, dass Kühe jährlich gewaltsam geschwängert werden? Dass man Müttern ihre Kinder wegnimmt und sie ermordet oder ebenfalls ausbeutet? Dass man Hochleistungskühe züchtet, die unter der Größe ihrer Euter leiden? Dass man weibliche Tiere zu Milchmaschinen degradiert? Milch, die uns nicht zusteht. Dass man Kühe nach wenigen Jahren ermordet, weil es produktiver ist, ein neues Tier zu verwenden?<br>Doch zum Glück vergeht die Lust auf Käse, wenn es einmal klick gemacht hat. Der Gedanke "das ist es nicht Wert" wird dann immer überwiegen. Und für den Heißhunger gibt es mittlerweile passable Ersatzprodukte.',
         },
         field47: {
           quote: 'Veganer retten die <b>Umwelt</b> auch nicht',

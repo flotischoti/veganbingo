@@ -7,7 +7,7 @@
       <a href="javascript:void(0)" class="closebtn" @click="doHide">&times;</a>
       <div class="linkContainer">
         <span v-for="(title, index) in titles" :key="index">
-          <a @click="navigate(index)">
+          <a @click="navigate(index, title)">
             #{{ index + 1 }}{{ ' ' }} {{ title }}
           </a>
         </span>
@@ -19,6 +19,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import $ from 'jquery';
+import { getHash } from '@/util/url';
+import { PropType } from 'vue';
 
 export default defineComponent({
   name: 'SideNav',
@@ -28,7 +30,7 @@ export default defineComponent({
   props: {
     show: Boolean,
     titles: {
-      type: Array,
+      type: Array as PropType<string[]>,
     },
   },
   methods: {
@@ -40,9 +42,9 @@ export default defineComponent({
       this.$emit('show', false);
       $('body').css('overflow', 'auto');
     },
-    navigate(index: number) {
+    navigate(index: number, title: string) {
       this.doHide();
-      window.location.hash = `#List?stmt=${index + 1}`;
+      window.location.hash = getHash(index + 1, title);
       this.$emit('scroll', index);
     },
   },

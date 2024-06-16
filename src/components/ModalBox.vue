@@ -24,6 +24,7 @@ import { useDark } from '@vueuse/core';
 import { defineComponent } from 'vue';
 import { fieldType } from 'src/assets/data';
 import { PropType } from 'vue';
+import { getHash } from '@/util/url';
 
 export default defineComponent({
   name: 'ModalBox',
@@ -49,9 +50,13 @@ export default defineComponent({
   },
   methods: {
     copy() {
-      navigator.clipboard.writeText(
-        `${location.host}/#List?stmt=${this.field?.id}`
-      );
+      if (this.field)
+        navigator.clipboard.writeText(
+          `${location.host}/${getHash(
+            this.field?.id,
+            this.$t(this.field?.title)
+          )}`
+        );
       this.$emit('copy');
     },
     stripText(title: string) {

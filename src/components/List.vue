@@ -14,7 +14,7 @@
     >
       <div class="topGradient" v-if="index == 0"></div>
       <div class="fixed">
-        <h1 @click="scrollAndSetHash(index)">
+        <h1 @click="scrollAndSetHash(f)">
           <span v-if="index > 0 && index < fields.length - 1"
             ><i class="fa fa-link"></i>{{ ` ${f.id}` }}{{ ': ' }}</span
           >{{ stripTitle($t(`${f.title}`)) }}
@@ -47,6 +47,7 @@ import SideNav from './SideNav.vue';
 import $ from 'jquery';
 import { useDark } from '@vueuse/core';
 import Toast from './Toast.vue';
+import { getHash, stripTitle } from './../util/url';
 
 export default defineComponent({
   name: 'List',
@@ -57,14 +58,14 @@ export default defineComponent({
   data() {
     return {
       startField: {
-        id: -1000,
+        id: 0,
         selected: false,
         selectable: false,
         title: 'message.list.startSlideTitle',
         text: 'message.list.startSlideText',
       } as fieldType,
       endField: {
-        id: 1000,
+        id: allFields.length + 1,
         selected: false,
         selectable: false,
         title: 'message.list.endSlideTitle',
@@ -79,20 +80,18 @@ export default defineComponent({
     };
   },
   methods: {
-    stripTitle(title: string) {
-      return title.replace(/(<([^>]+)>)/gi, '');
-    },
-    scrolledFurther(fieldIndex: number) {
-      return (
-        this.scrollPosition >
-        window.innerHeight * fieldIndex + (10 / 100) * window.innerHeight
-      );
-    },
-    scrollAndSetHash(targetFieldId: number) {
-      window.location.hash = `#List?stmt=${targetFieldId}`;
-      navigator.clipboard.writeText(location.href);
-      this.toast(this.$t('message.board.toast.urlCopied'));
-      this.scroll(targetFieldId, true);
+    stripTitle: stripTitle,
+    scrollAndSetHash(targetField: fieldType) {
+      if (targetField.id > 0 && targetField.id < this.fields.length - 1) {
+        window.location.hash = getHash(
+          targetField.id,
+          this.$t(targetField.title)
+        );
+        navigator.clipboard.writeText(location.href);
+        this.toast(this.$t('message.board.toast.urlCopied'));
+      }
+      console.log(targetField);
+      this.scroll(targetField.id, true);
     },
     scroll(targetFieldId: number, animate = false) {
       let offset = $('#field' + targetFieldId).offset();
@@ -117,13 +116,14 @@ export default defineComponent({
     const selectedStmt = new URL(location.href).hash
       .substring(1)
       .split('?')
-      .find((s) => s.match('^stmt=[0-9]+$'))
-      ?.split('=')[1];
+      .find((s) => s.match('^stmt=[0-9]+-.+$'))
+      ?.split('=')[1]
+      .split('-')[0];
     const stmtGiven = selectedStmt && !Number.isNaN(selectedStmt);
     if (stmtGiven)
       setTimeout(() => {
         this.scroll(
-          Math.max(Math.min(Number(selectedStmt), this.fields.length - 2), 1)
+          Math.max(Math.min(Number(selectedStmt), this.fields.length - 1), 1)
         );
       }, 1100);
   },
