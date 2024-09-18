@@ -9,17 +9,26 @@
             <h6>{{ getSubHeader() }}</h6>
           </div>
         </div>
-        <div
-          v-show="currentNav != 'List' || expanded"
-          class="language"
-          @click="changeLanguage"
-        >
-          <i
-            class="fas fa-globe"
-            :title="$t('message.navBar.changeLanguage')"
-          />
-          <span v-if="$i18n.locale == 'de'"> EN</span>
-          <span v-if="$i18n.locale != 'de'"> DE</span>
+        <div class="menuIcons" v-show="currentNav != 'List' || expanded">
+          <div class="donate">
+            <a
+              href="https://www.paypal.com/donate/?hosted_button_id=XRYU35QG8RJPQ"
+              target="_blank"
+            >
+              <i
+                class="fas fa-solid fa-hand-holding-heart fa-lg"
+                style="color: #ffd43b"
+              ></i>
+            </a>
+          </div>
+          <div class="language" @click="changeLanguage">
+            <i
+              class="fas fa-globe"
+              :title="$t('message.navBar.changeLanguage')"
+            />
+            <span v-if="$i18n.locale == 'de'"> EN</span>
+            <span v-if="$i18n.locale != 'de'"> DE</span>
+          </div>
         </div>
       </div>
       <div
@@ -315,9 +324,9 @@ nav {
       .icon {
         -webkit-transition: all 0.25s;
         position: absolute;
-        width: 30px;
+        width: 20px;
         height: 1px;
-        left: 1rem;
+        left: 0.75rem;
         top: 2rem;
         background-color: white;
         cursor: pointer;
@@ -325,7 +334,7 @@ nav {
         &:before,
         &:after {
           -webkit-transition: all 0.25s;
-          width: 30px;
+          width: 20px;
           height: 1px;
           left: 0;
           background: white;
@@ -333,16 +342,16 @@ nav {
           content: '';
         }
         &:before {
-          top: -8px;
+          top: -6px;
 
           @media screen and (min-width: 380px) {
-            top: -10px;
+            top: -8px;
           }
         }
         &:after {
-          top: 8px;
+          top: 6px;
           @media screen and (min-width: 380px) {
-            top: 10px;
+            top: 8px;
           }
         }
       }
@@ -353,7 +362,7 @@ nav {
         .icon {
           -webkit-transform: rotate(180deg);
           background-color: transparent;
-          left: 1rem;
+          left: 0.75rem;
 
           &:before,
           &:after {
@@ -373,7 +382,7 @@ nav {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-left: 4em;
+      padding-left: 3em;
       cursor: pointer;
       color: white;
 
@@ -385,7 +394,7 @@ nav {
         margin: 0;
 
         @media screen and (min-width: 380px) {
-          font-size: 1.3em;
+          font-size: 1.2em;
         }
       }
 
@@ -401,29 +410,39 @@ nav {
       }
     }
 
-    .language {
-      padding: 0;
-      margin: 0;
-      z-index: 2000;
-      cursor: pointer;
-      margin-right: 1em;
-      overflow: hidden;
-      color: #fff;
-      font-size: 1em;
-      letter-spacing: 0.03em;
+    .menuIcons {
+      display: flex;
+      align-items: center;
+      gap: 0.75em;
 
-      &:hover {
-        color: #bbb;
+      .donate {
+        cursor: pointer;
+        padding: 0;
       }
-
-      &:focus,
-      &:active {
-        color: #fff;
-      }
-
-      span {
+      .language {
+        cursor: pointer;
         padding: 0;
         margin: 0;
+        z-index: 2000;
+        margin-right: 0.75em;
+        overflow: hidden;
+        color: #fff;
+        font-size: 1em;
+        letter-spacing: 0.03em;
+
+        &:hover {
+          color: #bbb;
+        }
+
+        &:focus,
+        &:active {
+          color: #fff;
+        }
+
+        span {
+          padding: 0;
+          margin: 0;
+        }
       }
     }
 
