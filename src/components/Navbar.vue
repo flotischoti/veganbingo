@@ -292,7 +292,7 @@ nav {
     -webkit-transition: all 0.25s;
     z-index: 1000;
     background: $navBarColor;
-    height: 4rem;
+    height: $nav-bar-height;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -466,7 +466,7 @@ nav {
     left: 0;
     right: 0;
     margin: 0 auto;
-    top: 4rem;
+    top: $nav-bar-height;
     font-size: 1em;
     text-transform: uppercase;
     width: 100%;
@@ -531,7 +531,7 @@ nav {
     }
     &.open {
       -webkit-transition: all 0.5s;
-      height: 100vh;
+      height: calc(100vh - $nav-bar-height - 1px);
       width: 100%;
       background: $menu-color;
       border-bottom: 1px solid black;

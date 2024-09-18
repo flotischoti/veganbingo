@@ -90,15 +90,18 @@ export default defineComponent({
         navigator.clipboard.writeText(location.href);
         this.toast(this.$t('message.board.toast.urlCopied'));
       }
-      console.log(targetField);
       this.scroll(targetField.id, true);
     },
     scroll(targetFieldId: number, animate = false) {
-      let offset = $('#field' + targetFieldId).offset();
-      console.log(animate);
+      // scroll exactly one screen height when scrolling down from first slide.
+      // Otherwise scroll to offset of selected field
+      let offset =
+        targetFieldId == 1 && window.scrollY < window.innerHeight
+          ? window.innerHeight
+          : $('#field' + targetFieldId).offset()?.top;
       if (animate)
-        $('html, body').animate({ scrollTop: offset ? offset.top : 0 }, 250);
-      else $('html, body').scrollTop(offset ? offset.top : 0);
+        $('html, body').animate({ scrollTop: offset ? offset : 0 }, 250);
+      else $('html, body').scrollTop(offset ? offset : 0);
     },
     hideSidebar() {
       this.showSidebar = false;
@@ -125,7 +128,7 @@ export default defineComponent({
         this.scroll(
           Math.max(Math.min(Number(selectedStmt), this.fields.length - 1), 1)
         );
-      }, 1100);
+      }, 750);
   },
   computed: {
     cssVars() {
@@ -147,49 +150,55 @@ export default defineComponent({
 @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
 @import '../style/variables.scss';
 
+$firstLastSlide: $background1;
 $totalCount: 62 + 2;
+$fieldContentWidth: 70vw;
+$skewAngle: 11deg;
 
 .list-container {
-  width: 100%;
-  height: calc(100vh * var(--list-count));
-
+  overflow: hidden;
+  background-color: $firstLastSlide;
   .field {
+    position: relative;
     text-align: center;
-    position: absolute;
-    width: 100%;
-    height: 100vh;
     letter-spacing: 4px;
-    overflow: hidden;
-    clip-path: inset(0 0 0 0);
     font-size: 0.8em;
 
     @for $i from 1 through $totalCount {
       $color: hsl(250 * $i, 70%, 15%, 1);
-      $firstColor: $background1;
       color: $text-basic3;
 
       &:nth-child(#{$i}) {
         @if ($i==1) {
-          background-color: $firstColor;
-          top: 0;
+          background-color: $firstLastSlide;
+          height: calc(100vh - $nav-bar-height);
+          z-index: 1;
+          // top: 0;
         } @else if($i==$totalCount) {
-          background-color: #000;
-          color: #fff;
-          top: (100vh * ($i - 1));
+          background-color: $firstLastSlide;
+          transform: skewY(calc($skewAngle * -1));
+          .fixed {
+            transform: skewY($skewAngle);
+          }
+          // top: (100vh * ($i - 1));
         } @else {
-          background-color: $color;
-          top: (100vh * ($i - 1));
-          box-shadow: inset 0 1px 80px rgba(0, 0, 0, 0.14);
-        }
-        z-index: ($i + 1);
-
-        .fixed {
-          transform: translate(-50%, -50%);
-          z-index: ($i);
-          p {
-            span:deep(a) {
-              color: white;
+          @if ($i==2) {
+            &::before {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              background-color: $color;
+              content: '';
+              transform: skewY($skewAngle);
             }
+          }
+          background-color: $color;
+          box-shadow: inset 0 1px 80px rgba(0, 0, 0, 0.14);
+          transform: skewY(calc($skewAngle * -1));
+          .fixed {
+            transform: skewY($skewAngle);
           }
         }
       }
@@ -202,12 +211,12 @@ $totalCount: 62 + 2;
     }
 
     .fixed {
-      overflow: hidden;
-      position: fixed;
-      width: 80%;
-      top: 50%;
-      left: 50%;
-
+      width: $fieldContentWidth;
+      padding: calc(tan($skewAngle) * $fieldContentWidth / 2 + 10em) 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 auto;
       h1 {
         line-height: 110%;
         font-size: 1.5em;
@@ -251,77 +260,77 @@ $totalCount: 62 + 2;
           }
         }
       }
-    }
-    .arrow {
-      div {
-        position: relative;
-        display: inline-block;
-        transition: opacity 0.3s;
-        cursor: pointer;
-        padding-top: 44px;
+      .arrow {
+        div {
+          position: relative;
+          display: inline-block;
+          transition: opacity 0.3s;
+          cursor: pointer;
+          padding-top: 44px;
 
-        @media (min-width: 480px) {
-          padding-top: 80px;
-        }
-
-        &:hover {
-          opacity: 0.5;
-        }
-
-        span {
-          position: absolute;
-          top: 0;
-          left: 50%;
-          width: 12px;
-          height: 12px;
-          margin-left: -12px;
-          -webkit-animation: sdb07 2s infinite;
-          animation: sdb07 2s infinite;
-          opacity: 0;
-          -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-          border-left: 1px solid #777;
-          border-bottom: 1px solid #777;
-
-          &:nth-of-type(1) {
-            -webkit-animation-delay: 0s;
-            animation-delay: 0s;
+          @media (min-width: 480px) {
+            padding-top: 80px;
           }
-          &:nth-of-type(2) {
-            top: 16px;
-            -webkit-animation-delay: 0.15s;
-            animation-delay: 0.15s;
+
+          &:hover {
+            opacity: 0.5;
           }
-          &:nth-of-type(3) {
-            top: 32px;
-            -webkit-animation-delay: 0.3s;
-            animation-delay: 0.3s;
+
+          span {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 12px;
+            height: 12px;
+            margin-left: -12px;
+            -webkit-animation: sdb07 2s infinite;
+            animation: sdb07 2s infinite;
+            opacity: 0;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            border-left: 1px solid #777;
+            border-bottom: 1px solid #777;
+
+            &:nth-of-type(1) {
+              -webkit-animation-delay: 0s;
+              animation-delay: 0s;
+            }
+            &:nth-of-type(2) {
+              top: 16px;
+              -webkit-animation-delay: 0.15s;
+              animation-delay: 0.15s;
+            }
+            &:nth-of-type(3) {
+              top: 32px;
+              -webkit-animation-delay: 0.3s;
+              animation-delay: 0.3s;
+            }
           }
         }
       }
     }
-  }
 
-  @-webkit-keyframes sdb07 {
-    0% {
-      opacity: 0;
+    @-webkit-keyframes sdb07 {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
     }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-  @keyframes sdb07 {
-    0% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
+    @keyframes sdb07 {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
     }
   }
 }

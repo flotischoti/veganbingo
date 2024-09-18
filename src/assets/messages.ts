@@ -52,9 +52,9 @@ export const messages = {
         startSlideTitle: 'All quotes at a glance',
         startSlideText:
           'All common quotes vegans get more or less often and a debunking statement in one comprehensive list.<br>Start scrolling.',
-        endSlideTitle: "That's it!",
+        endSlideTitle: "That's it for now!",
         endSlideText:
-          "So... What do you think? Did anything sound familiar? Anything missing? Anything that didn't convince you? Do you know a good argument for or against veganism?<br><br>Tell me.",
+          'But we all know, there are no limits to the imagination when it comes to arguments against veganism. <br><br>Stay tuned.',
       },
       fields: {
         field1: {
@@ -684,9 +684,9 @@ export const messages = {
         startSlideTitle: 'Alle Sprüche zum Durchscrollen',
         startSlideText:
           'Hier findest du alle gängigen Sprüche zum Veganismus, die man mehr oder weniger häufig zu hören bekommt, mit kurzen Antworten in einer Liste.',
-        endSlideTitle: "Das war's",
+        endSlideTitle: "Das war's fürs erste",
         endSlideText:
-          "Und? Was kommt dir davon bekannt vor? Fehlt noch was? Überzeugt dich etwas nicht? Kennst du noch ein gutes Argument für oder gegen den Veganismus?<br><br>Schreibt's mir gern.",
+          'Aber wir alle wissen, dass der Fantasie keine Grenzen gesetzt sind, wenn es darum geht, Argumente gegen den Veganismus zu finden. <br><br>Bleibt gespannt.',
       },
       fields: {
         field1: {
