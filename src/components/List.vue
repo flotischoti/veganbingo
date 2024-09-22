@@ -165,7 +165,7 @@ $skewAngle: 11deg;
     font-size: 0.8em;
 
     @for $i from 1 through $totalCount {
-      $color: hsl(250 * $i, 70%, 15%, 1);
+      $color: hsl(100 * $i, 100%, 15%, 1);
       color: $text-basic3;
 
       &:nth-child(#{$i}) {
@@ -173,27 +173,15 @@ $skewAngle: 11deg;
           background-color: $firstLastSlide;
           height: calc(100vh - $nav-bar-height);
           z-index: 1;
-          // top: 0;
+        } @else if ($i==2) {
+          background-color: $firstLastSlide;
         } @else if($i==$totalCount) {
           background-color: $firstLastSlide;
           transform: skewY(calc($skewAngle * -1));
           .fixed {
             transform: skewY($skewAngle);
           }
-          // top: (100vh * ($i - 1));
         } @else {
-          @if ($i==2) {
-            &::before {
-              position: absolute;
-              top: 0;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              background-color: $color;
-              content: '';
-              transform: skewY($skewAngle);
-            }
-          }
           background-color: $color;
           box-shadow: inset 0 1px 80px rgba(0, 0, 0, 0.14);
           transform: skewY(calc($skewAngle * -1));
