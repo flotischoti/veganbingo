@@ -86,7 +86,7 @@ main {
 }
 
 #donateBanner {
-  opacity: 90%;
+  opacity: .9;
   position: fixed;
   bottom: 0;
   display: flex;
