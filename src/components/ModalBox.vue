@@ -52,7 +52,7 @@ export default defineComponent({
     copy() {
       if (this.field)
         navigator.clipboard.writeText(
-          `${location.host}/${getHash(
+          `${location.protocol ? location.protocol : 'https:'}//${location.host}/${getHash(
             this.field?.id,
             this.$t(this.field?.title)
           )}`

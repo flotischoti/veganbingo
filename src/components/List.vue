@@ -47,7 +47,7 @@ import SideNav from './SideNav.vue';
 import $ from 'jquery';
 import { useDark } from '@vueuse/core';
 import Toast from './Toast.vue';
-import { getHash, stripTitle } from './../util/url';
+import { getHash, stripTitle, getUrlWithProtocol } from './../util/url';
 
 export default defineComponent({
   name: 'List',
@@ -87,7 +87,7 @@ export default defineComponent({
           targetField.id,
           this.$t(targetField.title)
         );
-        navigator.clipboard.writeText(location.href);
+        navigator.clipboard.writeText(getUrlWithProtocol());
         this.toast(this.$t('message.board.toast.urlCopied'));
       }
       this.scroll(targetField.id, true);
