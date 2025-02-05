@@ -1,6 +1,13 @@
 export const messages = {
   en: {
     message: {
+      app: {
+        donateBanner: {
+          text: "Enjoying the vegan bingo?",
+          donate: "Support",
+          heart: "<3"
+        }
+      },
       empty: '',
       navBar: {
         bingo: 'Bing',
@@ -633,6 +640,13 @@ export const messages = {
   },
   de: {
     message: {
+      app: {
+        donateBanner: {
+          text: "Gefällt dir das vegan bingo?",
+          donate: "Spenden",
+          heart: "<3"
+        }
+      },
       empty: '',
       navBar: {
         bingo: 'Bing',
